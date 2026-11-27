@@ -1,0 +1,76 @@
+name: Render EP01 (IA Antony)
+
+on:
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: "Modo de renderização (preview = 0:00 a 1:30 | full = vídeo completo)"
+        required: true
+        default: "preview"
+        type: choice
+        options:
+          - preview
+          - full
+
+permissions:
+  contents: read
+
+jobs:
+  render:
+    name: Render (${{ inputs.mode }})
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install FFmpeg & Fontconfig
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg fontconfig curl
+
+      - name: Download Montserrat & Inter fonts
+        run: |
+          mkdir -p assets/fonts
+          # Prefere fontes estáticas Montserrat para compatibilidade total de peso Bold no libass
+          if curl -fsSL "https://raw.githubusercontent.com/JulietaUla/Montserrat/master/fonts/ttf/Montserrat-Regular.ttf" -o assets/fonts/Montserrat-Regular.ttf \
+            && curl -fsSL "https://raw.githubusercontent.com/JulietaUla/Montserrat/master/fonts/ttf/Montserrat-SemiBold.ttf" -o assets/fonts/Montserrat-SemiBold.ttf \
+            && curl -fsSL "https://raw.githubusercontent.com/JulietaUla/Montserrat/master/fonts/ttf/Montserrat-Bold.ttf" -o assets/fonts/Montserrat-Bold.ttf \
+            && curl -fsSL "https://raw.githubusercontent.com/JulietaUla/Montserrat/master/fonts/ttf/Montserrat-ExtraBold.ttf" -o assets/fonts/Montserrat-ExtraBold.ttf; then
+            echo "Montserrat estática baixada com sucesso."
+          else
+            rm -f assets/fonts/Montserrat-*.ttf
+            curl -fsSL "https://raw.githubusercontent.com/google/fonts/main/ofl/montserrat/Montserrat%5Bwght%5D.ttf" -o assets/fonts/Montserrat-Variable.ttf
+          fi
+          curl -fsSL "https://raw.githubusercontent.com/google/fonts/main/ofl/inter/Inter%5Bopsz%2Cwght%5D.ttf" -o assets/fonts/Inter-Variable.ttf || true
+          mkdir -p ~/.local/share/fonts
+          cp assets/fonts/*.ttf ~/.local/share/fonts/
+          fc-cache -fv
+          fc-list | grep -iE "montserrat|inter" | head -n 20 || true
+
+      - name: Run build pipeline (${{ inputs.mode }})
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          python3 scripts/build.py --${{ inputs.mode }} --chunk-seconds 120 --workers 2
+
+      - name: Inspect rendered MP4
+        run: |
+          MP4="out/ep01_${{ inputs.mode }}.mp4"
+          test -s "$MP4"
+          ls -lh "$MP4"
+          ffprobe -v error -show_format -show_streams "$MP4"
+
+      - name: Upload MP4 artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ep01-${{ inputs.mode }}
+          path: out/ep01_${{ inputs.mode }}.mp4
+          retention-days: 14
+          if-no-files-found: error

@@ -1,0 +1,565 @@
+[Script Info]
+Title: IA Antony - Ep 01 - App da Barbearia do Samuel
+ScriptType: v4.00+
+PlayResX: 1920
+PlayResY: 1080
+WrapStyle: 2
+ScaledBorderAndShadow: yes
+YCbCr Matrix: TV.709
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: SubBase,Montserrat,54,&H00FFFFFF,&H001A7AFF,&H00111111,&H80000000,-1,0,0,0,100,100,0.5,0,1,4.5,2.5,2,120,120,62,1
+Style: CardBox,Montserrat,20,&H14111111,&H00111111,&H00262626,&H90000000,0,0,0,0,100,100,0,0,1,1.5,3,7,0,0,0,1
+Style: CardAccent,Montserrat,20,&H001A7AFF,&H001A7AFF,&H001A7AFF,&H00000000,0,0,0,0,100,100,0,0,1,0,0,7,0,0,0,1
+Style: CardAccentGreen,Montserrat,20,&H005EC522,&H005EC522,&H005EC522,&H00000000,0,0,0,0,100,100,0,0,1,0,0,7,0,0,0,1
+Style: SecNum,Montserrat,26,&H001A7AFF,&H001A7AFF,&H00111111,&H00000000,-1,0,0,0,100,100,3,0,1,0,0,7,0,0,0,1
+Style: SecTitle,Montserrat,52,&H00FFFFFF,&H00FFFFFF,&H00111111,&H00000000,-1,0,0,0,100,100,1,0,1,0,0,7,0,0,0,1
+Style: SecSub,Montserrat,26,&H00D8D4D4,&H00D8D4D4,&H00111111,&H00000000,0,0,0,0,100,100,0.5,0,1,0,0,7,0,0,0,1
+Style: CardHeader,Montserrat,24,&H001A7AFF,&H001A7AFF,&H00111111,&H00000000,-1,0,0,0,100,100,2,0,1,0,0,7,0,0,0,1
+Style: CardLabel,Montserrat,25,&H00E4E4E7,&H00E4E4E7,&H00111111,&H00000000,0,0,0,0,100,100,0,0,1,0,0,7,0,0,0,1
+Style: CardValue,Montserrat,27,&H00FFFFFF,&H00FFFFFF,&H00111111,&H00000000,-1,0,0,0,100,100,0,0,1,0,0,9,0,0,0,1
+Style: ToolName,Montserrat,24,&H00FFFFFF,&H00FFFFFF,&H00111111,&H00000000,-1,0,0,0,100,100,0,0,1,0,0,7,0,0,0,1
+Style: ToolRole,Montserrat,20,&H00B8B8C0,&H00B8B8C0,&H00111111,&H00000000,0,0,0,0,100,100,0,0,1,0,0,7,0,0,0,1
+Style: ToolCost,Montserrat,23,&H005EC522,&H005EC522,&H00111111,&H00000000,-1,0,0,0,100,100,0,0,1,0,0,9,0,0,0,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Comment: ================= OVERLAYS GRÁFICOS: HOOK, CARTÕES, TÍTULOS E FERRAMENTAS =================
+Comment: --- Hook Comparison Card (0:02.10 - 0:09.20) ---
+Dialogue: 10,0:00:02.10,0:00:09.20,CardBox,card_hook_bg,0,0,0,,{\an7\move(1370,56,1310,56,0,220)\fad(180,260)\p1}m 0 0 l 560 0 l 560 250 l 0 250{\p0}
+Dialogue: 11,0:00:02.10,0:00:09.20,CardAccent,card_hook_bar,0,0,0,,{\an7\move(1370,56,1310,56,0,220)\fad(180,260)\p1}m 0 0 l 8 0 l 8 250 l 0 250{\p0}
+Dialogue: 12,0:00:02.10,0:00:09.20,CardHeader,card_hook_hdr,0,0,0,,{\an7\move(1394,72,1334,72,0,220)\fad(180,260)}APP DA BARBEARIA
+Dialogue: 12,0:00:02.16,0:00:09.20,CardLabel,card_hook_r1l,0,0,0,,{\an7\pos(1334,116)\fad(150,260)}Programador
+Dialogue: 12,0:00:02.16,0:00:09.20,CardValue,card_hook_r1v,0,0,0,,{\an9\pos(1848,114)\fad(150,260)\fscx90\fscy90\t(0,180,\fscx100\fscy100)\c&HD8D4D4&}R$ 20.000+
+Dialogue: 12,0:00:05.18,0:00:09.20,CardLabel,card_hook_r2l,0,0,0,,{\an7\pos(1334,170)\fad(150,260)}Meu custo com IA
+Dialogue: 12,0:00:05.18,0:00:09.20,CardValue,card_hook_r2v,0,0,0,,{\an9\pos(1848,168)\fad(150,260)\fscx90\fscy90\t(0,180,\fscx100\fscy100)\c&H1A7AFF&}R$ 100
+Dialogue: 12,0:00:06.40,0:00:09.20,CardLabel,card_hook_r3l,0,0,0,,{\an7\pos(1334,224)\fad(150,260)}Venda (implantação)
+Dialogue: 12,0:00:06.40,0:00:09.20,CardValue,card_hook_r3v,0,0,0,,{\an9\pos(1848,222)\fad(150,260)\fscx88\fscy88\t(0,180,\fscx104\fscy104)\t(180,280,\fscx100\fscy100)\c&H5EC522&}R$ 1.500
+
+Comment: --- Lower-Third Apresentação (0:15.00 - 0:19.20) ---
+Dialogue: 10,0:00:15.00,0:00:19.20,CardBox,lt_bg,0,0,0,,{\an7\move(20,780,64,780,0,240)\fad(200,260)\p1}m 0 0 l 430 0 l 430 104 l 0 104{\p0}
+Dialogue: 11,0:00:15.00,0:00:19.20,CardAccent,lt_bar,0,0,0,,{\an7\move(20,780,64,780,0,240)\fad(200,260)\p1}m 0 0 l 8 0 l 8 104 l 0 104{\p0}
+Dialogue: 12,0:00:15.00,0:00:19.20,SecTitle,lt_name,0,0,0,,{\an7\fs36\move(44,792,88,792,0,240)\fad(200,260)}Aquiles Antony
+Dialogue: 12,0:00:15.00,0:00:19.20,SecSub,lt_sub,0,0,0,,{\an7\fs22\move(44,838,88,838,0,240)\fad(200,260)\c&H1A7AFF&}IA Antony  ·  Cuiabá, MT
+
+Comment: --- Seção 00: EQUIPAMENTO (1:51.00 - 1:53.20) ---
+Dialogue: 10,0:01:51.00,0:01:53.20,CardBox,sec00_bg,0,0,0,,{\an7\move(500,390,560,390,0,220)\fad(180,260)\p1}m 0 0 l 800 0 l 800 164 l 0 164{\p0}
+Dialogue: 11,0:01:51.00,0:01:53.20,CardAccent,sec00_bar,0,0,0,,{\an7\move(500,390,560,390,0,220)\fad(180,260)\p1}m 0 0 l 12 0 l 12 164 l 0 164{\p0}
+Dialogue: 12,0:01:51.00,0:01:53.20,SecNum,sec00_num,0,0,0,,{\an7\move(538,412,598,412,0,220)\fad(180,260)}BASTIDORES
+Dialogue: 12,0:01:51.00,0:01:53.20,SecTitle,sec00_t,0,0,0,,{\an7\move(538,442,598,442,0,220)\fad(180,260)\fscx95\fscy95\t(0,220,\fscx100\fscy100)}EQUIPAMENTO
+Dialogue: 12,0:01:51.00,0:01:53.20,SecSub,sec00_s,0,0,0,,{\an7\move(538,504,598,504,0,220)\fad(180,260)}MacBook Air 2014 + Inteligência Artificial
+
+Comment: --- Badges Equipamento (MacBook Air 2014 e Claude) ---
+Dialogue: 10,0:01:57.80,0:02:02.70,CardBox,badge_mac_bg,0,0,0,,{\an7\move(20,64,64,64,0,200)\fad(160,240)\p1}m 0 0 l 470 0 l 470 104 l 0 104{\p0}
+Dialogue: 11,0:01:57.80,0:02:02.70,CardAccent,badge_mac_bar,0,0,0,,{\an7\move(20,64,64,64,0,200)\fad(160,240)\p1}m 0 0 l 8 0 l 8 104 l 0 104{\p0}
+Dialogue: 12,0:01:57.80,0:02:02.70,SecTitle,badge_mac_t,0,0,0,,{\an7\fs32\move(44,78,88,78,0,200)\fad(160,240)}MacBook Air 2014
+Dialogue: 12,0:01:57.80,0:02:02.70,SecSub,badge_mac_s,0,0,0,,{\an7\fs22\move(44,122,88,122,0,200)\fad(160,240)}Sem placa de vídeo  ·  Pouca RAM
+
+Dialogue: 10,0:02:25.60,0:02:30.20,CardBox,badge_cl_bg,0,0,0,,{\an7\move(20,64,64,64,0,200)\fad(160,240)\p1}m 0 0 l 470 0 l 470 104 l 0 104{\p0}
+Dialogue: 11,0:02:25.60,0:02:30.20,CardAccent,badge_cl_bar,0,0,0,,{\an7\move(20,64,64,64,0,200)\fad(160,240)\p1}m 0 0 l 8 0 l 8 104 l 0 104{\p0}
+Dialogue: 12,0:02:25.60,0:02:30.20,SecTitle,badge_cl_t,0,0,0,,{\an7\fs32\move(44,78,88,78,0,200)\fad(160,240)}Claude (IA Principal)
+Dialogue: 12,0:02:25.60,0:02:30.20,SecSub,badge_cl_s,0,0,0,,{\an7\fs22\move(44,122,88,122,0,200)\fad(160,240)}Desenvolvimento do app + Edição
+
+Comment: --- Seção 01: O APP E A VENDA (3:00.38 - 3:02.60) ---
+Dialogue: 10,0:03:00.38,0:03:02.60,CardBox,sec01_bg,0,0,0,,{\an7\move(500,390,560,390,0,220)\fad(180,260)\p1}m 0 0 l 800 0 l 800 164 l 0 164{\p0}
+Dialogue: 11,0:03:00.38,0:03:02.60,CardAccent,sec01_bar,0,0,0,,{\an7\move(500,390,560,390,0,220)\fad(180,260)\p1}m 0 0 l 12 0 l 12 164 l 0 164{\p0}
+Dialogue: 12,0:03:00.38,0:03:02.60,SecNum,sec01_num,0,0,0,,{\an7\move(538,412,598,412,0,220)\fad(180,260)}01  ·  PROJETO
+Dialogue: 12,0:03:00.38,0:03:02.60,SecTitle,sec01_t,0,0,0,,{\an7\move(538,442,598,442,0,220)\fad(180,260)\fscx95\fscy95\t(0,220,\fscx100\fscy100)}O APP E A VENDA
+Dialogue: 12,0:03:00.38,0:03:02.60,SecSub,sec01_s,0,0,0,,{\an7\move(538,504,598,504,0,220)\fad(180,260)}Samuel Barbearia  ·  Receita do 1º ano
+
+Comment: --- Card 01: Receita e Custo 1º Ano (3:14.90 - 3:47.50) ---
+Dialogue: 10,0:03:14.90,0:03:47.50,CardBox,c1_bg,0,0,0,,{\an7\move(1340,52,1270,52,0,220)\fad(180,260)\p1}m 0 0 l 600 0 l 600 358 l 0 358{\p0}
+Dialogue: 11,0:03:14.90,0:03:47.50,CardAccentGreen,c1_bar,0,0,0,,{\an7\move(1340,52,1270,52,0,220)\fad(180,260)\p1}m 0 0 l 8 0 l 8 358 l 0 358{\p0}
+Dialogue: 12,0:03:14.90,0:03:47.50,CardHeader,c1_hdr,0,0,0,,{\an7\move(1364,68,1294,68,0,220)\fad(180,260)}SAMUEL BARBEARIA  ·  1º ANO
+Dialogue: 12,0:03:15.04,0:03:47.50,CardLabel,c1_r1l,0,0,0,,{\an7\pos(1294,114)\fad(150,260)}Receita 1º ano
+Dialogue: 12,0:03:15.04,0:03:47.50,CardValue,c1_r1v,0,0,0,,{\an9\pos(1848,112)\fad(150,260)\fscx90\fscy90\t(0,180,\fscx100\fscy100)\c&H5EC522&}R$ 2.700
+Dialogue: 12,0:03:17.44,0:03:47.50,CardLabel,c1_r2l,0,0,0,,{\an7\pos(1294,168)\fad(150,260)}Implantação (construção)
+Dialogue: 12,0:03:17.44,0:03:47.50,CardValue,c1_r2v,0,0,0,,{\an9\pos(1848,166)\fad(150,260)\fscx90\fscy90\t(0,180,\fscx100\fscy100)}R$ 1.500
+Dialogue: 12,0:03:26.14,0:03:47.50,CardLabel,c1_r3l,0,0,0,,{\an7\pos(1294,222)\fad(150,260)}Taxa fixa mensal
+Dialogue: 12,0:03:26.14,0:03:47.50,CardValue,c1_r3v,0,0,0,,{\an9\pos(1848,220)\fad(150,260)\fscx90\fscy90\t(0,180,\fscx100\fscy100)}R$ 100/mês
+Dialogue: 12,0:03:36.46,0:03:47.50,CardLabel,c1_r4l,0,0,0,,{\an7\pos(1294,276)\fad(150,260)}Custo 1º ano (Claude + dom.)
+Dialogue: 12,0:03:36.46,0:03:47.50,CardValue,c1_r4v,0,0,0,,{\an9\pos(1848,274)\fad(150,260)\fscx90\fscy90\t(0,180,\fscx100\fscy100)\c&H1A7AFF&}- R$ 160
+Dialogue: 11,0:03:43.00,0:03:47.50,CardAccentGreen,c1_sep,0,0,0,,{\an7\pos(1294,322)\fad(150,260)\p1}m 0 0 l 554 0 l 554 2 l 0 2{\p0}
+Dialogue: 12,0:03:43.00,0:03:47.50,CardLabel,c1_r5l,0,0,0,,{\an7\pos(1294,336)\fad(150,260)\b1}Lucro 1º ano (2.700 - 160)
+Dialogue: 12,0:03:43.00,0:03:47.50,CardValue,c1_r5v,0,0,0,,{\an9\pos(1848,334)\fad(150,260)\fs30\fscx88\fscy88\t(0,180,\fscx106\fscy106)\t(180,280,\fscx100\fscy100)\c&H80DE4A&}R$ 2.540
+
+Comment: --- Card 02: 2º Ano e Parcelamento (3:54.50 - 4:25.50) ---
+Dialogue: 10,0:03:54.50,0:04:25.50,CardBox,c2_bg,0,0,0,,{\an7\move(1360,52,1290,52,0,220)\fad(180,260)\p1}m 0 0 l 580 0 l 580 250 l 0 250{\p0}
+Dialogue: 11,0:03:54.50,0:04:25.50,CardAccent,c2_bar,0,0,0,,{\an7\move(1360,52,1290,52,0,220)\fad(180,260)\p1}m 0 0 l 8 0 l 8 250 l 0 250{\p0}
+Dialogue: 12,0:03:54.50,0:04:25.50,CardHeader,c2_hdr,0,0,0,,{\an7\move(1384,68,1314,68,0,220)\fad(180,260)}RECORRÊNCIA E VENDA
+Dialogue: 12,0:04:01.46,0:04:25.50,CardLabel,c2_r1l,0,0,0,,{\an7\pos(1314,114)\fad(150,260)}2º ano em diante
+Dialogue: 12,0:04:01.46,0:04:25.50,CardValue,c2_r1v,0,0,0,,{\an9\pos(1848,112)\fad(150,260)\fscx90\fscy90\t(0,180,\fscx100\fscy100)\c&H5EC522&}R$ 100/mês
+Dialogue: 12,0:04:05.42,0:04:25.50,CardLabel,c2_r2l,0,0,0,,{\an7\pos(1314,168)\fad(150,260)}Manutenção anual
+Dialogue: 12,0:04:05.42,0:04:25.50,CardValue,c2_r2v,0,0,0,,{\an9\pos(1848,166)\fad(150,260)\fscx90\fscy90\t(0,180,\fscx100\fscy100)\c&H1A7AFF&}~R$ 100/ano
+Dialogue: 12,0:04:13.80,0:04:25.50,CardLabel,c2_r3l,0,0,0,,{\an7\pos(1314,222)\fad(150,260)}Implantação (negociação)
+Dialogue: 12,0:04:13.80,0:04:25.50,CardValue,c2_r3v,0,0,0,,{\an9\pos(1848,220)\fad(150,260)\fscx90\fscy90\t(0,180,\fscx100\fscy100)\c&H80DE4A&}R$ 1.500 (em 3x)
+
+Comment: --- Seção 02: OS CUSTOS (4:25.80 - 4:28.00) ---
+Dialogue: 10,0:04:25.80,0:04:28.00,CardBox,sec02_bg,0,0,0,,{\an7\move(500,390,560,390,0,220)\fad(180,260)\p1}m 0 0 l 800 0 l 800 164 l 0 164{\p0}
+Dialogue: 11,0:04:25.80,0:04:28.00,CardAccent,sec02_bar,0,0,0,,{\an7\move(500,390,560,390,0,220)\fad(180,260)\p1}m 0 0 l 12 0 l 12 164 l 0 164{\p0}
+Dialogue: 12,0:04:25.80,0:04:28.00,SecNum,sec02_num,0,0,0,,{\an7\move(538,412,598,412,0,220)\fad(180,260)}02  ·  DESENVOLVIMENTO
+Dialogue: 12,0:04:25.80,0:04:28.00,SecTitle,sec02_t,0,0,0,,{\an7\move(538,442,598,442,0,220)\fad(180,260)\fscx95\fscy95\t(0,220,\fscx100\fscy100)}OS CUSTOS
+Dialogue: 12,0:04:25.80,0:04:28.00,SecSub,sec02_s,0,0,0,,{\an7\move(538,504,598,504,0,220)\fad(180,260)}Quanto gastei com ferramentas de IA
+
+Comment: --- Card 03: Custos de IA (4:37.20 - 5:34.70) ---
+Dialogue: 10,0:04:37.20,0:05:34.70,CardBox,c3_bg,0,0,0,,{\an7\move(1320,52,1250,52,0,220)\fad(180,260)\p1}m 0 0 l 620 0 l 620 304 l 0 304{\p0}
+Dialogue: 11,0:04:37.20,0:05:34.70,CardAccent,c3_bar,0,0,0,,{\an7\move(1320,52,1250,52,0,220)\fad(180,260)\p1}m 0 0 l 8 0 l 8 304 l 0 304{\p0}
+Dialogue: 12,0:04:37.20,0:05:34.70,CardHeader,c3_hdr,0,0,0,,{\an7\move(1344,68,1274,68,0,220)\fad(180,260)}CUSTOS DE IA NO PROJETO
+Dialogue: 12,0:04:37.64,0:05:34.70,CardLabel,c3_r1l,0,0,0,,{\an7\pos(1274,114)\fad(150,260)}Plano Claude
+Dialogue: 12,0:04:37.64,0:05:34.70,CardValue,c3_r1v,0,0,0,,{\an9\pos(1848,112)\fad(150,260)\fscx90\fscy90\t(0,180,\fscx100\fscy100)}US$ 20/mês (~R$ 120)
+Dialogue: 12,0:04:51.78,0:05:34.70,CardLabel,c3_r2l,0,0,0,,{\an7\pos(1274,168)\fad(150,260)}Proporcional ao app
+Dialogue: 12,0:04:51.78,0:05:34.70,CardValue,c3_r2v,0,0,0,,{\an9\pos(1848,166)\fad(150,260)\fscx90\fscy90\t(0,180,\fscx100\fscy100)\c&H1A7AFF&}R$ 60 a R$ 120
+Dialogue: 12,0:05:22.72,0:05:34.70,CardLabel,c3_r3l,0,0,0,,{\an7\pos(1274,222)\fad(150,260)}ChatGPT / Codex
+Dialogue: 12,0:05:22.72,0:05:34.70,CardValue,c3_r3v,0,0,0,,{\an9\pos(1848,220)\fad(150,260)\fscx90\fscy90\t(0,180,\fscx100\fscy100)}4 tarefas · 330k tokens
+Dialogue: 12,0:05:32.84,0:05:34.70,CardLabel,c3_r4l,0,0,0,,{\an7\pos(1274,276)\fad(150,260)}Plano Codex (já pago)
+Dialogue: 12,0:05:32.84,0:05:34.70,CardValue,c3_r4v,0,0,0,,{\an9\pos(1848,274)\fad(150,260)\fscx90\fscy90\t(0,180,\fscx100\fscy100)\c&HD8D4D4&}R$ 99/mês
+
+Comment: --- Seção 03: O TEMPO GASTO (5:34.80 - 5:37.00) ---
+Dialogue: 10,0:05:34.80,0:05:37.00,CardBox,sec03_bg,0,0,0,,{\an7\move(500,390,560,390,0,220)\fad(180,260)\p1}m 0 0 l 800 0 l 800 164 l 0 164{\p0}
+Dialogue: 11,0:05:34.80,0:05:37.00,CardAccent,sec03_bar,0,0,0,,{\an7\move(500,390,560,390,0,220)\fad(180,260)\p1}m 0 0 l 12 0 l 12 164 l 0 164{\p0}
+Dialogue: 12,0:05:34.80,0:05:37.00,SecNum,sec03_num,0,0,0,,{\an7\move(538,412,598,412,0,220)\fad(180,260)}03  ·  HORAS
+Dialogue: 12,0:05:34.80,0:05:37.00,SecTitle,sec03_t,0,0,0,,{\an7\move(538,442,598,442,0,220)\fad(180,260)\fscx95\fscy95\t(0,220,\fscx100\fscy100)}O TEMPO GASTO
+Dialogue: 12,0:05:34.80,0:05:37.00,SecSub,sec03_s,0,0,0,,{\an7\move(538,504,598,504,0,220)\fad(180,260)}Horas da IA vs. atendimento presencial
+
+Comment: --- Card 04: Tempo Gasto (5:37.10 - 6:26.00) ---
+Dialogue: 10,0:05:37.10,0:06:26.00,CardBox,c4_bg,0,0,0,,{\an7\move(1340,52,1270,52,0,220)\fad(180,260)\p1}m 0 0 l 600 0 l 600 250 l 0 250{\p0}
+Dialogue: 11,0:05:37.10,0:06:26.00,CardAccent,c4_bar,0,0,0,,{\an7\move(1340,52,1270,52,0,220)\fad(180,260)\p1}m 0 0 l 8 0 l 8 250 l 0 250{\p0}
+Dialogue: 12,0:05:37.10,0:06:26.00,CardHeader,c4_hdr,0,0,0,,{\an7\move(1364,68,1294,68,0,220)\fad(180,260)}TEMPO INVESTIDO
+Dialogue: 12,0:05:37.10,0:06:26.00,CardLabel,c4_r1l,0,0,0,,{\an7\pos(1294,114)\fad(150,260)}Relatório (Claude rodando)
+Dialogue: 12,0:05:37.10,0:06:26.00,CardValue,c4_r1v,0,0,0,,{\an9\pos(1848,112)\fad(150,260)\fscx90\fscy90\t(0,180,\fscx100\fscy100)\c&H1A7AFF&}25 a 35 horas
+Dialogue: 12,0:06:13.28,0:06:26.00,CardLabel,c4_r2l,0,0,0,,{\an7\pos(1294,168)\fad(150,260)}Presencial · terça (Asaas)
+Dialogue: 12,0:06:13.28,0:06:26.00,CardValue,c4_r2v,0,0,0,,{\an9\pos(1848,166)\fad(150,260)\fscx90\fscy90\t(0,180,\fscx100\fscy100)}4 a 5 horas
+Dialogue: 12,0:06:19.12,0:06:26.00,CardLabel,c4_r3l,0,0,0,,{\an7\pos(1294,222)\fad(150,260)}Presencial · quarta
+Dialogue: 12,0:06:19.12,0:06:26.00,CardValue,c4_r3v,0,0,0,,{\an9\pos(1848,220)\fad(150,260)\fscx90\fscy90\t(0,180,\fscx100\fscy100)}2 a 3 horas
+
+Comment: --- Card 05: Conta Final do Projeto (6:35.50 - 7:10.50) ---
+Dialogue: 10,0:06:35.50,0:07:10.50,CardBox,c5_bg,0,0,0,,{\an7\move(1340,52,1270,52,0,220)\fad(180,260)\p1}m 0 0 l 600 0 l 600 416 l 0 416{\p0}
+Dialogue: 11,0:06:35.50,0:07:10.50,CardAccentGreen,c5_bar,0,0,0,,{\an7\move(1340,52,1270,52,0,220)\fad(180,260)\p1}m 0 0 l 8 0 l 8 416 l 0 416{\p0}
+Dialogue: 12,0:06:35.50,0:07:10.50,CardHeader,c5_hdr,0,0,0,,{\an7\move(1364,68,1294,68,0,220)\fad(180,260)}CONTA FINAL DO PROJETO
+Dialogue: 12,0:06:35.78,0:07:10.50,CardLabel,c5_r1l,0,0,0,,{\an7\pos(1294,114)\fad(150,260)}Gasto em dinheiro
+Dialogue: 12,0:06:35.78,0:07:10.50,CardValue,c5_r1v,0,0,0,,{\an9\pos(1848,112)\fad(150,260)\fscx90\fscy90\t(0,180,\fscx100\fscy100)\c&H1A7AFF&}~R$ 100
+Dialogue: 12,0:06:44.08,0:07:10.50,CardLabel,c5_r2l,0,0,0,,{\an7\pos(1294,168)\fad(150,260)}Implantação
+Dialogue: 12,0:06:44.08,0:07:10.50,CardValue,c5_r2v,0,0,0,,{\an9\pos(1848,166)\fad(150,260)\fscx90\fscy90\t(0,180,\fscx100\fscy100)}R$ 1.500
+Dialogue: 12,0:06:44.94,0:07:10.50,CardLabel,c5_r3l,0,0,0,,{\an7\pos(1294,222)\fad(150,260)}12 parcelas × R$ 100
+Dialogue: 12,0:06:44.94,0:07:10.50,CardValue,c5_r3v,0,0,0,,{\an9\pos(1848,220)\fad(150,260)\fscx90\fscy90\t(0,180,\fscx100\fscy100)}+ R$ 1.200
+Dialogue: 11,0:06:46.10,0:07:10.50,CardAccentGreen,c5_sep,0,0,0,,{\an7\pos(1294,268)\fad(150,260)\p1}m 0 0 l 554 0 l 554 2 l 0 2{\p0}
+Dialogue: 12,0:06:46.10,0:07:10.50,CardLabel,c5_r4l,0,0,0,,{\an7\pos(1294,282)\fad(150,260)\b1}TOTAL 1º ANO
+Dialogue: 12,0:06:46.10,0:07:10.50,CardValue,c5_r4v,0,0,0,,{\an9\pos(1848,280)\fad(150,260)\fs30\fscx86\fscy86\t(0,180,\fscx106\fscy106)\t(180,280,\fscx100\fscy100)\c&H80DE4A&}R$ 2.700
+Dialogue: 12,0:06:48.52,0:07:10.50,CardLabel,c5_r5l,0,0,0,,{\an7\pos(1294,336)\fad(150,260)}2º ano em diante
+Dialogue: 12,0:06:48.52,0:07:10.50,CardValue,c5_r5v,0,0,0,,{\an9\pos(1848,334)\fad(150,260)\fscx90\fscy90\t(0,180,\fscx100\fscy100)\c&H5EC522&}R$ 1.200/ano
+Dialogue: 12,0:07:00.51,0:07:10.50,CardLabel,c5_r6l,0,0,0,,{\an7\pos(1294,390)\fad(150,260)}Valor/hora (30h Claude)
+Dialogue: 12,0:07:00.51,0:07:10.50,CardValue,c5_r6v,0,0,0,,{\an9\pos(1848,388)\fad(150,260)\fscx88\fscy88\t(0,180,\fscx104\fscy104)\t(180,280,\fscx100\fscy100)\c&H1A7AFF&}R$ 50/hora
+
+Comment: --- Seção 04: AS FERRAMENTAS (7:10.67 - 7:12.87) ---
+Dialogue: 10,0:07:10.67,0:07:12.87,CardBox,sec04_bg,0,0,0,,{\an7\move(500,390,560,390,0,220)\fad(180,260)\p1}m 0 0 l 800 0 l 800 164 l 0 164{\p0}
+Dialogue: 11,0:07:10.67,0:07:12.87,CardAccent,sec04_bar,0,0,0,,{\an7\move(500,390,560,390,0,220)\fad(180,260)\p1}m 0 0 l 12 0 l 12 164 l 0 164{\p0}
+Dialogue: 12,0:07:10.67,0:07:12.87,SecNum,sec04_num,0,0,0,,{\an7\move(538,412,598,412,0,220)\fad(180,260)}04  ·  STACK
+Dialogue: 12,0:07:10.67,0:07:12.87,SecTitle,sec04_t,0,0,0,,{\an7\move(538,442,598,442,0,220)\fad(180,260)\fscx95\fscy95\t(0,220,\fscx100\fscy100)}AS FERRAMENTAS
+Dialogue: 12,0:07:10.67,0:07:12.87,SecSub,sec04_s,0,0,0,,{\an7\move(538,504,598,504,0,220)\fad(180,260)}Todos os 10 serviços usados no aplicativo
+
+Comment: --- Card 06: Lista das 10 Ferramentas item a item (7:14.00 - 9:15.00) ---
+Dialogue: 10,0:07:14.00,0:09:15.00,CardBox,tools_bg,0,0,0,,{\an7\move(1360,44,1290,44,0,220)\fad(180,260)\p1}m 0 0 l 580 0 l 580 612 l 0 612{\p0}
+Dialogue: 11,0:07:14.00,0:09:15.00,CardAccent,tools_bar,0,0,0,,{\an7\move(1360,44,1290,44,0,220)\fad(180,260)\p1}m 0 0 l 8 0 l 8 612 l 0 612{\p0}
+Dialogue: 12,0:07:14.00,0:09:15.00,CardHeader,tools_hdr,0,0,0,,{\an7\move(1384,60,1314,60,0,220)\fad(180,260)}FERRAMENTAS USADAS
+Dialogue: 12,0:07:14.24,0:09:15.00,ToolName,t1_n,0,0,0,,{\an7\pos(1314,104)\fad(140,240)}1. Cloudflare
+Dialogue: 12,0:07:14.24,0:09:15.00,ToolRole,t1_r,0,0,0,,{\an7\pos(1314,130)\fad(140,240)}Hospedagem / Servidor / Webhooks
+Dialogue: 12,0:07:24.76,0:09:15.00,ToolCost,t1_c,0,0,0,,{\an9\pos(1848,112)\fad(140,240)\fscx88\fscy88\t(0,160,\fscx100\fscy100)}R$ 0
+Dialogue: 12,0:07:25.76,0:09:15.00,ToolName,t2_n,0,0,0,,{\an7\pos(1314,158)\fad(140,240)}2. Supabase
+Dialogue: 12,0:07:25.76,0:09:15.00,ToolRole,t2_r,0,0,0,,{\an7\pos(1314,184)\fad(140,240)}Banco de dados / Clientes / Login
+Dialogue: 12,0:07:33.50,0:09:15.00,ToolCost,t2_c,0,0,0,,{\an9\pos(1848,166)\fad(140,240)\fscx88\fscy88\t(0,160,\fscx100\fscy100)}R$ 0
+Dialogue: 12,0:07:36.94,0:09:15.00,ToolName,t3_n,0,0,0,,{\an7\pos(1314,212)\fad(140,240)}3. OneSignal
+Dialogue: 12,0:07:36.94,0:09:15.00,ToolRole,t3_r,0,0,0,,{\an7\pos(1314,238)\fad(140,240)}Notificações Push
+Dialogue: 12,0:07:45.24,0:09:15.00,ToolCost,t3_c,0,0,0,,{\an9\pos(1848,220)\fad(140,240)\fscx88\fscy88\t(0,160,\fscx100\fscy100)}R$ 0
+Dialogue: 12,0:07:47.82,0:09:15.00,ToolName,t4_n,0,0,0,,{\an7\pos(1314,266)\fad(140,240)}4. Gmail
+Dialogue: 12,0:07:47.82,0:09:15.00,ToolRole,t4_r,0,0,0,,{\an7\pos(1314,292)\fad(140,240)}Envio automático de e-mails
+Dialogue: 12,0:07:47.82,0:09:15.00,ToolCost,t4_c,0,0,0,,{\an9\pos(1848,274)\fad(140,240)\fscx88\fscy88\t(0,160,\fscx100\fscy100)}R$ 0
+Dialogue: 12,0:07:53.18,0:09:15.00,ToolName,t5_n,0,0,0,,{\an7\pos(1314,320)\fad(140,240)}5. Asaas
+Dialogue: 12,0:07:53.18,0:09:15.00,ToolRole,t5_r,0,0,0,,{\an7\pos(1314,346)\fad(140,240)}Cobranças e assinaturas
+Dialogue: 12,0:08:05.54,0:09:15.00,ToolCost,t5_c,0,0,0,,{\an9\pos(1848,328)\fad(140,240)\fscx88\fscy88\t(0,160,\fscx100\fscy100)}R$ 0*
+Dialogue: 12,0:08:10.02,0:09:15.00,ToolName,t6_n,0,0,0,,{\an7\pos(1314,374)\fad(140,240)}6. Bluesoft Cosmos
+Dialogue: 12,0:08:10.02,0:09:15.00,ToolRole,t6_r,0,0,0,,{\an7\pos(1314,400)\fad(140,240)}Leitura de código de barras / Estoque
+Dialogue: 12,0:08:30.62,0:09:15.00,ToolCost,t6_c,0,0,0,,{\an9\pos(1848,382)\fad(140,240)\fscx88\fscy88\t(0,160,\fscx100\fscy100)}R$ 0
+Dialogue: 12,0:08:35.56,0:09:15.00,ToolName,t7_n,0,0,0,,{\an7\pos(1314,428)\fad(140,240)}7. GitHub
+Dialogue: 12,0:08:35.56,0:09:15.00,ToolRole,t7_r,0,0,0,,{\an7\pos(1314,454)\fad(140,240)}Código do projeto e backup
+Dialogue: 12,0:08:41.78,0:09:15.00,ToolCost,t7_c,0,0,0,,{\an9\pos(1848,436)\fad(140,240)\fscx88\fscy88\t(0,160,\fscx100\fscy100)}Grátis
+Dialogue: 12,0:08:42.26,0:09:15.00,ToolName,t8_n,0,0,0,,{\an7\pos(1314,482)\fad(140,240)}8. Domínio .com.br
+Dialogue: 12,0:08:42.26,0:09:15.00,ToolRole,t8_r,0,0,0,,{\an7\pos(1314,508)\fad(140,240)}Endereço próprio da barbearia
+Dialogue: 12,0:08:47.42,0:09:15.00,ToolCost,t8_c,0,0,0,,{\an9\pos(1848,490)\fad(140,240)\fscx88\fscy88\t(0,160,\fscx100\fscy100)\c&H1A7AFF&}R$ 40/ano
+Dialogue: 12,0:08:53.02,0:09:15.00,ToolName,t9_n,0,0,0,,{\an7\pos(1314,536)\fad(140,240)}9. Brevo
+Dialogue: 12,0:08:53.02,0:09:15.00,ToolRole,t9_r,0,0,0,,{\an7\pos(1314,562)\fad(140,240)}E-mail vinculado ao domínio
+Dialogue: 12,0:08:53.02,0:09:15.00,ToolCost,t9_c,0,0,0,,{\an9\pos(1848,544)\fad(140,240)\c&HD8D4D4&}Anti-spam
+Dialogue: 12,0:09:08.78,0:09:15.00,ToolName,t10_n,0,0,0,,{\an7\pos(1314,590)\fad(140,240)}10. Claude
+Dialogue: 12,0:09:08.78,0:09:15.00,ToolRole,t10_r,0,0,0,,{\an7\pos(1314,616)\fad(140,240)}Desenvolvimento principal com IA
+Dialogue: 12,0:09:13.72,0:09:15.00,ToolCost,t10_c,0,0,0,,{\an9\pos(1848,598)\fad(140,240)\fscx88\fscy88\t(0,160,\fscx100\fscy100)\c&H1A7AFF&}R$ 120/mês
+
+Comment: --- Seção 05: CUSTO PARA MANTER (9:15.08 - 9:17.28) ---
+Dialogue: 10,0:09:15.08,0:09:17.28,CardBox,sec05_bg,0,0,0,,{\an7\move(500,390,560,390,0,220)\fad(180,260)\p1}m 0 0 l 800 0 l 800 164 l 0 164{\p0}
+Dialogue: 11,0:09:15.08,0:09:17.28,CardAccent,sec05_bar,0,0,0,,{\an7\move(500,390,560,390,0,220)\fad(180,260)\p1}m 0 0 l 12 0 l 12 164 l 0 164{\p0}
+Dialogue: 12,0:09:15.08,0:09:17.28,SecNum,sec05_num,0,0,0,,{\an7\move(538,412,598,412,0,220)\fad(180,260)}05  ·  OPERAÇÃO
+Dialogue: 12,0:09:15.08,0:09:17.28,SecTitle,sec05_t,0,0,0,,{\an7\move(538,442,598,442,0,220)\fad(180,260)\fscx95\fscy95\t(0,220,\fscx100\fscy100)}CUSTO PARA MANTER
+Dialogue: 12,0:09:15.08,0:09:17.28,SecSub,sec05_s,0,0,0,,{\an7\move(538,504,598,504,0,220)\fad(180,260)}Custo fixo mensal e pontos de atenção
+
+Comment: --- Card 07: Custo Fixo e Limites (9:17.50 - 10:08.20) ---
+Dialogue: 10,0:09:17.50,0:10:08.20,CardBox,c7_bg,0,0,0,,{\an7\move(1330,52,1260,52,0,220)\fad(180,260)\p1}m 0 0 l 610 0 l 610 418 l 0 418{\p0}
+Dialogue: 11,0:09:17.50,0:10:08.20,CardAccentGreen,c7_bar,0,0,0,,{\an7\move(1330,52,1260,52,0,220)\fad(180,260)\p1}m 0 0 l 8 0 l 8 418 l 0 418{\p0}
+Dialogue: 12,0:09:17.50,0:10:08.20,CardHeader,c7_hdr,0,0,0,,{\an7\move(1354,68,1284,68,0,220)\fad(180,260)}CUSTO FIXO E PONTOS DE ATENÇÃO
+Dialogue: 12,0:09:18.50,0:10:08.20,CardLabel,c7_r1l,0,0,0,,{\an7\pos(1284,114)\fad(150,260)}Server, BD, Push, E-mail
+Dialogue: 12,0:09:18.50,0:10:08.20,CardValue,c7_r1v,0,0,0,,{\an9\pos(1848,112)\fad(150,260)\c&H5EC522&}R$ 0/mês
+Dialogue: 12,0:09:22.50,0:10:08.20,CardLabel,c7_r2l,0,0,0,,{\an7\pos(1284,168)\fad(150,260)}Domínio (R$ 40/ano)
+Dialogue: 12,0:09:22.50,0:10:08.20,CardValue,c7_r2v,0,0,0,,{\an9\pos(1848,166)\fad(150,260)\c&H1A7AFF&}~R$ 3/mês
+Dialogue: 12,0:09:27.16,0:10:08.20,CardLabel,c7_r3l,0,0,0,,{\an7\pos(1284,222)\fad(150,260)\b1}Mensalidade recebida
+Dialogue: 12,0:09:27.16,0:10:08.20,CardValue,c7_r3v,0,0,0,,{\an9\pos(1848,220)\fad(150,260)\fscx88\fscy88\t(0,180,\fscx104\fscy104)\t(180,280,\fscx100\fscy100)\c&H80DE4A&}R$ 100/mês
+Dialogue: 11,0:09:38.74,0:10:08.20,CardAccent,c7_sep,0,0,0,,{\an7\pos(1284,268)\fad(150,260)\p1}m 0 0 l 564 0 l 564 2 l 0 2{\p0}
+Dialogue: 12,0:09:38.74,0:10:08.20,CardLabel,c7_r4l,0,0,0,,{\an7\pos(1284,282)\fad(150,260)}Atenção: Supabase Pro
+Dialogue: 12,0:09:38.74,0:10:08.20,CardValue,c7_r4v,0,0,0,,{\an9\pos(1848,280)\fad(150,260)\c&H4444EF&}US$ 25/mês
+Dialogue: 12,0:09:48.78,0:10:08.20,CardLabel,c7_r5l,0,0,0,,{\an7\pos(1284,336)\fad(150,260)}Cloudflare (>100k/dia)
+Dialogue: 12,0:09:48.78,0:10:08.20,CardValue,c7_r5v,0,0,0,,{\an9\pos(1848,334)\fad(150,260)\c&H4444EF&}US$ 5/mês
+Dialogue: 12,0:09:56.90,0:10:08.20,CardLabel,c7_r6l,0,0,0,,{\an7\pos(1284,390)\fad(150,260)}Gmail (até 500/dia)
+Dialogue: 12,0:09:56.90,0:10:08.20,CardValue,c7_r6v,0,0,0,,{\an9\pos(1848,388)\fad(150,260)\c&H1A7AFF&}Migrar → Brevo
+
+Comment: --- Seção 06: QUANTO VALERIA (10:08.56 - 10:10.76) ---
+Dialogue: 10,0:10:08.56,0:10:10.76,CardBox,sec06_bg,0,0,0,,{\an7\move(500,390,560,390,0,220)\fad(180,260)\p1}m 0 0 l 800 0 l 800 164 l 0 164{\p0}
+Dialogue: 11,0:10:08.56,0:10:10.76,CardAccent,sec06_bar,0,0,0,,{\an7\move(500,390,560,390,0,220)\fad(180,260)\p1}m 0 0 l 12 0 l 12 164 l 0 164{\p0}
+Dialogue: 12,0:10:08.56,0:10:10.76,SecNum,sec06_num,0,0,0,,{\an7\move(538,412,598,412,0,220)\fad(180,260)}06  ·  MERCADO
+Dialogue: 12,0:10:08.56,0:10:10.76,SecTitle,sec06_t,0,0,0,,{\an7\move(538,442,598,442,0,220)\fad(180,260)\fscx95\fscy95\t(0,220,\fscx100\fscy100)}QUANTO VALERIA
+Dialogue: 12,0:10:08.56,0:10:10.76,SecSub,sec06_s,0,0,0,,{\an7\move(538,504,598,504,0,220)\fad(180,260)}API Opus avulsa vs. programador tradicional
+
+Comment: --- Card 08: Quanto Valeria no Mercado (10:10.80 - 10:51.00) ---
+Dialogue: 10,0:10:10.80,0:10:51.00,CardBox,c8_bg,0,0,0,,{\an7\move(1310,52,1240,52,0,220)\fad(180,260)\p1}m 0 0 l 630 0 l 630 314 l 0 314{\p0}
+Dialogue: 11,0:10:10.80,0:10:51.00,CardAccent,c8_bar,0,0,0,,{\an7\move(1310,52,1240,52,0,220)\fad(180,260)\p1}m 0 0 l 8 0 l 8 314 l 0 314{\p0}
+Dialogue: 12,0:10:10.80,0:10:51.00,CardHeader,c8_hdr,0,0,0,,{\an7\move(1334,68,1264,68,0,220)\fad(180,260)}COMPARAÇÃO DE MERCADO
+Dialogue: 12,0:10:10.80,0:10:51.00,CardLabel,c8_r1l,0,0,0,,{\an7\pos(1264,114)\fad(150,260)}Modelo usado
+Dialogue: 12,0:10:10.80,0:10:51.00,CardValue,c8_r1v,0,0,0,,{\an9\pos(1848,112)\fad(150,260)\c&H1A7AFF&}Claude Opus
+Dialogue: 12,0:10:14.00,0:10:51.00,CardLabel,c8_r2l,0,0,0,,{\an7\pos(1264,168)\fad(150,260)}API avulsa (sem plano)
+Dialogue: 12,0:10:14.00,0:10:51.00,CardValue,c8_r2v,0,0,0,,{\an9\pos(1848,166)\fad(150,260)\c&HD8D4D4&}Muito mais caro
+Dialogue: 12,0:10:30.64,0:10:51.00,CardLabel,c8_r3l,0,0,0,,{\an7\pos(1264,222)\fad(150,260)}Programador (estimativa)
+Dialogue: 12,0:10:30.64,0:10:51.00,CardValue,c8_r3v,0,0,0,,{\an9\pos(1848,220)\fad(150,260)}80 a 150 horas
+Dialogue: 11,0:10:36.16,0:10:51.00,CardAccentGreen,c8_sep,0,0,0,,{\an7\pos(1264,268)\fad(150,260)\p1}m 0 0 l 584 0 l 584 2 l 0 2{\p0}
+Dialogue: 12,0:10:36.16,0:10:51.00,CardLabel,c8_r4l,0,0,0,,{\an7\pos(1264,284)\fad(150,260)\b1}Valor estimado
+Dialogue: 12,0:10:36.16,0:10:51.00,CardValue,c8_r4v,0,0,0,,{\an9\pos(1848,282)\fad(150,260)\fs29\fscx86\fscy86\t(0,180,\fscx106\fscy106)\t(180,280,\fscx100\fscy100)\c&H80DE4A&}R$ 20 mil a R$ 60 mil
+
+Comment: --- Seção 07: LIÇÕES (10:51.60 - 10:53.80) ---
+Dialogue: 10,0:10:51.60,0:10:53.80,CardBox,sec07_bg,0,0,0,,{\an7\move(500,390,560,390,0,220)\fad(180,260)\p1}m 0 0 l 800 0 l 800 164 l 0 164{\p0}
+Dialogue: 11,0:10:51.60,0:10:53.80,CardAccent,sec07_bar,0,0,0,,{\an7\move(500,390,560,390,0,220)\fad(180,260)\p1}m 0 0 l 12 0 l 12 164 l 0 164{\p0}
+Dialogue: 12,0:10:51.60,0:10:53.80,SecNum,sec07_num,0,0,0,,{\an7\move(538,412,598,412,0,220)\fad(180,260)}07  ·  CONCLUSÃO
+Dialogue: 12,0:10:51.60,0:10:53.80,SecTitle,sec07_t,0,0,0,,{\an7\move(538,442,598,442,0,220)\fad(180,260)\fscx95\fscy95\t(0,220,\fscx100\fscy100)}LIÇÕES
+Dialogue: 12,0:10:51.60,0:10:53.80,SecSub,sec07_s,0,0,0,,{\an7\move(538,504,598,504,0,220)\fad(180,260)}O que realmente faz você vender com IA
+
+Comment: --- Cartões de Lição e CTA Final ---
+Dialogue: 10,0:11:46.50,0:11:54.50,CardBox,lic1_bg,0,0,0,,{\an7\move(20,64,64,64,0,220)\fad(180,260)\p1}m 0 0 l 620 0 l 620 112 l 0 112{\p0}
+Dialogue: 11,0:11:46.50,0:11:54.50,CardAccent,lic1_bar,0,0,0,,{\an7\move(20,64,64,64,0,220)\fad(180,260)\p1}m 0 0 l 8 0 l 8 112 l 0 112{\p0}
+Dialogue: 12,0:11:46.50,0:11:54.50,CardHeader,lic1_h,0,0,0,,{\an7\move(44,78,88,78,0,220)\fad(180,260)}LIÇÃO 01
+Dialogue: 12,0:11:46.50,0:11:54.50,SecTitle,lic1_t,0,0,0,,{\an7\fs30\move(44,114,88,114,0,220)\fad(180,260)}Trabalhe COM a IA, não contra ela
+
+Dialogue: 10,0:12:59.00,0:13:09.00,CardBox,lic2_bg,0,0,0,,{\an7\move(20,64,64,64,0,220)\fad(180,260)\p1}m 0 0 l 630 0 l 630 112 l 0 112{\p0}
+Dialogue: 11,0:12:59.00,0:13:09.00,CardAccent,lic2_bar,0,0,0,,{\an7\move(20,64,64,64,0,220)\fad(180,260)\p1}m 0 0 l 8 0 l 8 112 l 0 112{\p0}
+Dialogue: 12,0:12:59.00,0:13:09.00,CardHeader,lic2_h,0,0,0,,{\an7\move(44,78,88,78,0,220)\fad(180,260)}LIÇÃO 02  ·  DIFERENCIAL
+Dialogue: 12,0:12:59.00,0:13:09.00,SecTitle,lic2_t,0,0,0,,{\an7\fs30\move(44,114,88,114,0,220)\fad(180,260)}App próprio da marca, não terceiro
+
+Dialogue: 10,0:13:31.50,0:13:42.50,CardBox,lic3_bg,0,0,0,,{\an7\move(20,64,64,64,0,220)\fad(180,260)\p1}m 0 0 l 700 0 l 700 116 l 0 116{\p0}
+Dialogue: 11,0:13:31.50,0:13:42.50,CardAccentGreen,lic3_bar,0,0,0,,{\an7\move(20,64,64,64,0,220)\fad(180,260)\p1}m 0 0 l 8 0 l 8 116 l 0 116{\p0}
+Dialogue: 12,0:13:31.50,0:13:42.50,CardHeader,lic3_h,0,0,0,,{\an7\move(44,78,88,78,0,220)\fad(180,260)\c&H5EC522&}REGRA DE OURO
+Dialogue: 12,0:13:31.50,0:13:42.50,SecTitle,lic3_t,0,0,0,,{\an7\fs30\move(44,114,88,114,0,220)\fad(180,260)}Ganha dinheiro quem resolve o problema
+
+Dialogue: 10,0:14:48.84,0:14:57.50,CardBox,card_cta_instagram_bg,0,0,0,,{\an7\move(1380,64,1320,64,0,220)\fad(180,280)\p1}m 0 0 l 540 0 l 540 148 l 0 148{\p0}
+Dialogue: 11,0:14:48.84,0:14:57.50,CardAccent,card_cta_instagram_bar,0,0,0,,{\an7\move(1380,64,1320,64,0,220)\fad(180,280)\p1}m 0 0 l 8 0 l 8 148 l 0 148{\p0}
+Dialogue: 12,0:14:48.84,0:14:57.50,CardHeader,card_cta_instagram_h,0,0,0,,{\an7\move(1404,80,1344,80,0,220)\fad(180,280)}SIGA NO INSTAGRAM
+Dialogue: 12,0:14:48.84,0:14:57.50,SecTitle,card_cta_instagram,0,0,0,,{\an7\fs38\move(1404,112,1344,112,0,220)\fad(180,280)\fscx92\fscy92\t(0,200,\fscx100\fscy100)}@aquilles_antony
+Dialogue: 12,0:14:48.84,0:14:57.50,SecSub,card_cta_instagram_s,0,0,0,,{\an7\fs22\move(1404,160,1344,160,0,220)\fad(180,280)}IA Antony  ·  Inscreva-se no canal
+
+Comment: ================= LEGENDAS DINÂMICAS (2-4 PALAVRAS + PALAVRA-CHAVE) =================
+Dialogue: 0,0:00:00.12,0:00:01.60,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}Um {\c&H1A7AFF&}programador{\c&HFFFFFF&} cobraria
+Dialogue: 0,0:00:01.60,0:00:03.38,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}pelo menos {\c&H5EC522&}20 mil reais{\c&HFFFFFF&}
+Dialogue: 0,0:00:03.38,0:00:04.60,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}pra fazer esse {\c&H1A7AFF&}aplicativo{\c&HFFFFFF&}
+Dialogue: 0,0:00:04.60,0:00:05.74,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}que fiz com {\c&H1A7AFF&}100 reais{\c&HFFFFFF&}
+Dialogue: 0,0:00:05.74,0:00:06.86,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}e vendi por {\c&H5EC522&}1.500{\c&HFFFFFF&}
+Dialogue: 0,0:00:07.22,0:00:08.28,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}Só que isso {\c&H1A7AFF&}quase{\c&HFFFFFF&}
+Dialogue: 0,0:00:08.28,0:00:09.60,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}me fez {\c&H1A7AFF&}perder o cliente{\c&HFFFFFF&}
+Dialogue: 0,0:00:09.72,0:00:10.82,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}Se quer {\c&H1A7AFF&}saber mais{\c&HFFFFFF&}
+Dialogue: 0,0:00:10.82,0:00:11.92,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}fica {\c&H1A7AFF&}nesse vídeo{\c&HFFFFFF&}
+Dialogue: 0,0:00:11.92,0:00:12.80,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}pra entender {\c&H1A7AFF&}tudo{\c&HFFFFFF&}
+Dialogue: 0,0:00:12.80,0:00:13.85,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}sobre {\c&H1A7AFF&}programação com IA{\c&HFFFFFF&}
+Dialogue: 0,0:00:14.02,0:00:14.84,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}Fala {\c&H1A7AFF&}pessoal{\c&HFFFFFF&}
+Dialogue: 0,0:00:14.84,0:00:16.16,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}meu nome é {\c&H1A7AFF&}Aquiles Antony{\c&HFFFFFF&}
+Dialogue: 0,0:00:16.24,0:00:18.10,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}sou {\c&H1A7AFF&}empresário{\c&HFFFFFF&} de Cuiabá
+Dialogue: 0,0:00:18.22,0:00:20.44,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}trabalho com {\c&H1A7AFF&}escola de música{\c&HFFFFFF&}
+Dialogue: 0,0:00:20.44,0:00:23.12,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}sempre curti {\c&H1A7AFF&}programação{\c&HFFFFFF&}
+Dialogue: 0,0:00:23.12,0:00:24.90,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}e {\c&H1A7AFF&}inteligência artificial{\c&HFFFFFF&}
+Dialogue: 0,0:00:25.10,0:00:26.44,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}Há algum {\c&H1A7AFF&}tempo atrás{\c&HFFFFFF&}
+Dialogue: 0,0:00:26.44,0:00:27.86,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}comecei a {\c&H1A7AFF&}desenvolver projetos{\c&HFFFFFF&}
+Dialogue: 0,0:00:27.86,0:00:28.86,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}com {\c&H1A7AFF&}inteligência artificial{\c&HFFFFFF&}
+Dialogue: 0,0:00:29.04,0:00:31.50,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}Fazer {\c&H1A7AFF&}jogos{\c&HFFFFFF&}, fazer {\c&H1A7AFF&}aplicativos{\c&HFFFFFF&}
+Dialogue: 0,0:00:31.78,0:00:33.52,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}Hoje o {\c&H1A7AFF&}app da minha escola{\c&HFFFFFF&}
+Dialogue: 0,0:00:33.52,0:00:35.88,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}onde trabalho e {\c&H1A7AFF&}sou dono{\c&HFFFFFF&}
+Dialogue: 0,0:00:35.98,0:00:38.96,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}eu mesmo {\c&H1A7AFF&}desenvolvi{\c&HFFFFFF&}
+Dialogue: 0,0:00:39.16,0:00:41.32,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}E eu {\c&H1A7AFF&}adorei{\c&HFFFFFF&} desde o começo
+Dialogue: 0,0:00:41.32,0:00:43.26,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}a {\c&H1A7AFF&}possibilidade{\c&HFFFFFF&} que a IA dá
+Dialogue: 0,0:00:43.26,0:00:45.90,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}de criar {\c&H1A7AFF&}qualquer coisa{\c&HFFFFFF&}
+Dialogue: 0,0:00:46.10,0:00:48.46,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}Só pra você {\c&H1A7AFF&}entender{\c&HFFFFFF&}
+Dialogue: 0,0:00:48.74,0:00:50.96,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}eu faço parte de uma {\c&H1A7AFF&}igreja{\c&HFFFFFF&}
+Dialogue: 0,0:00:50.96,0:00:53.86,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}com vários {\c&H1A7AFF&}empresários{\c&HFFFFFF&}
+Dialogue: 0,0:00:53.90,0:00:57.20,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}e um desses {\c&H1A7AFF&}empresários{\c&HFFFFFF&}
+Dialogue: 0,0:00:57.20,0:00:59.02,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}que é {\c&H1A7AFF&}próximo{\c&HFFFFFF&} de mim
+Dialogue: 0,0:00:59.02,0:01:00.82,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}relatou {\c&H1A7AFF&}problemas{\c&HFFFFFF&}
+Dialogue: 0,0:01:00.82,0:01:03.48,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}no app dele de {\c&H1A7AFF&}barbearia{\c&HFFFFFF&}
+Dialogue: 0,0:01:03.68,0:01:05.30,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}Eu falei: {\c&H1A7AFF&}posso te ajudar{\c&HFFFFFF&}
+Dialogue: 0,0:01:05.30,0:01:06.82,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}posso fazer um {\c&H1A7AFF&}app pra você{\c&HFFFFFF&}
+Dialogue: 0,0:01:07.02,0:01:08.84,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}Um ponto {\c&H1A7AFF&}importante{\c&HFFFFFF&}
+Dialogue: 0,0:01:09.00,0:01:10.32,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}eu {\c&H1A7AFF&}não comecei agora{\c&HFFFFFF&}
+Dialogue: 0,0:01:10.40,0:01:13.40,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}já tem {\c&H1A7AFF&}bons meses{\c&HFFFFFF&} com IA
+Dialogue: 0,0:01:13.46,0:01:15.10,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}tem muita coisa que {\c&H1A7AFF&}já entendo{\c&HFFFFFF&}
+Dialogue: 0,0:01:15.36,0:01:18.84,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}Não foi só {\c&H1A7AFF&}sair fazendo{\c&HFFFFFF&}
+Dialogue: 0,0:01:18.86,0:01:20.66,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}eu já {\c&H1A7AFF&}sabia construir{\c&HFFFFFF&}
+Dialogue: 0,0:01:20.66,0:01:22.78,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}o que {\c&H1A7AFF&}precisava construir{\c&HFFFFFF&}
+Dialogue: 0,0:01:22.98,0:01:25.80,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}E aí eu {\c&H5EC522&}fechei com ele{\c&HFFFFFF&}
+Dialogue: 0,0:01:25.80,0:01:28.12,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}o app da {\c&H1A7AFF&}barbearia dele{\c&HFFFFFF&}
+Dialogue: 0,0:01:28.32,0:01:31.30,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}Neste vídeo vou {\c&H1A7AFF&}mostrar{\c&HFFFFFF&}
+Dialogue: 0,0:01:31.30,0:01:33.78,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}quanto {\c&H1A7AFF&}gastei em dinheiro{\c&HFFFFFF&}
+Dialogue: 0,0:01:33.78,0:01:37.60,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}por quanto {\c&H5EC522&}eu vendi{\c&HFFFFFF&}
+Dialogue: 0,0:01:37.72,0:01:40.58,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}quais {\c&H1A7AFF&}serviços{\c&HFFFFFF&} eu usei
+Dialogue: 0,0:01:40.58,0:01:41.70,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}como fiz o {\c&H1A7AFF&}aplicativo{\c&HFFFFFF&}
+Dialogue: 0,0:01:41.88,0:01:44.02,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}quais {\c&H1A7AFF&}sites e servidores{\c&HFFFFFF&}
+Dialogue: 0,0:01:44.08,0:01:46.50,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}você vai entender {\c&H1A7AFF&}tudo{\c&HFFFFFF&}
+Dialogue: 0,0:01:46.74,0:01:48.42,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}Pode ser um {\c&H5EC522&}negócio{\c&HFFFFFF&}
+Dialogue: 0,0:01:48.42,0:01:50.92,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}pra quem curte {\c&H1A7AFF&}programação com IA{\c&HFFFFFF&}
+Dialogue: 0,0:01:51.12,0:01:52.92,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}Primeiro: {\c&H1A7AFF&}equipamento{\c&HFFFFFF&}
+Dialogue: 0,0:01:53.26,0:01:54.82,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}Qual {\c&H1A7AFF&}computador{\c&HFFFFFF&} eu tenho?
+Dialogue: 0,0:01:55.02,0:01:57.68,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}Eu tenho esse {\c&H1A7AFF&}computador{\c&HFFFFFF&}, tá vendo?
+Dialogue: 0,0:01:57.72,0:01:59.88,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}É um {\c&H1A7AFF&}MacBook Air 2014{\c&HFFFFFF&}
+Dialogue: 0,0:02:00.18,0:02:02.70,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}vocês veem porque {\c&H1A7AFF&}estou gravando{\c&HFFFFFF&}
+Dialogue: 0,0:02:02.90,0:02:05.84,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}É uma máquina {\c&H1A7AFF&}bem antiga{\c&HFFFFFF&}
+Dialogue: 0,0:02:06.04,0:02:10.10,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}Então fica o {\c&H1A7AFF&}primeiro conselho{\c&HFFFFFF&}
+Dialogue: 0,0:02:10.12,0:02:12.48,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}{\c&H1A7AFF&}não precisa{\c&HFFFFFF&} de um PC muito bom
+Dialogue: 0,0:02:12.68,0:02:14.90,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}Ele é legal por ser {\c&H1A7AFF&}Mac{\c&HFFFFFF&}
+Dialogue: 0,0:02:14.94,0:02:16.64,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}mas {\c&H1A7AFF&}não tem placa de vídeo{\c&HFFFFFF&}
+Dialogue: 0,0:02:16.78,0:02:18.42,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}a {\c&H1A7AFF&}memória RAM{\c&HFFFFFF&} é pouquinha
+Dialogue: 0,0:02:18.42,0:02:21.30,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}é até {\c&H1A7AFF&}complexo{\c&HFFFFFF&} trabalhar nele
+Dialogue: 0,0:02:21.40,0:02:24.18,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}mas já deu pra {\c&H5EC522&}fazer dinheiro{\c&HFFFFFF&}
+Dialogue: 0,0:02:24.38,0:02:27.10,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}Segunda coisa: usei o {\c&H1A7AFF&}Claude{\c&HFFFFFF&}
+Dialogue: 0,0:02:27.18,0:02:28.66,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}O {\c&H1A7AFF&}editor{\c&HFFFFFF&} tá colocando aqui...
+Dialogue: 0,0:02:28.84,0:02:30.28,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}que o editor é o {\c&H1A7AFF&}Claude mesmo{\c&HFFFFFF&}!
+Dialogue: 0,0:02:30.48,0:02:33.58,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}O {\c&H1A7AFF&}Claude{\c&HFFFFFF&} foi o principal
+Dialogue: 0,0:02:33.58,0:02:35.56,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}pra fazer o {\c&H1A7AFF&}aplicativo{\c&HFFFFFF&}
+Dialogue: 0,0:02:35.56,0:02:38.00,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}mas usei {\c&H1A7AFF&}várias outras coisas{\c&HFFFFFF&}
+Dialogue: 0,0:02:38.22,0:02:40.72,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}E o que mais investi foi {\c&H1A7AFF&}tempo{\c&HFFFFFF&}
+Dialogue: 0,0:02:40.86,0:02:45.22,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}muitos meses {\c&H1A7AFF&}programando com IA{\c&HFFFFFF&}
+Dialogue: 0,0:02:45.32,0:02:48.64,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}Fiz {\c&H1A7AFF&}softwares{\c&HFFFFFF&} que uso todo dia
+Dialogue: 0,0:02:48.70,0:02:49.92,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}como esse {\c&H1A7AFF&}próprio gravador{\c&HFFFFFF&}
+Dialogue: 0,0:02:49.94,0:02:52.62,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}Esse {\c&H1A7AFF&}gravador de vídeo{\c&HFFFFFF&} eu fiz
+Dialogue: 0,0:02:52.74,0:02:56.62,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}e agora vou mostrar {\c&H5EC522&}os números{\c&HFFFFFF&}
+Dialogue: 0,0:02:56.78,0:03:00.34,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}Vamos pra {\c&H1A7AFF&}tela do computador{\c&HFFFFFF&}
+Dialogue: 0,0:03:00.50,0:03:02.40,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}Aqui eu montei um {\c&H1A7AFF&}relatório{\c&HFFFFFF&}
+Dialogue: 0,0:03:02.40,0:03:05.10,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}que o próprio {\c&H1A7AFF&}Claude{\c&HFFFFFF&} montou
+Dialogue: 0,0:03:05.42,0:03:10.16,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}O app chama {\c&H1A7AFF&}Samuel Barbearia{\c&HFFFFFF&}
+Dialogue: 0,0:03:10.26,0:03:14.84,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}O que vai trazer de {\c&H5EC522&}receita{\c&HFFFFFF&}?
+Dialogue: 0,0:03:15.04,0:03:16.88,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}{\c&H5EC522&}R$ 2.700{\c&HFFFFFF&}, tá?
+Dialogue: 0,0:03:17.08,0:03:20.60,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}{\c&H5EC522&}R$ 1.500{\c&HFFFFFF&} de implantação
+Dialogue: 0,0:03:20.60,0:03:23.40,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}pra construir o {\c&H1A7AFF&}aplicativo{\c&HFFFFFF&}
+Dialogue: 0,0:03:23.74,0:03:27.18,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}e taxa fixa de {\c&H5EC522&}R$ 100{\c&HFFFFFF&}
+Dialogue: 0,0:03:27.38,0:03:30.40,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}Foi uma {\c&H1A7AFF&}negociação{\c&HFFFFFF&}
+Dialogue: 0,0:03:30.40,0:03:32.56,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}tranquila {\c&H1A7AFF&}pra mim e pra ele{\c&HFFFFFF&}
+Dialogue: 0,0:03:32.76,0:03:35.80,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}Custo no {\c&H1A7AFF&}primeiro ano{\c&HFFFFFF&}?
+Dialogue: 0,0:03:36.06,0:03:38.10,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}Basicamente {\c&H1A7AFF&}R$ 160{\c&HFFFFFF&}
+Dialogue: 0,0:03:38.10,0:03:43.34,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}{\c&H1A7AFF&}Claude{\c&HFFFFFF&} mais o {\c&H1A7AFF&}domínio{\c&HFFFFFF&}
+Dialogue: 0,0:03:43.52,0:03:47.50,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}Vou explicar o {\c&H1A7AFF&}custo tão baixo{\c&HFFFFFF&}
+Dialogue: 0,0:03:47.92,0:03:51.10,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}Resultado no {\c&H1A7AFF&}primeiro ano{\c&HFFFFFF&}:
+Dialogue: 0,0:03:51.10,0:03:54.40,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}esse valor aqui só de {\c&H5EC522&}lucro{\c&HFFFFFF&}
+Dialogue: 0,0:03:54.62,0:03:57.80,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}Do {\c&H1A7AFF&}segundo ano{\c&HFFFFFF&} em diante
+Dialogue: 0,0:03:57.80,0:04:00.84,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}eu vou ter essa {\c&H5EC522&}renda anual{\c&HFFFFFF&}
+Dialogue: 0,0:04:01.14,0:04:02.22,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}que é {\c&H5EC522&}R$ 100 por mês{\c&HFFFFFF&}
+Dialogue: 0,0:04:02.24,0:04:06.30,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}e gasto em torno de {\c&H1A7AFF&}R$ 100/ano{\c&HFFFFFF&}
+Dialogue: 0,0:04:06.30,0:04:09.84,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}pra manter o app {\c&H1A7AFF&}rodando{\c&HFFFFFF&}
+Dialogue: 0,0:04:10.04,0:04:11.94,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}Como foi feita {\c&H1A7AFF&}a venda{\c&HFFFFFF&}?
+Dialogue: 0,0:04:12.14,0:04:14.60,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}Pagamento único de {\c&H5EC522&}R$ 1.500{\c&HFFFFFF&}
+Dialogue: 0,0:04:14.64,0:04:18.20,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}parcelei em {\c&H1A7AFF&}três vezes{\c&HFFFFFF&}
+Dialogue: 0,0:04:18.26,0:04:21.80,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}pra ficar {\c&H1A7AFF&}mais tranquilo{\c&HFFFFFF&}
+Dialogue: 0,0:04:21.88,0:04:25.70,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}mais essa {\c&H5EC522&}taxa fixa{\c&HFFFFFF&}
+Dialogue: 0,0:04:25.92,0:04:28.34,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}O que {\c&H1A7AFF&}eu gastei{\c&HFFFFFF&} pra fazer?
+Dialogue: 0,0:04:28.40,0:04:31.60,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}Aqui não vou mostrar {\c&H1A7AFF&}o app{\c&HFFFFFF&}
+Dialogue: 0,0:04:31.60,0:04:34.54,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}você vai entender {\c&H1A7AFF&}a programação com IA{\c&HFFFFFF&}
+Dialogue: 0,0:04:34.74,0:04:39.26,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}O {\c&H1A7AFF&}Claude{\c&HFFFFFF&} é {\c&H1A7AFF&}US$ 20/mês{\c&HFFFFFF&}
+Dialogue: 0,0:04:39.46,0:04:42.20,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}dá mais ou menos {\c&H1A7AFF&}R$ 120{\c&HFFFFFF&}
+Dialogue: 0,0:04:42.20,0:04:47.76,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}gastei basicamente {\c&H1A7AFF&}um mês de Claude{\c&HFFFFFF&}
+Dialogue: 0,0:04:47.90,0:04:50.02,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}não foi tudo no {\c&H1A7AFF&}mesmo dia{\c&HFFFFFF&}
+Dialogue: 0,0:04:50.22,0:04:53.50,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}Gastei de {\c&H1A7AFF&}R$ 60 a R$ 120{\c&HFFFFFF&}
+Dialogue: 0,0:04:53.70,0:04:56.18,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}Por que {\c&H1A7AFF&}R$ 60 a R$ 120{\c&HFFFFFF&}?
+Dialogue: 0,0:04:56.38,0:05:00.04,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}Não parei meus {\c&H1A7AFF&}outros projetos{\c&HFFFFFF&}
+Dialogue: 0,0:05:00.24,0:05:05.94,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}Na mesma conta de {\c&H1A7AFF&}US$ 20 do Claude{\c&HFFFFFF&}
+Dialogue: 0,0:05:06.14,0:05:08.80,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}fazia o site da {\c&H1A7AFF&}minha escola{\c&HFFFFFF&}
+Dialogue: 0,0:05:08.80,0:05:11.60,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}vídeos com {\c&H1A7AFF&}IA{\c&HFFFFFF&} e outras coisas
+Dialogue: 0,0:05:11.76,0:05:16.98,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}não dediquei {\c&H1A7AFF&}100% da conta{\c&HFFFFFF&}
+Dialogue: 0,0:05:17.20,0:05:21.54,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}O próprio {\c&H1A7AFF&}Claude mensurou{\c&HFFFFFF&} esse custo
+Dialogue: 0,0:05:21.76,0:05:24.72,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}Fiz {\c&H1A7AFF&}4 tarefas pesadas{\c&HFFFFFF&}
+Dialogue: 0,0:05:24.92,0:05:27.10,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}{\c&H1A7AFF&}330 mil tokens{\c&HFFFFFF&}
+Dialogue: 0,0:05:27.10,0:05:29.50,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}no plano do {\c&H1A7AFF&}ChatGPT{\c&HFFFFFF&} que já pago
+Dialogue: 0,0:05:29.52,0:05:31.78,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}Também usei {\c&H1A7AFF&}Codex{\c&HFFFFFF&} no projeto
+Dialogue: 0,0:05:31.98,0:05:34.76,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}plano de {\c&H1A7AFF&}R$ 99{\c&HFFFFFF&} do Codex
+Dialogue: 0,0:05:35.04,0:05:39.50,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}Tempo: {\c&H1A7AFF&}25 a 35 horas{\c&HFFFFFF&}
+Dialogue: 0,0:05:39.76,0:05:42.00,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}Não foi {\c&H1A7AFF&}exatamente isso{\c&HFFFFFF&}
+Dialogue: 0,0:05:42.10,0:05:44.14,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}eu acredito que foi {\c&H1A7AFF&}bem menos{\c&HFFFFFF&}
+Dialogue: 0,0:05:44.24,0:05:47.94,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}Foi o tempo do {\c&H1A7AFF&}Claude rodando{\c&HFFFFFF&}
+Dialogue: 0,0:05:47.94,0:05:50.06,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}não foi o {\c&H1A7AFF&}meu tempo{\c&HFFFFFF&}
+Dialogue: 0,0:05:50.38,0:05:53.64,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}Se bem que nesses {\c&H1A7AFF&}últimos dias{\c&HFFFFFF&}
+Dialogue: 0,0:05:53.86,0:05:58.36,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}eu concluí a {\c&H5EC522&}venda ontem{\c&HFFFFFF&}
+Dialogue: 0,0:05:58.56,0:06:02.66,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}Terça e quarta fui {\c&H1A7AFF&}pessoalmente{\c&HFFFFFF&}
+Dialogue: 0,0:06:02.66,0:06:05.20,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}fazer a integração com o {\c&H1A7AFF&}Asaas{\c&HFFFFFF&}
+Dialogue: 0,0:06:05.20,0:06:08.46,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}sistema dos {\c&H5EC522&}pagamentos{\c&HFFFFFF&}
+Dialogue: 0,0:06:08.66,0:06:10.38,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}Gastei {\c&H1A7AFF&}algumas horas{\c&HFFFFFF&} lá
+Dialogue: 0,0:06:10.48,0:06:15.60,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}Na terça: {\c&H1A7AFF&}4 a 5 horas{\c&HFFFFFF&}
+Dialogue: 0,0:06:15.60,0:06:21.10,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}e na quarta: {\c&H1A7AFF&}2 a 3 horas{\c&HFFFFFF&}
+Dialogue: 0,0:06:21.30,0:06:25.36,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}Parei minhas atividades na {\c&H1A7AFF&}empresa{\c&HFFFFFF&}
+Dialogue: 0,0:06:25.36,0:06:28.92,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}pra fazer atendimento {\c&H1A7AFF&}pessoalmente{\c&HFFFFFF&}
+Dialogue: 0,0:06:28.92,0:06:32.50,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}configurar, {\c&H1A7AFF&}ensinar e testar{\c&HFFFFFF&}
+Dialogue: 0,0:06:32.70,0:06:34.82,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}entregar tudo {\c&H5EC522&}bem polido{\c&HFFFFFF&}
+Dialogue: 0,0:06:35.02,0:06:37.20,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}Eu gastei {\c&H1A7AFF&}100 reais{\c&HFFFFFF&}
+Dialogue: 0,0:06:37.20,0:06:39.98,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}num app que me {\c&H5EC522&}garante em 1 ano{\c&HFFFFFF&}
+Dialogue: 0,0:06:40.18,0:06:43.16,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}{\c&H5EC522&}R$ 2.700{\c&HFFFFFF&} no primeiro ano
+Dialogue: 0,0:06:43.28,0:06:46.04,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}{\c&H5EC522&}R$ 1.500 + 12x de R$ 100{\c&HFFFFFF&}
+Dialogue: 0,0:06:46.04,0:06:49.56,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}e do 2º ano em diante: {\c&H5EC522&}R$ 1.200/ano{\c&HFFFFFF&}
+Dialogue: 0,0:06:49.62,0:06:53.86,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}enquanto continuar, com {\c&H1A7AFF&}reajuste{\c&HFFFFFF&}
+Dialogue: 0,0:06:53.94,0:06:57.44,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}Se pedir {\c&H1A7AFF&}função a mais{\c&HFFFFFF&}
+Dialogue: 0,0:06:57.60,0:06:59.02,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}vai ter {\c&H5EC522&}valor diferente{\c&HFFFFFF&}
+Dialogue: 0,0:06:59.20,0:07:01.87,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}Ganhei {\c&H5EC522&}R$ 50 por hora{\c&HFFFFFF&}
+Dialogue: 0,0:07:01.87,0:07:05.05,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}contando só a {\c&H1A7AFF&}implantação{\c&HFFFFFF&}
+Dialogue: 0,0:07:05.70,0:07:08.71,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}Essas {\c&H1A7AFF&}30 horas{\c&HFFFFFF&} não foram minhas
+Dialogue: 0,0:07:08.71,0:07:10.65,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}foi o {\c&H1A7AFF&}Claude trabalhando{\c&HFFFFFF&}
+Dialogue: 0,0:07:11.00,0:07:13.14,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}Quais {\c&H1A7AFF&}sites e serviços{\c&HFFFFFF&} usei?
+Dialogue: 0,0:07:13.14,0:07:14.80,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}Publicado na {\c&H1A7AFF&}Cloudflare{\c&HFFFFFF&}
+Dialogue: 0,0:07:15.20,0:07:18.00,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}hospedagem e {\c&H1A7AFF&}servidor{\c&HFFFFFF&}
+Dialogue: 0,0:07:18.00,0:07:21.42,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}agendamento, caixa, {\c&H1A7AFF&}webhooks{\c&HFFFFFF&}
+Dialogue: 0,0:07:21.42,0:07:24.00,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}tudo dentro da {\c&H1A7AFF&}Cloudflare{\c&HFFFFFF&}
+Dialogue: 0,0:07:24.00,0:07:25.76,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}Custo disso: {\c&H5EC522&}zero reais{\c&HFFFFFF&}
+Dialogue: 0,0:07:25.76,0:07:28.00,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}{\c&H1A7AFF&}Supabase{\c&HFFFFFF&}: banco de dados
+Dialogue: 0,0:07:28.00,0:07:31.70,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}clientes, caixa, {\c&H1A7AFF&}login{\c&HFFFFFF&}
+Dialogue: 0,0:07:32.26,0:07:36.38,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}Também {\c&H5EC522&}custo zero{\c&HFFFFFF&} a princípio
+Dialogue: 0,0:07:36.60,0:07:39.48,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}{\c&H1A7AFF&}OneSignal{\c&HFFFFFF&}: notificação
+Dialogue: 0,0:07:39.60,0:07:42.00,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}chegar mensagem, {\c&H1A7AFF&}push{\c&HFFFFFF&}
+Dialogue: 0,0:07:42.00,0:07:45.00,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}como {\c&H1A7AFF&}aplicativo normal{\c&HFFFFFF&}
+Dialogue: 0,0:07:45.24,0:07:47.80,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}{\c&H5EC522&}Zero reais{\c&HFFFFFF&}, também não paga
+Dialogue: 0,0:07:47.82,0:07:50.20,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}{\c&H1A7AFF&}Gmail{\c&HFFFFFF&}: o próprio dele
+Dialogue: 0,0:07:50.20,0:07:53.10,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}automatizei envio de {\c&H1A7AFF&}e-mails{\c&HFFFFFF&}
+Dialogue: 0,0:07:53.18,0:07:57.80,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}{\c&H1A7AFF&}Asaas{\c&HFFFFFF&}: cobranças de assinatura
+Dialogue: 0,0:07:57.80,0:08:01.20,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}é {\c&H1A7AFF&}barbearia por assinatura{\c&HFFFFFF&}
+Dialogue: 0,0:08:01.20,0:08:04.84,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}ele paga direto pro {\c&H1A7AFF&}Asaas{\c&HFFFFFF&}
+Dialogue: 0,0:08:04.84,0:08:09.00,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}pra mim {\c&H5EC522&}custo nenhum{\c&HFFFFFF&}
+Dialogue: 0,0:08:09.50,0:08:13.60,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}{\c&H1A7AFF&}Cosmos{\c&HFFFFFF&}: ele vende produtos
+Dialogue: 0,0:08:13.60,0:08:16.20,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}esse Cosmos é para
+Dialogue: 0,0:08:16.42,0:08:18.20,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}pesquisa de {\c&H1A7AFF&}código de barra{\c&HFFFFFF&}
+Dialogue: 0,0:08:18.20,0:08:19.64,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}Ele {\c&H1A7AFF&}escaneia{\c&HFFFFFF&} o produto
+Dialogue: 0,0:08:19.64,0:08:22.28,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}e o app identifica {\c&H1A7AFF&}o item{\c&HFFFFFF&}
+Dialogue: 0,0:08:22.28,0:08:25.24,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}pra entrar e sair do {\c&H1A7AFF&}estoque{\c&HFFFFFF&}
+Dialogue: 0,0:08:25.24,0:08:30.34,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}ligamos na {\c&H1A7AFF&}Bluesoft Cosmos{\c&HFFFFFF&}
+Dialogue: 0,0:08:30.34,0:08:32.54,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}também {\c&H5EC522&}não tem custo{\c&HFFFFFF&}
+Dialogue: 0,0:08:32.70,0:08:35.50,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}tem limite diário, mas {\c&H5EC522&}é grátis{\c&HFFFFFF&}
+Dialogue: 0,0:08:35.56,0:08:38.20,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}{\c&H1A7AFF&}GitHub{\c&HFFFFFF&}: guarda todo o código
+Dialogue: 0,0:08:38.20,0:08:41.60,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}e faz o {\c&H1A7AFF&}backup{\c&HFFFFFF&} também
+Dialogue: 0,0:08:41.78,0:08:42.24,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}{\c&H5EC522&}Grátis{\c&HFFFFFF&}
+Dialogue: 0,0:08:42.26,0:08:45.00,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}{\c&H1A7AFF&}Domínio{\c&HFFFFFF&} .com.br
+Dialogue: 0,0:08:45.00,0:08:48.40,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}vai gastar {\c&H1A7AFF&}R$ 40 por ano{\c&HFFFFFF&}
+Dialogue: 0,0:08:48.40,0:08:50.00,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}esse custo é {\c&H1A7AFF&}meu também{\c&HFFFFFF&}
+Dialogue: 0,0:08:50.24,0:08:52.80,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}Poderia repassar, {\c&H1A7AFF&}não repassei{\c&HFFFFFF&}
+Dialogue: 0,0:08:53.02,0:08:56.60,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}{\c&H1A7AFF&}Brevo{\c&HFFFFFF&}: e-mail no domínio
+Dialogue: 0,0:08:56.76,0:08:59.60,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}Quando o cliente {\c&H1A7AFF&}agenda{\c&HFFFFFF&}, recebe e-mail
+Dialogue: 0,0:08:59.60,0:09:03.40,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}e não cai na caixa de {\c&H1A7AFF&}spam{\c&HFFFFFF&}
+Dialogue: 0,0:09:03.62,0:09:05.56,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}fica um e-mail {\c&H1A7AFF&}profissional{\c&HFFFFFF&}
+Dialogue: 0,0:09:05.56,0:09:07.86,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}não fica {\c&H1A7AFF&}@gmail{\c&HFFFFFF&}
+Dialogue: 0,0:09:08.16,0:09:12.80,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}O que gastei mesmo foi o {\c&H1A7AFF&}Claude{\c&HFFFFFF&}
+Dialogue: 0,0:09:12.98,0:09:14.98,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}que foi {\c&H1A7AFF&}R$ 120 no mês{\c&HFFFFFF&}
+Dialogue: 0,0:09:15.20,0:09:17.80,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}Custo pra manter {\c&H1A7AFF&}rodando{\c&HFFFFFF&}:
+Dialogue: 0,0:09:17.80,0:09:22.12,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}servidor, banco, push, e-mail: {\c&H5EC522&}tudo grátis{\c&HFFFFFF&}
+Dialogue: 0,0:09:22.36,0:09:25.80,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}Domínio: {\c&H1A7AFF&}~R$ 3/mês{\c&HFFFFFF&} (R$ 40/ano)
+Dialogue: 0,0:09:26.00,0:09:29.30,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}Com a mensalidade de {\c&H5EC522&}R$ 100{\c&HFFFFFF&}
+Dialogue: 0,0:09:29.30,0:09:33.22,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}cobre isso e eventual {\c&H1A7AFF&}Supabase{\c&HFFFFFF&}
+Dialogue: 0,0:09:33.44,0:09:34.66,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}Alguns {\c&H1A7AFF&}pontos de atenção{\c&HFFFFFF&}
+Dialogue: 0,0:09:34.66,0:09:37.20,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}{\c&H1A7AFF&}Supabase{\c&HFFFFFF&}: tô usando o grátis
+Dialogue: 0,0:09:37.20,0:09:40.30,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}O plano Pro é {\c&H1A7AFF&}US$ 25/mês{\c&HFFFFFF&}
+Dialogue: 0,0:09:40.30,0:09:43.20,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}um pouco mais que {\c&H1A7AFF&}a mensalidade{\c&HFFFFFF&}
+Dialogue: 0,0:09:43.20,0:09:46.32,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}mas usaria pros {\c&H1A7AFF&}meus projetos{\c&HFFFFFF&} também
+Dialogue: 0,0:09:46.54,0:09:50.00,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}{\c&H1A7AFF&}Cloudflare{\c&HFFFFFF&}: acima de 100 mil/dia
+Dialogue: 0,0:09:50.00,0:09:54.40,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}muito difícil, e custa {\c&H1A7AFF&}US$ 5/mês{\c&HFFFFFF&}
+Dialogue: 0,0:09:54.84,0:09:58.20,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}{\c&H1A7AFF&}Gmail{\c&HFFFFFF&}: até 500 e-mails/dia
+Dialogue: 0,0:09:58.20,0:10:03.00,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}com o {\c&H1A7AFF&}Brevo{\c&HFFFFFF&} vamos resolver o spam
+Dialogue: 0,0:10:03.20,0:10:08.46,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}Manutenção usa a {\c&H1A7AFF&}cota do Claude{\c&HFFFFFF&}
+Dialogue: 0,0:10:08.68,0:10:10.80,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}O modelo usado foi o {\c&H1A7AFF&}Opus{\c&HFFFFFF&}
+Dialogue: 0,0:10:10.90,0:10:13.60,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}Se eu fosse pagar uma {\c&H1A7AFF&}API{\c&HFFFFFF&}
+Dialogue: 0,0:10:13.60,0:10:17.58,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}sem o plano, {\c&H1A7AFF&}gastaria isso aqui{\c&HFFFFFF&}
+Dialogue: 0,0:10:17.80,0:10:21.60,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}Se compensa pagar o {\c&H1A7AFF&}Claude{\c&HFFFFFF&}?
+Dialogue: 0,0:10:21.60,0:10:25.20,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}Olha a quantidade de {\c&H1A7AFF&}tokens{\c&HFFFFFF&} usados
+Dialogue: 0,0:10:25.62,0:10:28.80,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}Se contratasse um {\c&H1A7AFF&}programador{\c&HFFFFFF&}
+Dialogue: 0,0:10:28.80,0:10:33.02,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}cobrando {\c&H1A7AFF&}80 a 150 horas{\c&HFFFFFF&}
+Dialogue: 0,0:10:33.24,0:10:36.00,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}eu ia gastar esse {\c&H5EC522&}valorzinho aqui{\c&HFFFFFF&}
+Dialogue: 0,0:10:36.00,0:10:38.20,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}de {\c&H5EC522&}20 a 60 mil reais{\c&HFFFFFF&}
+Dialogue: 0,0:10:38.20,0:10:41.20,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}É um salto grande porque {\c&H1A7AFF&}depende{\c&HFFFFFF&}
+Dialogue: 0,0:10:41.20,0:10:44.20,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}do preço de cada {\c&H1A7AFF&}programador{\c&HFFFFFF&}
+Dialogue: 0,0:10:44.40,0:10:47.80,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}Talvez usasse um {\c&H1A7AFF&}white label{\c&HFFFFFF&}
+Dialogue: 0,0:10:47.80,0:10:51.50,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}um aplicativo {\c&H1A7AFF&}padrão{\c&HFFFFFF&}
+Dialogue: 0,0:10:51.72,0:10:53.82,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}Pra que estou fazendo {\c&H1A7AFF&}esse vídeo{\c&HFFFFFF&}?
+Dialogue: 0,0:10:54.04,0:10:56.80,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}Dá pra {\c&H5EC522&}ganhar dinheiro{\c&HFFFFFF&} com IA
+Dialogue: 0,0:10:56.80,0:10:59.02,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}é a minha {\c&H5EC522&}primeira venda{\c&HFFFFFF&}
+Dialogue: 0,0:10:59.24,0:11:02.00,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}Se algum {\c&H1A7AFF&}programador{\c&HFFFFFF&} entrar aqui
+Dialogue: 0,0:11:02.00,0:11:03.94,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}eu tô aqui pra {\c&H1A7AFF&}aprender{\c&HFFFFFF&}
+Dialogue: 0,0:11:04.14,0:11:07.80,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}Com toda {\c&H1A7AFF&}humildade{\c&HFFFFFF&}, mostrando o real
+Dialogue: 0,0:11:07.80,0:11:10.60,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}Você quer {\c&H5EC522&}vender mais{\c&HFFFFFF&}?
+Dialogue: 0,0:11:10.60,0:11:14.20,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}{\c&H5EC522&}Claro{\c&HFFFFFF&}, o que aparecer eu vendo
+Dialogue: 0,0:11:14.20,0:11:17.30,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}não só porque dá {\c&H5EC522&}dinheiro{\c&HFFFFFF&}
+Dialogue: 0,0:11:17.52,0:11:20.00,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}gastando {\c&H1A7AFF&}muito pouco{\c&HFFFFFF&}
+Dialogue: 0,0:11:20.00,0:11:25.40,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}mas porque eu {\c&H1A7AFF&}me apaixonei{\c&HFFFFFF&} por isso
+Dialogue: 0,0:11:25.40,0:11:30.40,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}Programação permite criar {\c&H1A7AFF&}qualquer coisa{\c&HFFFFFF&}
+Dialogue: 0,0:11:30.40,0:11:37.20,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}Admiro muito quem faz {\c&H1A7AFF&}tudo na mão{\c&HFFFFFF&}
+Dialogue: 0,0:11:37.20,0:11:41.40,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}mas hoje muito dev usa {\c&H1A7AFF&}IA{\c&HFFFFFF&}
+Dialogue: 0,0:11:41.40,0:11:44.44,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}pra {\c&H1A7AFF&}encurtar caminhos{\c&HFFFFFF&}, veio pra isso
+Dialogue: 0,0:11:44.66,0:11:47.80,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}IA não vai {\c&H1A7AFF&}substituir tudo{\c&HFFFFFF&}
+Dialogue: 0,0:11:47.80,0:11:51.00,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}mas quem usar {\c&H1A7AFF&}não fica pra trás{\c&HFFFFFF&}
+Dialogue: 0,0:11:51.00,0:11:53.76,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}Trabalhe {\c&H1A7AFF&}com ela{\c&HFFFFFF&}, não contra ela
+Dialogue: 0,0:11:53.98,0:11:55.52,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}e vai conseguir {\c&H5EC522&}muita coisa{\c&HFFFFFF&}
+Dialogue: 0,0:11:55.72,0:11:59.60,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}Criei esse canal pra {\c&H1A7AFF&}compartilhar{\c&HFFFFFF&}
+Dialogue: 0,0:11:59.60,0:12:03.40,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}com quem quer {\c&H5EC522&}começar a vender{\c&HFFFFFF&}
+Dialogue: 0,0:12:03.40,0:12:07.56,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}Claro, é um cliente {\c&H1A7AFF&}pequeno e regional{\c&HFFFFFF&}
+Dialogue: 0,0:12:07.78,0:12:11.60,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}Mas nada impede de {\c&H5EC522&}oferecer pra outras{\c&HFFFFFF&}
+Dialogue: 0,0:12:11.60,0:12:15.20,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}barbearias, montar um {\c&H1A7AFF&}ecossistema{\c&HFFFFFF&}
+Dialogue: 0,0:12:15.20,0:12:19.60,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}vender pra {\c&H1A7AFF&}clínicas de estética{\c&HFFFFFF&}
+Dialogue: 0,0:12:19.60,0:12:22.48,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}{\c&H1A7AFF&}odontológicas{\c&HFFFFFF&}, qualquer coisa!
+Dialogue: 0,0:12:22.70,0:12:25.80,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}O ponto {\c&H1A7AFF&}mais importante{\c&HFFFFFF&} é:
+Dialogue: 0,0:12:25.80,0:12:28.80,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}no ramo dele de {\c&H1A7AFF&}barbearia{\c&HFFFFFF&}
+Dialogue: 0,0:12:29.00,0:12:33.78,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}teria que contratar dev pra {\c&H1A7AFF&}app específico{\c&HFFFFFF&}
+Dialogue: 0,0:12:34.00,0:12:37.44,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}Nos apps que já existem, {\c&H1A7AFF&}a maioria{\c&HFFFFFF&}
+Dialogue: 0,0:12:37.64,0:12:41.40,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}você {\c&H1A7AFF&}não tem um app{\c&HFFFFFF&} pra tua loja
+Dialogue: 0,0:12:41.40,0:12:45.40,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}entra num {\c&H1A7AFF&}ecossistema{\c&HFFFFFF&} com várias lojas
+Dialogue: 0,0:12:45.40,0:12:49.72,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}e vira só {\c&H1A7AFF&}mais um{\c&HFFFFFF&} lá dentro
+Dialogue: 0,0:12:49.94,0:12:54.80,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}O {\c&H1A7AFF&}SaaS{\c&HFFFFFF&} da minha escola era assim
+Dialogue: 0,0:12:54.80,0:12:58.06,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}Hoje tenho um {\c&H5EC522&}app próprio{\c&HFFFFFF&}
+Dialogue: 0,0:12:58.28,0:13:02.00,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}com o {\c&H1A7AFF&}nome da minha escola{\c&HFFFFFF&}
+Dialogue: 0,0:13:02.00,0:13:06.00,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}não é um {\c&H1A7AFF&}terceiro{\c&HFFFFFF&}
+Dialogue: 0,0:13:06.00,0:13:10.20,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}Agora ele tem o {\c&H5EC522&}próprio aplicativo{\c&HFFFFFF&}
+Dialogue: 0,0:13:10.20,0:13:14.80,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}No celular, o cliente vê {\c&H1A7AFF&}a cara dele{\c&HFFFFFF&}
+Dialogue: 0,0:13:14.80,0:13:18.20,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}{\c&H1A7AFF&}a logo dele{\c&HFFFFFF&}, a imagem dele
+Dialogue: 0,0:13:18.20,0:13:22.60,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}sem procurar em {\c&H1A7AFF&}outro ecossistema{\c&HFFFFFF&}
+Dialogue: 0,0:13:22.60,0:13:26.20,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}e isso {\c&H5EC522&}vale muito{\c&HFFFFFF&} na hora de vender
+Dialogue: 0,0:13:26.20,0:13:27.70,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}E pra {\c&H1A7AFF&}terminar{\c&HFFFFFF&} esse vídeo
+Dialogue: 0,0:13:27.90,0:13:31.32,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}Mais importante que {\c&H1A7AFF&}saber programar{\c&HFFFFFF&}
+Dialogue: 0,0:13:31.52,0:13:33.60,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}mesmo com IA, é {\c&H5EC522&}saber vender{\c&HFFFFFF&}
+Dialogue: 0,0:13:33.60,0:13:37.76,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}enxergar a {\c&H1A7AFF&}dor do cliente{\c&HFFFFFF&}
+Dialogue: 0,0:13:37.76,0:13:40.12,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}e {\c&H5EC522&}resolver o problema{\c&HFFFFFF&}
+Dialogue: 0,0:13:40.32,0:13:42.10,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}{\c&H5EC522&}Ganha dinheiro{\c&HFFFFFF&} quem resolve problema
+Dialogue: 0,0:13:42.30,0:13:44.80,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}Esse dinheiro {\c&H5EC522&}me ajudou demais{\c&HFFFFFF&}
+Dialogue: 0,0:13:44.80,0:13:49.80,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}Tudo que gastei com {\c&H1A7AFF&}IA{\c&HFFFFFF&} já se paga
+Dialogue: 0,0:13:49.80,0:13:53.00,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}e ainda vou ter {\c&H5EC522&}lucro{\c&HFFFFFF&}
+Dialogue: 0,0:13:53.00,0:13:56.64,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}mesmo contando {\c&H1A7AFF&}meses anteriores{\c&HFFFFFF&}
+Dialogue: 0,0:13:56.86,0:14:00.50,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}Não importa fazer o {\c&H1A7AFF&}melhor app{\c&HFFFFFF&}
+Dialogue: 0,0:14:00.50,0:14:04.60,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}se você {\c&H5EC522&}não vender{\c&HFFFFFF&}
+Dialogue: 0,0:14:04.80,0:14:09.00,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}Se não sabe vender, {\c&H5EC522&}aprenda{\c&HFFFFFF&}
+Dialogue: 0,0:14:09.00,0:14:13.60,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}ou ache alguém pra {\c&H1A7AFF&}vender pra você{\c&HFFFFFF&}
+Dialogue: 0,0:14:13.60,0:14:17.60,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}Senão vira só fã de {\c&H1A7AFF&}Claude e IAs{\c&HFFFFFF&}
+Dialogue: 0,0:14:17.60,0:14:22.20,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}Fechou? Qualquer dúvida, {\c&H1A7AFF&}comenta aqui{\c&HFFFFFF&}
+Dialogue: 0,0:14:22.20,0:14:26.20,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}Dá um {\c&H1A7AFF&}like{\c&HFFFFFF&} e se {\c&H1A7AFF&}inscreve no canal{\c&HFFFFFF&}
+Dialogue: 0,0:14:26.20,0:14:30.80,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}O canal está abrindo {\c&H1A7AFF&}do zero{\c&HFFFFFF&}
+Dialogue: 0,0:14:30.80,0:14:36.50,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}Esse é o {\c&H1A7AFF&}primeiro vídeo{\c&HFFFFFF&}
+Dialogue: 0,0:14:36.50,0:14:41.20,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}Quero falar de {\c&H1A7AFF&}programação com IA{\c&HFFFFFF&}
+Dialogue: 0,0:14:41.20,0:14:44.00,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}mostrar {\c&H1A7AFF&}testes de modelos{\c&HFFFFFF&}
+Dialogue: 0,0:14:44.18,0:14:46.30,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}e projetos que venho {\c&H1A7AFF&}desenvolvendo{\c&HFFFFFF&}
+Dialogue: 0,0:14:46.50,0:14:48.74,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}{\c&H1A7AFF&}Ajudar{\c&HFFFFFF&} e aprender com vocês
+Dialogue: 0,0:14:48.96,0:14:52.50,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}Me segue no {\c&H1A7AFF&}Instagram{\c&HFFFFFF&}: @aquilles_antony
+Dialogue: 0,0:14:52.50,0:14:55.50,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}Tamo junto, {\c&H1A7AFF&}vamos pra cima{\c&HFFFFFF&}!
+Dialogue: 0,0:14:55.50,0:14:59.44,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}Deus abençoe e {\c&H1A7AFF&}siga em frente{\c&HFFFFFF&}!
+Dialogue: 0,0:14:59.64,0:15:00.34,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}{\c&H1A7AFF&}Tchau!{\c&HFFFFFF&}
