@@ -25,25 +25,8 @@ Style: ToolCost,Montserrat,38,&H005EC522,&H005EC522,&H00111111,&H00000000,-1,0,0
 
 [Events]
 Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
-Comment: ================= OVERLAYS GRÁFICOS: HOOK, CARTÕES, TÍTULOS E FERRAMENTAS =================
-Comment: --- Hook Comparison Card (0:02.10 - 0:09.20) ---
-Dialogue: 10,0:00:02.10,0:00:09.20,CardBox,card_hook_bg,0,0,0,,{\an7\move(1292,156,1232,156,0,220)\fad(180,260)\p1}m 0 0 l 660 0 l 660 528 l 0 528{\p0}
-Dialogue: 11,0:00:02.10,0:00:09.20,CardAccent,card_hook_bar,0,0,0,,{\an7\move(1292,156,1232,156,0,220)\fad(180,260)\p1}m 0 0 l 12 0 l 12 528 l 0 528{\p0}
-Dialogue: 12,0:00:02.10,0:00:09.20,CardHeader,card_hook_hdr,0,0,0,,{\an7\move(1332,180,1272,180,0,220)\fad(180,260)}APP DA BARBEARIA
-Dialogue: 11,0:00:02.10,0:00:09.20,CardAccent,card_hook_div,0,0,0,,{\an7\move(1332,248,1272,248,0,220)\fad(180,260)\p1}m 0 0 l 592 0 l 592 3 l 0 3{\p0}
-Dialogue: 12,0:00:02.16,0:00:09.20,CardLabel,card_hook_r1l,0,0,0,,{\an7\pos(1272,270)\fad(150,260)}Programador
-Dialogue: 12,0:00:02.16,0:00:09.20,CardValue,card_hook_r1v,0,0,0,,{\an7\fs76\pos(1272,300)\fad(150,260)\fscx92\fscy92\t(0,180,\fscx100\fscy100)\c&HD8D4D4&}R$ 20.000+
-Dialogue: 12,0:00:05.18,0:00:09.20,CardLabel,card_hook_r2l,0,0,0,,{\an7\pos(1272,406)\fad(150,260)}Meu custo com IA
-Dialogue: 12,0:00:05.18,0:00:09.20,CardValue,card_hook_r2v,0,0,0,,{\an7\fs76\pos(1272,436)\fad(150,260)\fscx92\fscy92\t(0,180,\fscx100\fscy100)\c&H1A7AFF&}R$ 100
-Dialogue: 12,0:00:06.40,0:00:09.20,CardLabel,card_hook_r3l,0,0,0,,{\an7\pos(1272,542)\fad(150,260)}Venda (implantação)
-Dialogue: 12,0:00:06.40,0:00:09.20,CardValue,card_hook_r3v,0,0,0,,{\an7\fs76\pos(1272,572)\fad(150,260)\fscx90\fscy90\t(0,180,\fscx104\fscy104)\t(180,280,\fscx100\fscy100)\c&H5EC522&}R$ 1.500
-
-Comment: --- Lower-Third Apresentação (0:15.00 - 0:19.20) ---
-Dialogue: 10,0:00:15.00,0:00:19.20,CardBox,lt_bg,0,0,0,,{\an7\move(1292,315,1232,315,0,240)\fad(200,260)\p1}m 0 0 l 660 0 l 660 210 l 0 210{\p0}
-Dialogue: 11,0:00:15.00,0:00:19.20,CardAccent,lt_bar,0,0,0,,{\an7\move(1292,315,1232,315,0,240)\fad(200,260)\p1}m 0 0 l 12 0 l 12 210 l 0 210{\p0}
-Dialogue: 12,0:00:15.00,0:00:19.20,SecTitle,lt_name,0,0,0,,{\an7\fs62\move(1332,346,1272,346,0,240)\fad(200,260)}Aquilles Antony
-Dialogue: 11,0:00:15.00,0:00:19.20,CardAccent,lt_div,0,0,0,,{\an7\move(1332,424,1272,424,0,240)\fad(200,260)\p1}m 0 0 l 592 0 l 592 3 l 0 3{\p0}
-Dialogue: 12,0:00:15.00,0:00:19.20,SecSub,lt_sub,0,0,0,,{\an7\fs34\move(1332,446,1272,446,0,240)\fad(200,260)\c&H1A7AFF&}IA Antony  ·  Cuiabá, MT
+Comment: ================= OVERLAYS GRÁFICOS: CARTÕES, TÍTULOS E FERRAMENTAS (PÓS-ABERTURA >= 1:51.00) =================
+Comment: (Hook 0:00-1:51.00 e lower-third inicial agora são renderizados pela abertura HTML cinética em repo/abertura/index.html)
 
 Comment: --- Seção 00: EQUIPAMENTO (1:51.00 - 1:53.20) ---
 Dialogue: 10,0:01:51.00,0:01:53.20,CardBox,sec00_bg,0,0,0,,{\an7\move(1292,296,1232,296,0,220)\fad(180,260)\p1}m 0 0 l 660 0 l 660 248 l 0 248{\p0}
@@ -292,61 +275,7 @@ Dialogue: 11,0:14:48.84,0:14:57.50,CardAccent,card_cta_instagram_div,0,0,0,,{\an
 Dialogue: 12,0:14:48.84,0:14:57.50,SecTitle,card_cta_instagram,0,0,0,,{\an7\fs58\move(1332,398,1272,398,0,220)\fad(180,280)\fscx92\fscy92\t(0,200,\fscx100\fscy100)}@aquilles_antony
 Dialogue: 12,0:14:48.84,0:14:57.50,SecSub,card_cta_instagram_s,0,0,0,,{\an7\fs32\move(1332,474,1272,474,0,220)\fad(180,280)}IA Antony  ·  Inscreva-se no canal
 
-Comment: ================= LEGENDAS DINÂMICAS (2-4 PALAVRAS + PALAVRA-CHAVE) =================
-Dialogue: 0,0:00:00.12,0:00:01.60,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}Um {\c&H1A7AFF&}programador{\c&HFFFFFF&} cobraria
-Dialogue: 0,0:00:01.60,0:00:03.38,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}pelo menos {\c&H5EC522&}20 mil reais{\c&HFFFFFF&}
-Dialogue: 0,0:00:03.38,0:00:04.60,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}pra fazer esse {\c&H1A7AFF&}aplicativo{\c&HFFFFFF&}
-Dialogue: 0,0:00:04.60,0:00:05.74,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}que fiz com {\c&H1A7AFF&}100 reais{\c&HFFFFFF&}
-Dialogue: 0,0:00:05.74,0:00:06.86,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}e vendi por {\c&H5EC522&}1.500{\c&HFFFFFF&}
-Dialogue: 0,0:00:07.22,0:00:08.28,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}Só que isso {\c&H1A7AFF&}quase{\c&HFFFFFF&}
-Dialogue: 0,0:00:08.28,0:00:09.60,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}me fez {\c&H1A7AFF&}perder o cliente{\c&HFFFFFF&}
-Dialogue: 0,0:00:09.72,0:00:10.82,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}Se quer {\c&H1A7AFF&}saber mais{\c&HFFFFFF&}
-Dialogue: 0,0:00:10.82,0:00:11.92,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}fica {\c&H1A7AFF&}nesse vídeo{\c&HFFFFFF&}
-Dialogue: 0,0:00:11.92,0:00:12.80,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}pra entender {\c&H1A7AFF&}tudo{\c&HFFFFFF&}
-Dialogue: 0,0:00:12.80,0:00:13.85,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}sobre {\c&H1A7AFF&}programação com IA{\c&HFFFFFF&}
-Dialogue: 0,0:00:14.02,0:00:14.84,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}Fala {\c&H1A7AFF&}pessoal{\c&HFFFFFF&}
-Dialogue: 0,0:00:14.84,0:00:16.16,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}meu nome é {\c&H1A7AFF&}Aquilles Antony{\c&HFFFFFF&}
-Dialogue: 0,0:00:16.24,0:00:18.10,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}sou {\c&H1A7AFF&}empresário{\c&HFFFFFF&} de Cuiabá
-Dialogue: 0,0:00:18.22,0:00:20.44,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}trabalho com {\c&H1A7AFF&}escola de música{\c&HFFFFFF&}
-Dialogue: 0,0:00:20.44,0:00:23.12,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}sempre curti {\c&H1A7AFF&}programação{\c&HFFFFFF&}
-Dialogue: 0,0:00:23.12,0:00:24.90,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}e {\c&H1A7AFF&}inteligência artificial{\c&HFFFFFF&}
-Dialogue: 0,0:00:25.10,0:00:26.44,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}Há algum {\c&H1A7AFF&}tempo atrás{\c&HFFFFFF&}
-Dialogue: 0,0:00:26.44,0:00:27.86,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}comecei a {\c&H1A7AFF&}desenvolver projetos{\c&HFFFFFF&}
-Dialogue: 0,0:00:27.86,0:00:28.86,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}com {\c&H1A7AFF&}inteligência artificial{\c&HFFFFFF&}
-Dialogue: 0,0:00:29.04,0:00:31.50,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}Fazer {\c&H1A7AFF&}jogos{\c&HFFFFFF&}, fazer {\c&H1A7AFF&}aplicativos{\c&HFFFFFF&}
-Dialogue: 0,0:00:31.78,0:00:33.52,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}Hoje o {\c&H1A7AFF&}app da minha escola{\c&HFFFFFF&}
-Dialogue: 0,0:00:33.52,0:00:35.88,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}onde trabalho e {\c&H1A7AFF&}sou dono{\c&HFFFFFF&}
-Dialogue: 0,0:00:35.98,0:00:38.96,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}eu mesmo {\c&H1A7AFF&}desenvolvi{\c&HFFFFFF&}
-Dialogue: 0,0:00:39.16,0:00:41.32,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}E eu {\c&H1A7AFF&}adorei{\c&HFFFFFF&} desde o começo
-Dialogue: 0,0:00:41.32,0:00:43.26,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}a {\c&H1A7AFF&}possibilidade{\c&HFFFFFF&} que a IA dá
-Dialogue: 0,0:00:43.26,0:00:45.90,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}de criar {\c&H1A7AFF&}qualquer coisa{\c&HFFFFFF&}
-Dialogue: 0,0:00:46.10,0:00:48.46,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}Só pra você {\c&H1A7AFF&}entender{\c&HFFFFFF&}
-Dialogue: 0,0:00:48.74,0:00:50.96,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}eu faço parte de uma {\c&H1A7AFF&}igreja{\c&HFFFFFF&}
-Dialogue: 0,0:00:50.96,0:00:53.86,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}com vários {\c&H1A7AFF&}empresários{\c&HFFFFFF&}
-Dialogue: 0,0:00:53.90,0:00:57.20,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}e um desses {\c&H1A7AFF&}empresários{\c&HFFFFFF&}
-Dialogue: 0,0:00:57.20,0:00:59.02,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}que é {\c&H1A7AFF&}próximo{\c&HFFFFFF&} de mim
-Dialogue: 0,0:00:59.02,0:01:00.82,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}relatou {\c&H1A7AFF&}problemas{\c&HFFFFFF&}
-Dialogue: 0,0:01:00.82,0:01:03.48,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}no app dele de {\c&H1A7AFF&}barbearia{\c&HFFFFFF&}
-Dialogue: 0,0:01:03.68,0:01:05.30,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}Eu falei: {\c&H1A7AFF&}posso te ajudar{\c&HFFFFFF&}
-Dialogue: 0,0:01:05.30,0:01:06.82,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}posso fazer um {\c&H1A7AFF&}app pra você{\c&HFFFFFF&}
-Dialogue: 0,0:01:07.02,0:01:08.84,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}Um ponto {\c&H1A7AFF&}importante{\c&HFFFFFF&}
-Dialogue: 0,0:01:09.00,0:01:10.32,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}eu {\c&H1A7AFF&}não comecei agora{\c&HFFFFFF&}
-Dialogue: 0,0:01:10.40,0:01:13.40,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}já tem {\c&H1A7AFF&}bons meses{\c&HFFFFFF&} com IA
-Dialogue: 0,0:01:13.46,0:01:15.10,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}tem muita coisa que {\c&H1A7AFF&}já entendo{\c&HFFFFFF&}
-Dialogue: 0,0:01:15.36,0:01:18.84,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}Não foi só {\c&H1A7AFF&}sair fazendo{\c&HFFFFFF&}
-Dialogue: 0,0:01:18.86,0:01:20.66,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}eu já {\c&H1A7AFF&}sabia construir{\c&HFFFFFF&}
-Dialogue: 0,0:01:20.66,0:01:22.78,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}o que {\c&H1A7AFF&}precisava construir{\c&HFFFFFF&}
-Dialogue: 0,0:01:22.98,0:01:25.80,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}E aí eu {\c&H5EC522&}fechei com ele{\c&HFFFFFF&}
-Dialogue: 0,0:01:25.80,0:01:28.12,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}o app da {\c&H1A7AFF&}barbearia dele{\c&HFFFFFF&}
-Dialogue: 0,0:01:28.32,0:01:31.30,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}Neste vídeo vou {\c&H1A7AFF&}mostrar{\c&HFFFFFF&}
-Dialogue: 0,0:01:31.30,0:01:33.78,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}quanto {\c&H1A7AFF&}gastei em dinheiro{\c&HFFFFFF&}
-Dialogue: 0,0:01:33.78,0:01:37.60,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}por quanto {\c&H5EC522&}eu vendi{\c&HFFFFFF&}
-Dialogue: 0,0:01:37.72,0:01:40.58,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}quais {\c&H1A7AFF&}serviços{\c&HFFFFFF&} eu usei
-Dialogue: 0,0:01:40.58,0:01:41.70,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}como fiz o {\c&H1A7AFF&}aplicativo{\c&HFFFFFF&}
-Dialogue: 0,0:01:41.88,0:01:44.02,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}quais {\c&H1A7AFF&}sites e servidores{\c&HFFFFFF&}
-Dialogue: 0,0:01:44.08,0:01:46.50,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}você vai entender {\c&H1A7AFF&}tudo{\c&HFFFFFF&}
-Dialogue: 0,0:01:46.74,0:01:48.42,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}Pode ser um {\c&H5EC522&}negócio{\c&HFFFFFF&}
-Dialogue: 0,0:01:48.42,0:01:50.92,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}pra quem curte {\c&H1A7AFF&}programação com IA{\c&HFFFFFF&}
+Comment: ================= LEGENDAS DINÂMICAS (A PARTIR DE 1:51.00; NA ABERTURA A TIPOGRAFIA CINÉTICA SUBSTITUI A LEGENDA) =================
 Dialogue: 0,0:01:51.12,0:01:52.92,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}Primeiro: {\c&H1A7AFF&}equipamento{\c&HFFFFFF&}
 Dialogue: 0,0:01:53.26,0:01:54.82,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}Qual {\c&H1A7AFF&}computador{\c&HFFFFFF&} eu tenho?
 Dialogue: 0,0:01:55.02,0:01:57.68,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}Eu tenho esse {\c&H1A7AFF&}computador{\c&HFFFFFF&}, tá vendo?

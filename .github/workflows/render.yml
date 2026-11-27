@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
     inputs:
       mode:
-        description: "Modo de renderização (preview = 0:00 a 1:30 | full = vídeo completo)"
+        description: "Modo de renderização (preview = 0:00 a 2:10 | full = vídeo completo)"
         required: true
         default: "preview"
         type: choice
@@ -16,8 +16,74 @@ permissions:
   contents: read
 
 jobs:
+  abertura-slices:
+    name: Abertura HTML (fatia ${{ matrix.slice }}/6)
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    strategy:
+      fail-fast: false
+      matrix:
+        slice: [0, 1, 2, 3, 4, 5]
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install FFmpeg & Fontconfig
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg fontconfig curl
+
+      - name: Download Montserrat & Inter fonts
+        run: |
+          mkdir -p assets/fonts
+          if curl -fsSL "https://raw.githubusercontent.com/JulietaUla/Montserrat/master/fonts/ttf/Montserrat-Regular.ttf" -o assets/fonts/Montserrat-Regular.ttf \
+            && curl -fsSL "https://raw.githubusercontent.com/JulietaUla/Montserrat/master/fonts/ttf/Montserrat-SemiBold.ttf" -o assets/fonts/Montserrat-SemiBold.ttf \
+            && curl -fsSL "https://raw.githubusercontent.com/JulietaUla/Montserrat/master/fonts/ttf/Montserrat-Bold.ttf" -o assets/fonts/Montserrat-Bold.ttf \
+            && curl -fsSL "https://raw.githubusercontent.com/JulietaUla/Montserrat/master/fonts/ttf/Montserrat-ExtraBold.ttf" -o assets/fonts/Montserrat-ExtraBold.ttf; then
+            echo "Montserrat estática baixada com sucesso."
+          else
+            rm -f assets/fonts/Montserrat-*.ttf
+            curl -fsSL "https://raw.githubusercontent.com/google/fonts/main/ofl/montserrat/Montserrat%5Bwght%5D.ttf" -o assets/fonts/Montserrat-Variable.ttf
+          fi
+          curl -fsSL "https://raw.githubusercontent.com/google/fonts/main/ofl/inter/Inter%5Bopsz%2Cwght%5D.ttf" -o assets/fonts/Inter-Variable.ttf || true
+          mkdir -p ~/.local/share/fonts
+          cp assets/fonts/*.ttf ~/.local/share/fonts/
+          fc-cache -fv
+
+      - name: Install Playwright & Chromium
+        run: |
+          python3 -m pip install --upgrade pip
+          pip install playwright
+          playwright install chromium --with-deps
+
+      - name: Render abertura slice ${{ matrix.slice }}
+        run: |
+          python3 scripts/render_abertura.py \
+            --slice ${{ matrix.slice }} \
+            --total-slices 6 \
+            --duration 111.0 \
+            --fps 30 \
+            --out out/abertura_slice_${{ matrix.slice }}.mov
+          ls -lh out/abertura_slice_${{ matrix.slice }}.mov
+          ffprobe -v error -show_entries stream=codec_name,pix_fmt,width,height,nb_frames,r_frame_rate out/abertura_slice_${{ matrix.slice }}.mov
+
+      - name: Upload abertura slice artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: abertura-slice-${{ matrix.slice }}
+          path: out/abertura_slice_${{ matrix.slice }}.mov
+          retention-days: 1
+          if-no-files-found: error
+
   render:
     name: Render (${{ inputs.mode }})
+    needs: [abertura-slices]
     runs-on: ubuntu-latest
     timeout-minutes: 90
 
@@ -54,17 +120,42 @@ jobs:
           fc-cache -fv
           fc-list | grep -iE "montserrat|inter" | head -n 20 || true
 
+      - name: Download & concatenate abertura slices
+        uses: actions/download-artifact@v4
+        with:
+          pattern: abertura-slice-*
+          path: work/abertura_slices
+          merge-multiple: true
+
+      - name: Join abertura.mov (qtrle RGBA)
+        run: |
+          mkdir -p work/abertura
+          rm -f work/abertura/concat.txt
+          for i in 0 1 2 3 4 5; do
+            f="work/abertura_slices/abertura_slice_${i}.mov"
+            test -s "$f"
+            echo "file '$(realpath "$f")'" >> work/abertura/concat.txt
+          done
+          ffmpeg -y -v warning -f concat -safe 0 -i work/abertura/concat.txt -c:v copy work/abertura/abertura.mov
+          ls -lh work/abertura/abertura.mov
+          ffprobe -v error -show_format -show_streams work/abertura/abertura.mov
+
       - name: Run build pipeline (${{ inputs.mode }})
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          python3 scripts/build.py --${{ inputs.mode }} --chunk-seconds 120 --workers 2
+          python3 scripts/build.py \
+            --${{ inputs.mode }} \
+            --chunk-seconds 120 \
+            --workers 2 \
+            --abertura-overlay work/abertura/abertura.mov
 
-      - name: Inspect rendered MP4
+      - name: Inspect rendered MP4 & scene_map.json
         run: |
           MP4="out/ep01_${{ inputs.mode }}.mp4"
           test -s "$MP4"
-          ls -lh "$MP4"
+          test -s "out/scene_map.json"
+          ls -lh "$MP4" out/scene_map.json
           ffprobe -v error -show_format -show_streams "$MP4"
 
       - name: Upload MP4 artifact
@@ -74,3 +165,11 @@ jobs:
           path: out/ep01_${{ inputs.mode }}.mp4
           retention-days: 14
           if-no-files-found: error
+
+      - name: Upload scene_map.json artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: scene-map-${{ inputs.mode }}
+          path: out/scene_map.json
+          retention-days: 14
+          if-no-files-found: warn

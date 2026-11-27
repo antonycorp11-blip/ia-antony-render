@@ -1,0 +1,1420 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=1920, height=1080, initial-scale=1.0" />
+<title>IA Antony — Abertura EP01</title>
+<style>
+  @font-face {
+    font-family: 'Montserrat';
+    src: url('../assets/fonts/Montserrat-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'Montserrat';
+    src: url('../assets/fonts/Montserrat-SemiBold.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'Montserrat';
+    src: url('../assets/fonts/Montserrat-Bold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'Montserrat';
+    src: url('../assets/fonts/Montserrat-ExtraBold.ttf') format('truetype');
+    font-weight: 800;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'Inter';
+    src: url('../assets/fonts/Inter-Variable.ttf') format('truetype');
+    font-weight: 100 900;
+    font-style: normal;
+  }
+
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html, body {
+    width: 1920px;
+    height: 1080px;
+    overflow: hidden;
+    background: transparent !important;
+    font-family: 'Montserrat', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    color: #FFFFFF;
+    -webkit-font-smoothing: antialiased;
+    user-select: none;
+  }
+
+  #stage {
+    position: relative;
+    width: 1920px;
+    height: 1080px;
+    overflow: hidden;
+    background: transparent;
+  }
+
+  /* Subtle dark scrim + technical grid over B-roll (drops to 0 on face relances) */
+  #bg-wash {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse at 50% 45%, rgba(17, 17, 17, 0.28) 0%, rgba(17, 17, 17, 0.72) 100%);
+    pointer-events: none;
+  }
+
+  #bg-grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+    background-size: 80px 80px;
+    pointer-events: none;
+  }
+
+  #ambient-glow {
+    position: absolute;
+    width: 1100px;
+    height: 1100px;
+    left: 410px;
+    top: -10px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255, 122, 26, 0.22) 0%, rgba(255, 122, 26, 0) 68%);
+    pointer-events: none;
+  }
+
+  /* Scene container */
+  #scene-root {
+    position: absolute;
+    inset: 0;
+    width: 1920px;
+    height: 1080px;
+  }
+
+  /* Persistent sleek HUD */
+  #hud {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+  }
+
+  .hud-corner {
+    position: absolute;
+    width: 34px;
+    height: 34px;
+    border-color: rgba(255, 122, 26, 0.75);
+    border-style: solid;
+  }
+  .hud-tl { top: 38px; left: 44px; border-width: 4px 0 0 4px; }
+  .hud-tr { top: 38px; right: 44px; border-width: 4px 4px 0 0; }
+  .hud-bl { bottom: 38px; left: 44px; border-width: 0 0 4px 4px; }
+  .hud-br { bottom: 38px; right: 44px; border-width: 0 4px 4px 0; }
+
+  #hud-tag {
+    position: absolute;
+    top: 44px;
+    left: 96px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 3.5px;
+    color: rgba(255, 255, 255, 0.8);
+    text-transform: uppercase;
+  }
+  #hud-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #FF7A1A;
+    box-shadow: 0 0 16px #FF7A1A;
+  }
+
+  #hud-counter {
+    position: absolute;
+    top: 44px;
+    right: 96px;
+    font-family: 'Inter', 'Montserrat', monospace;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: rgba(255, 255, 255, 0.75);
+    font-variant-numeric: tabular-nums;
+  }
+
+  #progress-track {
+    position: absolute;
+    bottom: 24px;
+    left: 96px;
+    right: 96px;
+    height: 5px;
+    background: rgba(255, 255, 255, 0.14);
+    border-radius: 999px;
+    overflow: hidden;
+  }
+  #progress-fill {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, #FF7A1A 0%, #FFB057 55%, #2BD576 100%);
+    box-shadow: 0 0 14px rgba(255, 122, 26, 0.75);
+  }
+
+  /* Flash & Wipe transition overlay */
+  #flash-layer {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0;
+  }
+  #sweep-bar {
+    position: absolute;
+    top: -120px;
+    width: 340px;
+    height: 1320px;
+    transform: skewX(-18deg);
+    background: linear-gradient(90deg, rgba(255,122,26,0) 0%, rgba(255,122,26,0.85) 48%, rgba(255,255,255,0.95) 54%, rgba(255,122,26,0) 100%);
+    pointer-events: none;
+    opacity: 0;
+  }
+
+  /* Typography helpers */
+  .center-stack {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0 110px;
+  }
+
+  .split-layout {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 120px;
+    gap: 72px;
+  }
+
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+    padding: 10px 26px;
+    border-radius: 999px;
+    background: rgba(17, 17, 17, 0.84);
+    border: 2px solid rgba(255, 122, 26, 0.85);
+    font-size: 26px;
+    font-weight: 800;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: #FF7A1A;
+    margin-bottom: 26px;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.45);
+  }
+  .eyebrow.green {
+    border-color: rgba(43, 213, 118, 0.9);
+    color: #2BD576;
+  }
+  .eyebrow.red {
+    border-color: rgba(255, 59, 48, 0.9);
+    color: #FF4D42;
+  }
+
+  .k-title {
+    font-size: 112px;
+    font-weight: 800;
+    line-height: 1.03;
+    letter-spacing: -2.5px;
+    text-transform: uppercase;
+    text-shadow: 0 14px 44px rgba(0, 0, 0, 0.72);
+  }
+
+  .k-mega {
+    font-size: 152px;
+    font-weight: 800;
+    line-height: 0.98;
+    letter-spacing: -4px;
+    text-transform: uppercase;
+    text-shadow: 0 18px 56px rgba(0, 0, 0, 0.78);
+  }
+
+  .k-sub {
+    font-size: 46px;
+    font-weight: 700;
+    line-height: 1.2;
+    color: #E4E4E7;
+    margin-top: 22px;
+    text-shadow: 0 8px 28px rgba(0, 0, 0, 0.8);
+  }
+
+  .orange { color: #FF7A1A; }
+  .green { color: #2BD576; }
+  .red { color: #FF453A; }
+  .muted { color: #A1A1AA; }
+
+  .accent-line {
+    height: 8px;
+    border-radius: 999px;
+    background: #FF7A1A;
+    box-shadow: 0 0 26px rgba(255, 122, 26, 0.7);
+    margin: 26px auto;
+  }
+  .accent-line.green {
+    background: #2BD576;
+    box-shadow: 0 0 26px rgba(43, 213, 118, 0.7);
+  }
+
+  .dark-card {
+    background: rgba(17, 17, 17, 0.86);
+    border: 2px solid rgba(255, 255, 255, 0.14);
+    border-radius: 28px;
+    box-shadow: 0 28px 80px rgba(0, 0, 0, 0.65);
+  }
+  .dark-card.orange-border {
+    border-color: rgba(255, 122, 26, 0.78);
+    box-shadow: 0 28px 80px rgba(0, 0, 0, 0.68), 0 0 42px rgba(255, 122, 26, 0.2);
+  }
+  .dark-card.green-border {
+    border-color: rgba(43, 213, 118, 0.82);
+    box-shadow: 0 28px 80px rgba(0, 0, 0, 0.68), 0 0 42px rgba(43, 213, 118, 0.22);
+  }
+
+  /* Huge money counters */
+  .num-hero {
+    position: relative;
+    display: inline-block;
+    font-size: 215px;
+    font-weight: 800;
+    line-height: 0.95;
+    letter-spacing: -6px;
+    font-variant-numeric: tabular-nums;
+    text-shadow: 0 20px 64px rgba(0, 0, 0, 0.85);
+  }
+
+  .slash-svg {
+    position: absolute;
+    left: -6%;
+    top: -12%;
+    width: 112%;
+    height: 124%;
+    overflow: visible;
+    pointer-events: none;
+  }
+
+  .pill-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 16px;
+    padding: 18px 40px;
+    border-radius: 20px;
+    background: rgba(43, 213, 118, 0.16);
+    border: 3px solid #2BD576;
+    color: #2BD576;
+    font-size: 56px;
+    font-weight: 800;
+    letter-spacing: -1px;
+    box-shadow: 0 18px 48px rgba(0, 0, 0, 0.55);
+  }
+  .pill-badge.orange-pill {
+    background: rgba(255, 122, 26, 0.16);
+    border-color: #FF7A1A;
+    color: #FF7A1A;
+  }
+
+  .compare-strip {
+    display: inline-flex;
+    align-items: center;
+    gap: 28px;
+    padding: 16px 38px;
+    border-radius: 18px;
+    background: rgba(17, 17, 17, 0.88);
+    border: 2px solid rgba(255, 255, 255, 0.14);
+    font-size: 38px;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    margin-bottom: 24px;
+  }
+  .strike-mini {
+    position: relative;
+    color: #A1A1AA;
+    text-decoration: line-through;
+    text-decoration-color: #FF453A;
+    text-decoration-thickness: 5px;
+  }
+
+  /* Face relance minimal bottom / corner overlays (center stays 100% clear) */
+  .relance-bottom {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 72px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    pointer-events: none;
+  }
+  .relance-bar {
+    display: inline-flex;
+    align-items: center;
+    gap: 20px;
+    padding: 20px 48px;
+    border-radius: 20px;
+    background: rgba(17, 17, 17, 0.88);
+    border-left: 10px solid #FF7A1A;
+    box-shadow: 0 22px 60px rgba(0, 0, 0, 0.7);
+  }
+  .relance-bar.alert {
+    border-left-color: #FF453A;
+    border: 2px solid rgba(255, 69, 58, 0.65);
+    border-left-width: 12px;
+  }
+  .relance-text {
+    font-size: 62px;
+    font-weight: 800;
+    letter-spacing: -1px;
+    text-transform: uppercase;
+  }
+
+  .lt-card {
+    position: absolute;
+    left: 100px;
+    bottom: 92px;
+    display: flex;
+    align-items: stretch;
+    background: rgba(17, 17, 17, 0.9);
+    border: 2px solid rgba(255, 255, 255, 0.12);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 24px 64px rgba(0, 0, 0, 0.72);
+  }
+  .lt-accent {
+    width: 14px;
+    background: linear-gradient(180deg, #FF7A1A 0%, #2BD576 100%);
+  }
+  .lt-body {
+    padding: 26px 46px 26px 34px;
+  }
+  .lt-name {
+    font-size: 64px;
+    font-weight: 800;
+    letter-spacing: -1.5px;
+    line-height: 1.05;
+  }
+  .lt-sub {
+    margin-top: 8px;
+    font-size: 30px;
+    font-weight: 700;
+    color: #FF7A1A;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+
+  /* Checklist promise cards */
+  .promise-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+    width: 1580px;
+    margin-top: 32px;
+  }
+  .promise-item {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    padding: 32px 38px;
+    border-radius: 24px;
+    background: rgba(17, 17, 17, 0.88);
+    border: 2px solid rgba(255, 255, 255, 0.14);
+    text-align: left;
+  }
+  .promise-item.active {
+    border-color: #FF7A1A;
+    box-shadow: 0 0 42px rgba(255, 122, 26, 0.28);
+  }
+  .promise-item.active-green {
+    border-color: #2BD576;
+    box-shadow: 0 0 42px rgba(43, 213, 118, 0.28);
+  }
+  .promise-num {
+    width: 78px;
+    height: 78px;
+    border-radius: 20px;
+    background: rgba(255, 122, 26, 0.18);
+    border: 2px solid #FF7A1A;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 36px;
+    font-weight: 800;
+    color: #FF7A1A;
+    flex-shrink: 0;
+  }
+  .promise-num.green {
+    background: rgba(43, 213, 118, 0.18);
+    border-color: #2BD576;
+    color: #2BD576;
+  }
+  .promise-lbl {
+    font-size: 38px;
+    font-weight: 800;
+    line-height: 1.15;
+    text-transform: uppercase;
+  }
+  .promise-val {
+    font-size: 32px;
+    font-weight: 700;
+    margin-top: 6px;
+  }
+
+  .chip-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 34px;
+  }
+  .chip {
+    padding: 16px 34px;
+    border-radius: 16px;
+    background: rgba(17, 17, 17, 0.88);
+    border: 2px solid rgba(255, 122, 26, 0.75);
+    font-size: 34px;
+    font-weight: 800;
+    color: #FFFFFF;
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.5);
+  }
+  .chip.green {
+    border-color: #2BD576;
+    color: #2BD576;
+  }
+</style>
+</head>
+<body>
+<div id="stage">
+  <div id="bg-wash"></div>
+  <div id="bg-grid"></div>
+  <div id="ambient-glow"></div>
+
+  <div id="scene-root"></div>
+
+  <div id="hud">
+    <div class="hud-corner hud-tl"></div>
+    <div class="hud-corner hud-tr"></div>
+    <div class="hud-corner hud-bl"></div>
+    <div class="hud-corner hud-br"></div>
+    <div id="hud-tag"><span id="hud-dot"></span><span>IA ANTONY · EP 01</span></div>
+    <div id="hud-counter">00:00</div>
+    <div id="progress-track"><div id="progress-fill"></div></div>
+  </div>
+
+  <div id="flash-layer"></div>
+  <div id="sweep-bar"></div>
+</div>
+
+<script>
+(function () {
+  const OPENING_DUR = 111.0;
+
+  // Relances curtos do rosto (espelhado) — sincronizados com build.py
+  const RELANCES = [
+    [7.60, 9.55],
+    [14.30, 16.20],
+    [63.65, 65.55]
+  ];
+
+  // Timestamps de transições com flash/sweep (a cada 2–4s)
+  const FLASH_BEATS = [
+    { t: 0.08, color: '#FF7A1A', kind: 'sweep' },
+    { t: 2.16, color: '#FFFFFF', kind: 'pulse' },
+    { t: 4.75, color: '#FF453A', kind: 'impact' },
+    { t: 5.18, color: '#FF7A1A', kind: 'sweep' },
+    { t: 6.40, color: '#2BD576', kind: 'impact' },
+    { t: 7.60, color: '#FF453A', kind: 'sweep' },
+    { t: 9.55, color: '#FF7A1A', kind: 'sweep' },
+    { t: 12.54, color: '#FF7A1A', kind: 'pulse' },
+    { t: 14.30, color: '#FFFFFF', kind: 'sweep' },
+    { t: 16.20, color: '#FF7A1A', kind: 'sweep' },
+    { t: 20.44, color: '#FF7A1A', kind: 'pulse' },
+    { t: 24.98, color: '#FF7A1A', kind: 'sweep' },
+    { t: 28.92, color: '#FF7A1A', kind: 'sweep' },
+    { t: 31.65, color: '#2BD576', kind: 'sweep' },
+    { t: 36.02, color: '#2BD576', kind: 'pulse' },
+    { t: 39.04, color: '#FF7A1A', kind: 'sweep' },
+    { t: 44.70, color: '#FF7A1A', kind: 'impact' },
+    { t: 45.98, color: '#FFFFFF', kind: 'sweep' },
+    { t: 53.86, color: '#FF7A1A', kind: 'pulse' },
+    { t: 58.95, color: '#FF453A', kind: 'sweep' },
+    { t: 61.56, color: '#FF7A1A', kind: 'pulse' },
+    { t: 63.65, color: '#FFFFFF', kind: 'sweep' },
+    { t: 65.55, color: '#2BD576', kind: 'sweep' },
+    { t: 67.00, color: '#FF7A1A', kind: 'sweep' },
+    { t: 70.44, color: '#FF7A1A', kind: 'pulse' },
+    { t: 75.15, color: '#FF7A1A', kind: 'sweep' },
+    { t: 78.86, color: '#2BD576', kind: 'pulse' },
+    { t: 82.86, color: '#2BD576', kind: 'sweep' },
+    { t: 84.62, color: '#2BD576', kind: 'impact' },
+    { t: 88.20, color: '#FF7A1A', kind: 'sweep' },
+    { t: 90.58, color: '#FF7A1A', kind: 'pulse' },
+    { t: 95.04, color: '#2BD576', kind: 'pulse' },
+    { t: 97.74, color: '#FF7A1A', kind: 'pulse' },
+    { t: 101.76, color: '#FF7A1A', kind: 'sweep' },
+    { t: 104.80, color: '#FF7A1A', kind: 'impact' },
+    { t: 106.58, color: '#2BD576', kind: 'sweep' },
+    { t: 110.72, color: '#FF7A1A', kind: 'sweep' }
+  ];
+
+  // Pure deterministic math helpers
+  function clamp(v, lo, hi) { return v < lo ? lo : (v > hi ? hi : v); }
+  function lerp(a, b, p) { return a + (b - a) * p; }
+  function prog(t, t0, dur) { return clamp((t - t0) / Math.max(0.0001, dur), 0, 1); }
+  function easeOutCubic(x) { return 1 - Math.pow(1 - clamp(x, 0, 1), 3); }
+  function easeOutQuint(x) { return 1 - Math.pow(1 - clamp(x, 0, 1), 5); }
+  function easeOutBack(x) {
+    const c1 = 1.70158, c3 = c1 + 1;
+    const u = clamp(x, 0, 1);
+    return 1 + c3 * Math.pow(u - 1, 3) + c1 * Math.pow(u - 1, 2);
+  }
+  function formatBRL(n) {
+    return Math.round(n).toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+  }
+  function fmtClock(t) {
+    const s = Math.max(0, Math.floor(t));
+    const m = Math.floor(s / 60);
+    const r = s % 60;
+    return String(m).padStart(2, '0') + ':' + String(r).padStart(2, '0');
+  }
+
+  // Kinetic entry style: scale + blur + slide
+  function kin(t, start, dur = 0.28, opts = {}) {
+    const p = prog(t, start, dur);
+    const e = opts.pop ? easeOutBack(p) : easeOutCubic(p);
+    const op = clamp(p * 2.2, 0, 1);
+    const dx = lerp(opts.dx || 0, 0, e);
+    const dy = lerp(opts.dy !== undefined ? opts.dy : 48, 0, e);
+    const sc = lerp(opts.fromScale !== undefined ? opts.fromScale : 0.86, 1.0, e);
+    const blur = lerp(opts.blur !== undefined ? opts.blur : 12, 0, easeOutCubic(p));
+    return `opacity:${op.toFixed(3)};transform:translate3d(${dx.toFixed(1)}px,${dy.toFixed(1)}px,0) scale(${sc.toFixed(4)});filter:blur(${blur.toFixed(2)}px);`;
+  }
+
+  // Fade out envelope at end of a scene
+  function envOpacity(t, start, end, fi = 0.14, fo = 0.16) {
+    const a = prog(t, start, fi);
+    const b = 1 - prog(t, end - fo, fo);
+    return clamp(Math.min(a, b), 0, 1);
+  }
+
+  // ==================== CUSTOM SVGs ====================
+
+  function svgAI(size = 240, t = 0) {
+    const rot = (t * 28) % 360;
+    const pulse = 1 + 0.04 * Math.sin(t * 5.0);
+    return `
+      <svg width="${size}" height="${size}" viewBox="0 0 240 240" fill="none">
+        <defs>
+          <radialGradient id="aiG" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#FF7A1A" stop-opacity="0.45"/>
+            <stop offset="100%" stop-color="#FF7A1A" stop-opacity="0"/>
+          </radialGradient>
+        </defs>
+        <circle cx="120" cy="120" r="108" fill="url(#aiG)"/>
+        <g transform="translate(120 120) rotate(${rot.toFixed(1)}) translate(-120 -120)">
+          <circle cx="120" cy="120" r="88" stroke="#FF7A1A" stroke-width="3.5" stroke-dasharray="16 12" opacity="0.85"/>
+          <circle cx="120" cy="32" r="8" fill="#FFFFFF"/>
+          <circle cx="208" cy="120" r="7" fill="#2BD576"/>
+          <circle cx="120" cy="208" r="8" fill="#FF7A1A"/>
+          <circle cx="32" cy="120" r="7" fill="#FFFFFF"/>
+        </g>
+        <g transform="translate(120 120) rotate(${(-rot * 0.6).toFixed(1)}) translate(-120 -120)">
+          <polygon points="120,52 178,86 178,154 120,188 62,154 62,86" stroke="rgba(255,255,255,0.45)" stroke-width="2.5" fill="rgba(17,17,17,0.75)"/>
+        </g>
+        <g transform="translate(120 120) scale(${pulse.toFixed(3)}) translate(-120 -120)">
+          <path d="M120 64 C124 98, 142 116, 176 120 C142 124, 124 142, 120 176 C116 142, 98 124, 64 120 C98 116, 116 98, 120 64 Z" fill="#FF7A1A" stroke="#FFFFFF" stroke-width="3"/>
+          <circle cx="120" cy="120" r="14" fill="#111111" stroke="#FFFFFF" stroke-width="3"/>
+        </g>
+      </svg>`;
+  }
+
+  function svgBarber(size = 240, t = 0) {
+    const snip = Math.sin(t * 7.5) * 9;
+    return `
+      <svg width="${size}" height="${size}" viewBox="0 0 240 240" fill="none">
+        <rect x="20" y="20" width="200" height="200" rx="38" fill="rgba(17,17,17,0.88)" stroke="#FF7A1A" stroke-width="4"/>
+        <!-- Barber pole mini on left -->
+        <rect x="46" y="64" width="32" height="112" rx="16" fill="#1C1C1E" stroke="#FFFFFF" stroke-width="3"/>
+        <path d="M48 92 L76 76 M48 116 L76 100 M48 140 L76 124 M48 164 L76 148" stroke="#FF7A1A" stroke-width="7" stroke-linecap="round"/>
+        <rect x="42" y="54" width="40" height="12" rx="6" fill="#FFFFFF"/>
+        <rect x="42" y="174" width="40" height="12" rx="6" fill="#FFFFFF"/>
+        <!-- Animated Scissors -->
+        <g transform="translate(148 122)">
+          <g transform="rotate(${(-24 - snip).toFixed(1)})">
+            <path d="M-40 -6 L42 -6 C48 -6 52 -2 52 0 L-40 5 Z" fill="#FFFFFF"/>
+            <circle cx="-46" cy="18" r="16" stroke="#FF7A1A" stroke-width="6" fill="none"/>
+            <path d="M-32 4 L-38 14" stroke="#FF7A1A" stroke-width="6" stroke-linecap="round"/>
+          </g>
+          <g transform="rotate(${(24 + snip).toFixed(1)})">
+            <path d="M-40 6 L42 6 C48 6 52 2 52 0 L-40 -5 Z" fill="#D4D4D8"/>
+            <circle cx="-46" cy="-18" r="16" stroke="#FF7A1A" stroke-width="6" fill="none"/>
+            <path d="M-32 -4 L-38 -14" stroke="#FF7A1A" stroke-width="6" stroke-linecap="round"/>
+          </g>
+          <circle cx="0" cy="0" r="6" fill="#FF7A1A" stroke="#111111" stroke-width="2.5"/>
+        </g>
+      </svg>`;
+  }
+
+  function svgPhoneApp(size = 330, opts = {}) {
+    const title = opts.title || 'SAMUEL BARBEARIA';
+    const badge = opts.badge || 'APP PRÓPRIO';
+    const isAlert = !!opts.alert;
+    const accent = isAlert ? '#FF453A' : '#2BD576';
+    const h = Math.round(size * 1.48);
+    return `
+      <svg width="${size}" height="${h}" viewBox="0 0 260 385" fill="none">
+        <rect x="10" y="10" width="240" height="365" rx="38" fill="#111111" stroke="${isAlert ? '#FF453A' : '#FF7A1A'}" stroke-width="5"/>
+        <rect x="24" y="26" width="212" height="333" rx="26" fill="#18181B"/>
+        <!-- Notch -->
+        <rect x="86" y="34" width="88" height="14" rx="7" fill="#09090B"/>
+        <!-- App Header -->
+        <rect x="38" y="64" width="184" height="58" rx="14" fill="rgba(255,122,26,0.16)" stroke="#FF7A1A" stroke-width="2"/>
+        <text x="130" y="89" text-anchor="middle" fill="#FF7A1A" font-family="Montserrat,sans-serif" font-size="11" font-weight="800" letter-spacing="1.5">${badge}</text>
+        <text x="130" y="110" text-anchor="middle" fill="#FFFFFF" font-family="Montserrat,sans-serif" font-size="14" font-weight="800">${title}</text>
+        <!-- Schedule rows -->
+        <rect x="38" y="138" width="184" height="44" rx="11" fill="#232327"/>
+        <circle cx="58" cy="160" r="9" fill="#FF7A1A"/>
+        <rect x="76" y="151" width="90" height="8" rx="4" fill="#FFFFFF" opacity="0.85"/>
+        <rect x="76" y="164" width="56" height="6" rx="3" fill="#A1A1AA"/>
+        <rect x="176" y="150" width="36" height="20" rx="6" fill="${accent}"/>
+
+        <rect x="38" y="192" width="184" height="44" rx="11" fill="#232327"/>
+        <circle cx="58" cy="214" r="9" fill="#2BD576"/>
+        <rect x="76" y="205" width="102" height="8" rx="4" fill="#FFFFFF" opacity="0.85"/>
+        <rect x="76" y="218" width="64" height="6" rx="3" fill="#A1A1AA"/>
+
+        <rect x="38" y="246" width="184" height="44" rx="11" fill="#232327"/>
+        <circle cx="58" cy="268" r="9" fill="#FF7A1A"/>
+        <rect x="76" y="259" width="80" height="8" rx="4" fill="#FFFFFF" opacity="0.85"/>
+        <rect x="76" y="272" width="70" height="6" rx="3" fill="#A1A1AA"/>
+
+        <!-- Bottom CTA -->
+        <rect x="38" y="306" width="184" height="38" rx="12" fill="${accent}"/>
+        <text x="130" y="330" text-anchor="middle" fill="#111111" font-family="Montserrat,sans-serif" font-size="14" font-weight="800">${isAlert ? 'ERRO / TRAVANDO!' : 'AGENDAR CORTE ✓'}</text>
+      </svg>`;
+  }
+
+  function svgMacBook2014(size = 460, t = 0) {
+    const h = Math.round(size * 0.66);
+    const barW = 90 + Math.round(40 * (0.5 + 0.5 * Math.sin(t * 4.2)));
+    return `
+      <svg width="${size}" height="${h}" viewBox="0 0 460 304" fill="none">
+        <!-- Lid / bezel -->
+        <rect x="46" y="14" width="368" height="224" rx="16" fill="#27272A" stroke="#D4D4D8" stroke-width="5"/>
+        <!-- Screen -->
+        <rect x="64" y="32" width="332" height="188" rx="6" fill="#111111"/>
+        <!-- Top badge inside screen -->
+        <rect x="80" y="46" width="176" height="28" rx="7" fill="rgba(255,122,26,0.2)" stroke="#FF7A1A" stroke-width="2"/>
+        <text x="168" y="65" text-anchor="middle" fill="#FF7A1A" font-family="Montserrat,sans-serif" font-size="14" font-weight="800">MACBOOK AIR 2014</text>
+        <!-- Simulated AI code lines -->
+        <rect x="80" y="90" width="190" height="10" rx="5" fill="#FFFFFF" opacity="0.85"/>
+        <rect x="80" y="110" width="${barW}" height="10" rx="5" fill="#FF7A1A"/>
+        <rect x="80" y="130" width="250" height="10" rx="5" fill="#2BD576" opacity="0.9"/>
+        <rect x="80" y="150" width="170" height="10" rx="5" fill="#A1A1AA" opacity="0.7"/>
+        <rect x="80" y="170" width="220" height="10" rx="5" fill="#FFFFFF" opacity="0.6"/>
+        <!-- Mini status chip -->
+        <rect x="276" y="46" width="104" height="28" rx="7" fill="rgba(43,213,118,0.18)" stroke="#2BD576" stroke-width="2"/>
+        <text x="328" y="65" text-anchor="middle" fill="#2BD576" font-family="Montserrat,sans-serif" font-size="13" font-weight="800">IA ATIVA</text>
+        <!-- Aluminum base -->
+        <path d="M12 242 H448 L434 268 C430 274 422 278 412 278 H48 C38 278 30 274 26 268 Z" fill="#D4D4D8"/>
+        <rect x="190" y="242" width="80" height="8" rx="4" fill="#71717A"/>
+        <!-- Label under laptop -->
+        <text x="230" y="298" text-anchor="middle" fill="#D4D4D8" font-family="Montserrat,sans-serif" font-size="17" font-weight="800" letter-spacing="3">MACBOOK 2014 · SEM PLACA DE VÍDEO</text>
+      </svg>`;
+  }
+
+  function svgMusicSchool(size = 220, t = 0) {
+    const b1 = 36 + Math.round(32 * Math.abs(Math.sin(t * 5.0)));
+    const b2 = 42 + Math.round(40 * Math.abs(Math.sin(t * 5.0 + 1.1)));
+    const b3 = 30 + Math.round(48 * Math.abs(Math.sin(t * 5.0 + 2.2)));
+    const b4 = 38 + Math.round(30 * Math.abs(Math.sin(t * 5.0 + 3.1)));
+    return `
+      <svg width="${size}" height="${size}" viewBox="0 0 220 220" fill="none">
+        <rect x="14" y="14" width="192" height="192" rx="34" fill="rgba(17,17,17,0.88)" stroke="#FF7A1A" stroke-width="4"/>
+        <rect x="46" y="${156 - b1}" width="22" height="${b1}" rx="8" fill="#FF7A1A"/>
+        <rect x="82" y="${156 - b2}" width="22" height="${b2}" rx="8" fill="#FFFFFF"/>
+        <rect x="118" y="${156 - b3}" width="22" height="${b3}" rx="8" fill="#2BD576"/>
+        <rect x="154" y="${156 - b4}" width="22" height="${b4}" rx="8" fill="#FF7A1A"/>
+        <text x="110" y="186" text-anchor="middle" fill="#D4D4D8" font-family="Montserrat,sans-serif" font-size="15" font-weight="800" letter-spacing="2">CUIABÁ · MT</text>
+      </svg>`;
+  }
+
+  function svgGamepad(size = 180) {
+    return `
+      <svg width="${size}" height="${size}" viewBox="0 0 180 180" fill="none">
+        <rect x="10" y="10" width="160" height="160" rx="30" fill="rgba(17,17,17,0.88)" stroke="#FF7A1A" stroke-width="4"/>
+        <path d="M46 116 C36 116 32 104 36 86 C40 68 50 60 66 60 H114 C130 60 140 68 144 86 C148 104 144 116 134 116 C126 116 120 106 112 104 H68 C60 106 54 116 46 116 Z" fill="#27272A" stroke="#FFFFFF" stroke-width="4"/>
+        <path d="M62 78 V96 M53 87 H71" stroke="#FF7A1A" stroke-width="6" stroke-linecap="round"/>
+        <circle cx="116" cy="82" r="5.5" fill="#2BD576"/>
+        <circle cx="127" cy="92" r="5.5" fill="#FF7A1A"/>
+      </svg>`;
+  }
+
+  function svgNetwork(size = 240, t = 0) {
+    const pulse = 1 + 0.08 * Math.sin(t * 4.5);
+    return `
+      <svg width="${size}" height="${size}" viewBox="0 0 240 240" fill="none">
+        <rect x="16" y="16" width="208" height="208" rx="34" fill="rgba(17,17,17,0.86)" stroke="#FF7A1A" stroke-width="3.5"/>
+        <line x1="120" y1="68" x2="66" y2="152" stroke="rgba(255,255,255,0.45)" stroke-width="4"/>
+        <line x1="120" y1="68" x2="174" y2="152" stroke="rgba(255,255,255,0.45)" stroke-width="4"/>
+        <line x1="66" y1="152" x2="174" y2="152" stroke="#FF7A1A" stroke-width="4" stroke-dasharray="8 6"/>
+        <g transform="translate(120 68) scale(${pulse.toFixed(3)}) translate(-120 -68)">
+          <circle cx="120" cy="68" r="22" fill="#FF7A1A"/>
+        </g>
+        <circle cx="66" cy="152" r="18" fill="#FFFFFF"/>
+        <circle cx="174" cy="152" r="20" fill="#2BD576"/>
+      </svg>`;
+  }
+
+  // ==================== SCENE RENDERER ====================
+
+  function renderScene(t) {
+    // 1) 0.00 - 2.15: "UM PROGRAMADOR COBRARIA PELO MENOS..."
+    if (t < 2.15) {
+      const op = envOpacity(t, 0.0, 2.15, 0.12, 0.14);
+      const lineW = Math.round(lerp(0, 560, easeOutCubic(prog(t, 0.55, 0.55))));
+      return `
+        <div class="center-stack" style="opacity:${op.toFixed(3)}">
+          <div class="eyebrow" style="${kin(t, 0.05, 0.25, { dy: -26 })}">MERCADO TRADICIONAL</div>
+          <div class="k-title" style="${kin(t, 0.12, 0.26, { dy: 50, fromScale: 0.9 })}">
+            UM <span class="orange" style="display:inline-block;${kin(t, 0.60, 0.30, { pop: true, fromScale: 0.72, dy: 24 })}">PROGRAMADOR</span>
+          </div>
+          <div class="k-title" style="margin-top:8px;${kin(t, 1.12, 0.28, { dy: 45 })}">COBRARIA</div>
+          <div class="accent-line" style="width:${lineW}px;"></div>
+          <div class="k-sub" style="${kin(t, 1.56, 0.25, { dy: 26 })}">PELO MENOS...</div>
+        </div>`;
+    }
+
+    // 2) 2.15 - 5.15: HUGE R$ 20.000 -> SLASHED at 4.75s!
+    if (t < 5.15) {
+      const op = envOpacity(t, 2.15, 5.15, 0.12, 0.14);
+      const countP = easeOutCubic(prog(t, 2.16, 0.92));
+      const val = Math.round(20000 * countP);
+      const slashP = easeOutQuint(prog(t, 4.75, 0.24));
+      const slashed = t >= 4.75;
+      // Micro shake on impact at 4.75s
+      const shakeP = prog(t, 4.75, 0.28);
+      const shakeX = slashed && shakeP < 1 ? Math.sin(shakeP * 38) * (1 - shakeP) * 18 : 0;
+      const shakeY = slashed && shakeP < 1 ? Math.cos(shakeP * 44) * (1 - shakeP) * 12 : 0;
+      const numColor = slashed ? '#8E8E93' : '#FFFFFF';
+      const dashLen = 1150;
+      const dashOff = Math.round(dashLen * (1 - slashP));
+
+      return `
+        <div class="center-stack" style="opacity:${op.toFixed(3)};transform:translate3d(${shakeX.toFixed(1)}px,${shakeY.toFixed(1)}px,0)">
+          <div class="eyebrow ${slashed ? 'red' : ''}" style="${kin(t, 2.15, 0.22, { dy: -20 })}">
+            ${slashed ? 'ESQUECE ESSE VALOR' : 'CUSTO COM PROGRAMADOR'}
+          </div>
+          <div class="num-hero" style="color:${numColor};${kin(t, 2.16, 0.30, { pop: true, fromScale: 0.72, dy: 30 })}">
+            R$ ${formatBRL(val)}
+            ${slashed ? `
+              <svg class="slash-svg" viewBox="0 0 1100 260" preserveAspectRatio="none">
+                <line x1="20" y1="220" x2="1080" y2="38" stroke="#FF453A" stroke-width="26" stroke-linecap="round"
+                  stroke-dasharray="${dashLen}" stroke-dashoffset="${dashOff}" />
+                <line x1="20" y1="220" x2="1080" y2="38" stroke="#FF7A1A" stroke-width="10" stroke-linecap="round"
+                  stroke-dasharray="${dashLen}" stroke-dashoffset="${dashOff}" />
+              </svg>` : ''}
+          </div>
+          <div class="k-sub" style="margin-top:30px;display:flex;align-items:center;gap:24px;${kin(t, 3.38, 0.28, { dy: 34 })}">
+            <span>PRA FAZER ESSE <span class="orange">APLICATIVO</span></span>
+          </div>
+          <div style="margin-top:26px;display:flex;align-items:center;gap:28px;${kin(t, 3.95, 0.30, { pop: true, fromScale: 0.8 })}">
+            ${svgBarber(122, t)}
+            <div style="font-size:34px;font-weight:800;color:#FF7A1A;">+</div>
+            ${svgPhoneApp(104, { badge: 'BARBEARIA', title: 'APP PRÓPRIO' })}
+          </div>
+        </div>`;
+    }
+
+    // 3) 5.15 - 6.40: R$ 100 EXPLOSION
+    if (t < 6.40) {
+      const op = envOpacity(t, 5.15, 6.40, 0.10, 0.12);
+      const val = Math.round(100 * easeOutCubic(prog(t, 5.18, 0.45)));
+      const lineW = Math.round(lerp(0, 620, easeOutCubic(prog(t, 5.20, 0.35))));
+      return `
+        <div class="center-stack" style="opacity:${op.toFixed(3)}">
+          <div class="compare-strip" style="${kin(t, 5.15, 0.22, { dy: -20 })}">
+            <span class="strike-mini">R$ 20.000</span>
+            <span class="orange">→</span>
+            <span class="orange">MEU CUSTO COM IA</span>
+          </div>
+          <div class="num-hero orange" style="font-size:245px;${kin(t, 5.18, 0.28, { pop: true, fromScale: 0.65, dy: 20 })}">
+            R$ ${val}
+          </div>
+          <div class="accent-line" style="width:${lineW}px;"></div>
+          <div class="k-sub" style="${kin(t, 5.45, 0.22, { dy: 24 })}">CONSTRUÍDO COM <span class="orange">INTELIGÊNCIA ARTIFICIAL</span></div>
+        </div>`;
+    }
+
+    // 4) 6.40 - 7.60: R$ 1.500 + R$ 100/mês EXPLOSION
+    if (t < 7.60) {
+      const op = envOpacity(t, 6.40, 7.60, 0.10, 0.12);
+      const val = Math.round(1500 * easeOutCubic(prog(t, 6.40, 0.46)));
+      return `
+        <div class="center-stack" style="opacity:${op.toFixed(3)}">
+          <div class="compare-strip" style="${kin(t, 6.40, 0.20, { dy: -20 })}">
+            <span class="strike-mini">R$ 20.000</span>
+            <span class="muted">→</span>
+            <span class="orange">R$ 100</span>
+            <span class="green">→</span>
+            <span class="green">VENDA REAL</span>
+          </div>
+          <div class="num-hero green" style="font-size:230px;${kin(t, 6.40, 0.28, { pop: true, fromScale: 0.65, dy: 20 })}">
+            R$ ${formatBRL(val)}
+          </div>
+          <div style="margin-top:26px;${kin(t, 6.72, 0.26, { pop: true, fromScale: 0.78, dy: 26 })}">
+            <span class="pill-badge">+ R$ 100 / MÊS</span>
+          </div>
+        </div>`;
+    }
+
+    // 5) 7.60 - 9.55: RELANCE 1 (FACE CLEAR!) — "quase me fez perder o cliente"
+    if (t < 9.55) {
+      const op = envOpacity(t, 7.60, 9.55, 0.10, 0.14);
+      return `
+        <div class="relance-bottom" style="opacity:${op.toFixed(3)}">
+          <div class="relance-bar alert" style="${kin(t, 7.68, 0.24, { pop: true, dy: 42 })}">
+            <span class="relance-text">
+              <span class="red">QUASE</span> ME FEZ
+              <span class="orange" style="display:inline-block;${kin(t, 8.28, 0.24, { pop: true, fromScale: 0.85, dy: 14 })}">PERDER O CLIENTE</span>
+            </span>
+          </div>
+        </div>`;
+    }
+
+    // 6) 9.55 - 14.30: "FICA NESSE VÍDEO — TUDO SOBRE PROGRAMAÇÃO COM IA"
+    if (t < 14.30) {
+      const op = envOpacity(t, 9.55, 14.30, 0.14, 0.18);
+      const showPhase2 = t >= 11.45;
+      if (!showPhase2) {
+        return `
+          <div class="center-stack" style="opacity:${op.toFixed(3)}">
+            <div class="eyebrow" style="${kin(t, 9.65, 0.24, { dy: -20 })}">QUER SABER MAIS?</div>
+            <div class="k-mega" style="${kin(t, 10.60, 0.30, { pop: true, dy: 44 })}">
+              FICA NESSE <span class="orange">VÍDEO</span>
+            </div>
+            <div class="accent-line" style="width:${Math.round(lerp(0, 520, easeOutCubic(prog(t, 10.75, 0.45))))}px;"></div>
+          </div>`;
+      }
+      return `
+        <div class="split-layout" style="opacity:${op.toFixed(3)}">
+          <div style="flex:1;text-align:left;">
+            <div class="eyebrow" style="${kin(t, 11.50, 0.22, { dx: -30, dy: 0 })}">ENTENDA TUDO SOBRE</div>
+            <div class="k-title" style="font-size:118px;${kin(t, 12.10, 0.28, { dx: -50, dy: 0 })}">
+              PROGRAMAÇÃO<br/>COM <span class="orange">IA</span>
+            </div>
+            <div class="accent-line" style="margin:28px 0;width:${Math.round(lerp(0, 480, easeOutCubic(prog(t, 12.45, 0.45))))}px;"></div>
+          </div>
+          <div style="${kin(t, 11.80, 0.36, { pop: true, fromScale: 0.72, dy: 0 })}">
+            ${svgAI(380, t)}
+          </div>
+        </div>`;
+    }
+
+    // 7) 14.30 - 16.20: RELANCE 2 (FACE CLEAR!) — Lower-third Aquilles Antony
+    if (t < 16.20) {
+      const op = envOpacity(t, 14.30, 16.20, 0.10, 0.16);
+      return `
+        <div class="lt-card" style="opacity:${op.toFixed(3)};${kin(t, 14.55, 0.28, { dx: -70, dy: 0 })}">
+          <div class="lt-accent"></div>
+          <div class="lt-body">
+            <div class="lt-name">AQUILLES ANTONY</div>
+            <div class="lt-sub">IA ANTONY  ·  CUIABÁ, MT</div>
+          </div>
+        </div>`;
+    }
+
+    // 8) 16.20 - 20.50: Empresário de Cuiabá + Escola de Música
+    if (t < 20.50) {
+      const op = envOpacity(t, 16.20, 20.50, 0.14, 0.16);
+      return `
+        <div class="split-layout" style="opacity:${op.toFixed(3)}">
+          <div style="flex:1;text-align:left;">
+            <div class="eyebrow" style="${kin(t, 16.25, 0.24, { dx: -30, dy: 0 })}">QUEM SOU EU</div>
+            <div class="k-title" style="font-size:96px;${kin(t, 16.32, 0.28, { dx: -40, dy: 0 })}">
+              EMPRESÁRIO DE <span class="orange">CUIABÁ</span>
+            </div>
+            <div class="k-sub" style="font-size:52px;margin-top:26px;${kin(t, 18.22, 0.30, { dy: 34 })}">
+              DONO DE UMA <span class="green">ESCOLA DE MÚSICA</span>
+            </div>
+            <div class="accent-line green" style="margin:26px 0;width:${Math.round(lerp(0, 440, easeOutCubic(prog(t, 18.40, 0.45))))}px;"></div>
+          </div>
+          <div style="${kin(t, 17.60, 0.34, { pop: true, fromScale: 0.78, dy: 0 })}">
+            ${svgMusicSchool(300, t)}
+          </div>
+        </div>`;
+    }
+
+    // 9) 20.50 - 24.98: Sempre curti programação & Inteligência Artificial
+    if (t < 24.98) {
+      const op = envOpacity(t, 20.50, 24.98, 0.14, 0.16);
+      return `
+        <div class="split-layout" style="opacity:${op.toFixed(3)}">
+          <div style="${kin(t, 21.80, 0.36, { pop: true, fromScale: 0.75, dy: 0 })}">
+            ${svgAI(330, t)}
+          </div>
+          <div style="flex:1;text-align:left;">
+            <div class="eyebrow" style="${kin(t, 20.60, 0.24, { dy: -20 })}">PAIXÃO POR TECNOLOGIA</div>
+            <div class="k-title" style="font-size:96px;${kin(t, 21.60, 0.28, { dy: 40 })}">
+              SEMPRE CURTI <span class="orange">PROGRAMAÇÃO</span>
+            </div>
+            <div class="k-sub" style="font-size:52px;margin-top:22px;${kin(t, 23.40, 0.30, { dy: 34 })}">
+              &amp; <span class="orange">INTELIGÊNCIA ARTIFICIAL</span>
+            </div>
+          </div>
+        </div>`;
+    }
+
+    // 10) 24.98 - 28.92: Comecei a desenvolver projetos com IA + MacBook 2014 SVG
+    if (t < 28.92) {
+      const op = envOpacity(t, 24.98, 28.92, 0.14, 0.16);
+      return `
+        <div class="split-layout" style="opacity:${op.toFixed(3)}">
+          <div style="flex:1;text-align:left;">
+            <div class="eyebrow" style="${kin(t, 25.05, 0.24, { dx: -25, dy: 0 })}">NA PRÁTICA</div>
+            <div class="k-title" style="font-size:90px;${kin(t, 25.70, 0.28, { dx: -40, dy: 0 })}">
+              COMECEI A <span class="orange">DESENVOLVER</span>
+            </div>
+            <div class="k-sub" style="font-size:50px;margin-top:20px;${kin(t, 26.90, 0.28, { dy: 30 })}">
+              PROJETOS REAIS COM <span class="green">IA</span>
+            </div>
+          </div>
+          <div style="${kin(t, 25.60, 0.36, { pop: true, fromScale: 0.82, dy: 0 })}">
+            ${svgMacBook2014(540, t)}
+          </div>
+        </div>`;
+    }
+
+    // 11) 28.92 - 31.65: Fazer jogos, fazer aplicativos
+    if (t < 31.65) {
+      const op = envOpacity(t, 28.92, 31.65, 0.12, 0.14);
+      return `
+        <div class="center-stack" style="opacity:${op.toFixed(3)}">
+          <div class="eyebrow" style="${kin(t, 28.95, 0.20, { dy: -20 })}">CRIANDO DO ZERO</div>
+          <div style="display:flex;gap:48px;margin-top:14px;align-items:center;">
+            <div class="dark-card orange-border" style="padding:40px 58px;display:flex;flex-direction:column;align-items:center;gap:22px;${kin(t, 29.02, 0.28, { pop: true, dx: -60, dy: 0 })}">
+              ${svgGamepad(180)}
+              <div style="font-size:56px;font-weight:800;">JOGOS</div>
+            </div>
+            <div class="dark-card green-border" style="padding:40px 58px;display:flex;flex-direction:column;align-items:center;gap:22px;${kin(t, 30.18, 0.28, { pop: true, dx: 60, dy: 0 })}">
+              ${svgPhoneApp(124, { badge: 'SISTEMAS', title: 'APLICATIVOS' })}
+              <div style="font-size:56px;font-weight:800;color:#2BD576;">APLICATIVOS</div>
+            </div>
+          </div>
+        </div>`;
+    }
+
+    // 12) 31.65 - 39.04: App da minha escola — eu mesmo desenvolvi
+    if (t < 39.04) {
+      const op = envOpacity(t, 31.65, 39.04, 0.14, 0.16);
+      const showOwn = t >= 35.80;
+      return `
+        <div class="split-layout" style="opacity:${op.toFixed(3)}">
+          <div style="flex:1;text-align:left;">
+            <div class="eyebrow green" style="${kin(t, 31.72, 0.24, { dx: -25, dy: 0 })}">MEU PRÓPRIO NEGÓCIO</div>
+            <div class="k-title" style="font-size:94px;${kin(t, 31.80, 0.28, { dx: -40, dy: 0 })}">
+              APP DA MINHA <span class="orange">ESCOLA</span>
+            </div>
+            ${showOwn ? `
+              <div style="margin-top:34px;${kin(t, 35.95, 0.28, { pop: true, fromScale: 0.8, dy: 22 })}">
+                <span class="pill-badge">EU MESMO DESENVOLVI ✓</span>
+              </div>` : `
+              <div class="k-sub" style="margin-top:26px;${kin(t, 33.40, 0.26, { dy: 24 })}">
+                ONDE TRABALHO E SOU DONO
+              </div>`}
+          </div>
+          <div style="${kin(t, 32.00, 0.34, { pop: true, fromScale: 0.8, dy: 0 })}">
+            ${svgPhoneApp(290, { badge: 'ESCOLA DE MÚSICA', title: 'APP PRÓPRIO' })}
+          </div>
+        </div>`;
+    }
+
+    // 13) 39.04 - 45.98: A possibilidade que a IA dá de criar QUALQUER COISA
+    if (t < 45.98) {
+      const op = envOpacity(t, 39.04, 45.98, 0.14, 0.16);
+      const climax = t >= 44.55;
+      return `
+        <div class="center-stack" style="opacity:${op.toFixed(3)}">
+          <div style="margin-bottom:20px;${kin(t, 39.15, 0.34, { pop: true, fromScale: 0.72, dy: -20 })}">
+            ${svgAI(210, t)}
+          </div>
+          <div class="k-sub" style="margin-top:0;font-size:50px;${kin(t, 41.20, 0.26, { dy: 26 })}">
+            A POSSIBILIDADE QUE A <span class="orange">IA</span> DÁ DE CRIAR
+          </div>
+          ${climax ? `
+            <div class="k-mega orange" style="margin-top:16px;font-size:158px;${kin(t, 44.65, 0.26, { pop: true, fromScale: 0.68, dy: 22 })}">
+              QUALQUER COISA
+            </div>` : `
+            <div class="k-title" style="margin-top:18px;font-size:102px;${kin(t, 43.00, 0.26, { dy: 34 })}">
+              BASICAMENTE...
+            </div>`}
+        </div>`;
+    }
+
+    // 14) 45.98 - 53.86: Igreja · Vários empresários
+    if (t < 53.86) {
+      const op = envOpacity(t, 45.98, 53.86, 0.14, 0.16);
+      return `
+        <div class="split-layout" style="opacity:${op.toFixed(3)}">
+          <div style="flex:1;text-align:left;">
+            <div class="eyebrow" style="${kin(t, 46.08, 0.24, { dx: -24, dy: 0 })}">COMO SURGIU O CLIENTE</div>
+            <div class="k-title" style="font-size:94px;${kin(t, 48.70, 0.28, { dx: -40, dy: 0 })}">
+              COMUNIDADE DE <span class="orange">EMPRESÁRIOS</span>
+            </div>
+            <div class="k-sub" style="margin-top:24px;${kin(t, 50.80, 0.28, { dy: 28 })}">
+              NETWORKING REAL NA MINHA IGREJA
+            </div>
+            <div class="accent-line" style="margin:26px 0;width:${Math.round(lerp(0, 480, easeOutCubic(prog(t, 51.00, 0.45))))}px;"></div>
+          </div>
+          <div style="${kin(t, 48.80, 0.34, { pop: true, fromScale: 0.8, dy: 0 })}">
+            ${svgNetwork(310, t)}
+          </div>
+        </div>`;
+    }
+
+    // 15) 53.86 - 58.95: Um empresário próximo de mim
+    if (t < 58.95) {
+      const op = envOpacity(t, 53.86, 58.95, 0.14, 0.16);
+      return `
+        <div class="center-stack" style="opacity:${op.toFixed(3)}">
+          <div class="eyebrow" style="${kin(t, 53.95, 0.24, { dy: -20 })}">OPORTUNIDADE REAL</div>
+          <div class="k-title" style="font-size:108px;${kin(t, 54.90, 0.28, { pop: true, dy: 40 })}">
+            UM <span class="orange">EMPRESÁRIO</span><br/>PRÓXIMO DE MIM
+          </div>
+          <div class="accent-line" style="width:${Math.round(lerp(0, 560, easeOutCubic(prog(t, 55.20, 0.50))))}px;"></div>
+        </div>`;
+    }
+
+    // 16) 58.95 - 63.65: Problemas no aplicativo de barbearia (Tesoura + Celular Alert)
+    if (t < 63.65) {
+      const op = envOpacity(t, 58.95, 63.65, 0.12, 0.14);
+      return `
+        <div class="split-layout" style="opacity:${op.toFixed(3)}">
+          <div style="flex:1;text-align:left;">
+            <div class="eyebrow red" style="${kin(t, 59.00, 0.24, { dx: -24, dy: 0 })}">A DOR DO CLIENTE</div>
+            <div class="k-title" style="font-size:94px;${kin(t, 59.10, 0.28, { dx: -40, dy: 0 })}">
+              <span class="red">PROBLEMAS</span> NO APP<br/>DE <span class="orange">BARBEARIA</span>
+            </div>
+            <div style="margin-top:30px;display:flex;align-items:center;gap:24px;${kin(t, 61.50, 0.28, { pop: true, dy: 24 })}">
+              ${svgBarber(145, t)}
+              <div style="font-size:38px;font-weight:800;color:#E4E4E7;">SISTEMA TRAVANDO<br/>E SEM MARCA PRÓPRIA</div>
+            </div>
+          </div>
+          <div style="${kin(t, 59.60, 0.34, { pop: true, fromScale: 0.78, dy: 0 })}">
+            ${svgPhoneApp(280, { badge: 'PROBLEMA', title: 'APP ANTIGO', alert: true })}
+          </div>
+        </div>`;
+    }
+
+    // 17) 63.65 - 65.55: RELANCE 3 (FACE CLEAR!) — "Cara, eu posso te ajudar!"
+    if (t < 65.55) {
+      const op = envOpacity(t, 63.65, 65.55, 0.10, 0.14);
+      return `
+        <div class="relance-bottom" style="opacity:${op.toFixed(3)}">
+          <div class="relance-bar" style="${kin(t, 63.75, 0.24, { pop: true, dy: 40 })}">
+            <span class="relance-text">“EU POSSO TE <span class="orange">AJUDAR</span>”</span>
+          </div>
+        </div>`;
+    }
+
+    // 18) 65.55 - 67.00: "Fazer um app pra você"
+    if (t < 67.00) {
+      const op = envOpacity(t, 65.55, 67.00, 0.10, 0.12);
+      return `
+        <div class="split-layout" style="opacity:${op.toFixed(3)}">
+          <div style="flex:1;text-align:left;">
+            <div class="eyebrow green" style="${kin(t, 65.58, 0.20, { dx: -20, dy: 0 })}">A PROPOSTA</div>
+            <div class="k-title" style="font-size:100px;${kin(t, 65.62, 0.24, { pop: true, dx: -30, dy: 0 })}">
+              FAZER UM <span class="green">APP</span><br/>PRA VOCÊ
+            </div>
+          </div>
+          <div style="${kin(t, 65.62, 0.26, { pop: true, fromScale: 0.82, dy: 0 })}">
+            ${svgPhoneApp(270, { badge: 'SOB MEDIDA', title: 'SAMUEL BARBEARIA' })}
+          </div>
+        </div>`;
+    }
+
+    // 19) 67.00 - 75.15: Não comecei agora — bons meses programando com IA + MacBook 2014
+    if (t < 75.15) {
+      const op = envOpacity(t, 67.00, 75.15, 0.14, 0.16);
+      const barP = easeOutCubic(prog(t, 70.44, 2.2));
+      return `
+        <div class="split-layout" style="opacity:${op.toFixed(3)}">
+          <div style="flex:1;text-align:left;">
+            <div class="eyebrow" style="${kin(t, 67.05, 0.24, { dx: -24, dy: 0 })}">PONTO IMPORTANTE</div>
+            <div class="k-title" style="font-size:90px;${kin(t, 69.00, 0.28, { dx: -40, dy: 0 })}">
+              EU <span class="orange">NÃO COMECEI</span><br/>AGORA
+            </div>
+            <div class="k-sub" style="margin-top:22px;${kin(t, 70.44, 0.28, { dy: 28 })}">
+              <span class="green">BONS MESES</span> PROGRAMANDO COM IA
+            </div>
+            <div style="margin-top:26px;width:680px;height:14px;border-radius:999px;background:rgba(255,255,255,0.14);overflow:hidden;${kin(t, 70.44, 0.24, { dy: 16 })}">
+              <div style="height:100%;width:${Math.round(barP * 100)}%;background:linear-gradient(90deg,#FF7A1A,#2BD576);"></div>
+            </div>
+          </div>
+          <div style="${kin(t, 68.50, 0.36, { pop: true, fromScale: 0.8, dy: 0 })}">
+            ${svgMacBook2014(520, t)}
+          </div>
+        </div>`;
+    }
+
+    // 20) 75.15 - 82.86: Não foi só sair fazendo — já sabia construir
+    if (t < 82.86) {
+      const op = envOpacity(t, 75.15, 82.86, 0.14, 0.16);
+      const phase2 = t >= 78.80;
+      return `
+        <div class="center-stack" style="opacity:${op.toFixed(3)}">
+          <div class="eyebrow ${phase2 ? 'green' : ''}" style="${kin(t, 75.25, 0.24, { dy: -20 })}">
+            ${phase2 ? 'MÉTODO & EXPERIÊNCIA' : 'SEM IMPROVISO'}
+          </div>
+          ${!phase2 ? `
+            <div class="k-title" style="font-size:104px;${kin(t, 75.36, 0.28, { dy: 40 })}">
+              NÃO FOI SÓ<br/><span class="orange">SAIR FAZENDO</span>
+            </div>` : `
+            <div class="k-title" style="font-size:106px;${kin(t, 78.86, 0.28, { pop: true, dy: 40 })}">
+              EU JÁ SABIA<br/><span class="green">CONSTRUIR</span>
+            </div>
+            <div class="accent-line green" style="width:${Math.round(lerp(0, 560, easeOutCubic(prog(t, 79.10, 0.45))))}px;"></div>
+            <div class="k-sub" style="${kin(t, 80.20, 0.26, { dy: 24 })}">EXATAMENTE O QUE O CLIENTE PRECISAVA</div>`}
+        </div>`;
+    }
+
+    // 21) 82.86 - 88.20: FECHEI COM ELE — APP DA BARBEARIA!
+    if (t < 88.20) {
+      const op = envOpacity(t, 82.86, 88.20, 0.12, 0.16);
+      return `
+        <div class="split-layout" style="opacity:${op.toFixed(3)}">
+          <div style="flex:1;text-align:left;">
+            <div class="eyebrow green" style="${kin(t, 83.00, 0.24, { dx: -24, dy: 0 })}">PRIMEIRA VENDA</div>
+            <div class="k-mega green" style="font-size:126px;${kin(t, 84.55, 0.28, { pop: true, fromScale: 0.72, dy: 24 })}">
+              FECHEI<br/>COM ELE!
+            </div>
+            <div class="k-sub" style="margin-top:22px;${kin(t, 86.10, 0.28, { dy: 24 })}">
+              O APP DA <span class="orange">BARBEARIA DO SAMUEL</span>
+            </div>
+          </div>
+          <div style="display:flex;align-items:center;gap:28px;${kin(t, 84.70, 0.34, { pop: true, fromScale: 0.78, dy: 0 })}">
+            ${svgBarber(220, t)}
+            ${svgPhoneApp(240, { badge: 'FECHADO ✓', title: 'SAMUEL BARBEARIA' })}
+          </div>
+        </div>`;
+    }
+
+    // 22) 88.20 - 101.76: PROMESSA DO VÍDEO (Checklist: Quanto gastei / Quanto vendi / Serviços / Como fiz)
+    if (t < 101.76) {
+      const op = envOpacity(t, 88.20, 101.76, 0.14, 0.16);
+      const s1 = t >= 90.40;
+      const s2 = t >= 94.95;
+      const s3 = t >= 97.65;
+      const s4 = t >= 100.40;
+      return `
+        <div class="center-stack" style="opacity:${op.toFixed(3)}">
+          <div class="eyebrow" style="${kin(t, 88.30, 0.24, { dy: -20 })}">TUDO ABERTAMENTE NA TELA</div>
+          <div class="k-title" style="font-size:82px;${kin(t, 88.45, 0.26, { dy: 30 })}">
+            O QUE VOCÊ VAI VER <span class="orange">NESTE VÍDEO</span>
+          </div>
+          <div class="promise-grid">
+            <div class="promise-item ${s1 && !s2 ? 'active' : ''}" style="${s1 ? kin(t, 90.45, 0.28, { pop: true, dy: 30 }) : 'opacity:0.18;'}">
+              <div class="promise-num">01</div>
+              <div>
+                <div class="promise-lbl">QUANTO GASTEI</div>
+                <div class="promise-val orange">~R$ 100 em IA</div>
+              </div>
+            </div>
+            <div class="promise-item ${s2 && !s3 ? 'active-green' : ''}" style="${s2 ? kin(t, 95.00, 0.28, { pop: true, dy: 30 }) : 'opacity:0.18;'}">
+              <div class="promise-num green">02</div>
+              <div>
+                <div class="promise-lbl">POR QUANTO VENDI</div>
+                <div class="promise-val green">R$ 1.500 + R$ 100/mês</div>
+              </div>
+            </div>
+            <div class="promise-item ${s3 && !s4 ? 'active' : ''}" style="${s3 ? kin(t, 97.70, 0.28, { pop: true, dy: 30 }) : 'opacity:0.18;'}">
+              <div class="promise-num">03</div>
+              <div>
+                <div class="promise-lbl">QUAIS SERVIÇOS</div>
+                <div class="promise-val muted">Cloudflare · Supabase · Asaas</div>
+              </div>
+            </div>
+            <div class="promise-item ${s4 ? 'active-green' : ''}" style="${s4 ? kin(t, 100.45, 0.28, { pop: true, dy: 30 }) : 'opacity:0.18;'}">
+              <div class="promise-num green">04</div>
+              <div>
+                <div class="promise-lbl">COMO FIZ O APP</div>
+                <div class="promise-val green">Passo a passo real</div>
+              </div>
+            </div>
+          </div>
+        </div>`;
+    }
+
+    // 23) 101.76 - 106.58: Quais sites, quais servidores — VOCÊ VAI ENTENDER TUDO!
+    if (t < 106.58) {
+      const op = envOpacity(t, 101.76, 106.58, 0.12, 0.14);
+      const tudo = t >= 104.40;
+      const pulse = tudo ? (1 + 0.04 * Math.sin((t - 104.4) * 18)) : 1;
+      return `
+        <div class="center-stack" style="opacity:${op.toFixed(3)}">
+          ${!tudo ? `
+            <div class="eyebrow" style="${kin(t, 101.82, 0.22, { dy: -20 })}">INFRAESTRUTURA COMPLETA</div>
+            <div class="k-title" style="font-size:96px;${kin(t, 101.88, 0.26, { dy: 34 })}">
+              SITES &amp; <span class="orange">SERVIDORES</span>
+            </div>
+            <div class="chip-row">
+              <span class="chip green" style="${kin(t, 102.00, 0.24, { pop: true, dy: 24 })}">CLOUDFLARE · R$ 0</span>
+              <span class="chip green" style="${kin(t, 102.35, 0.24, { pop: true, dy: 24 })}">SUPABASE · R$ 0</span>
+              <span class="chip" style="${kin(t, 102.75, 0.24, { pop: true, dy: 24 })}">CLAUDE IA</span>
+              <span class="chip green" style="${kin(t, 103.15, 0.24, { pop: true, dy: 24 })}">GITHUB · GRÁTIS</span>
+            </div>` : `
+            <div class="k-sub" style="margin-top:0;font-size:52px;${kin(t, 104.35, 0.20, { dy: 20 })}">VOCÊ VAI ENTENDER</div>
+            <div style="transform:scale(${pulse.toFixed(3)});">
+              <div class="k-mega orange" style="font-size:210px;${kin(t, 104.60, 0.24, { pop: true, fromScale: 0.65, dy: 16 })}">
+                TUDO!
+              </div>
+            </div>
+            <div class="accent-line" style="width:${Math.round(lerp(0, 620, easeOutCubic(prog(t, 104.70, 0.40))))}px;"></div>`}
+        </div>`;
+    }
+
+    // 24) 106.58 - 111.00: Pode ser um NEGÓCIO pra você — PROGRAMAÇÃO COM IA -> clean fade out
+    if (t < OPENING_DUR) {
+      const op = envOpacity(t, 106.58, OPENING_DUR, 0.14, 0.30);
+      return `
+        <div class="split-layout" style="opacity:${op.toFixed(3)}">
+          <div style="flex:1;text-align:left;">
+            <div class="eyebrow green" style="${kin(t, 106.66, 0.22, { dx: -24, dy: 0 })}">OPORTUNIDADE REAL</div>
+            <div class="k-title" style="font-size:94px;${kin(t, 106.74, 0.28, { pop: true, dx: -36, dy: 0 })}">
+              PODE SER UM<br/><span class="green">NEGÓCIO</span> PRA VOCÊ
+            </div>
+            <div class="k-sub" style="margin-top:24px;font-size:48px;${kin(t, 108.60, 0.26, { dy: 26 })}">
+              COM <span class="orange">PROGRAMAÇÃO COM IA</span>
+            </div>
+          </div>
+          <div style="${kin(t, 107.20, 0.34, { pop: true, fromScale: 0.78, dy: 0 })}">
+            ${svgAI(340, t)}
+          </div>
+        </div>`;
+    }
+
+    return '';
+  }
+
+  // ==================== GLOBAL DETERMINISTIC SEEK ====================
+  const bgWash = document.getElementById('bg-wash');
+  const bgGrid = document.getElementById('bg-grid');
+  const ambientGlow = document.getElementById('ambient-glow');
+  const sceneRoot = document.getElementById('scene-root');
+  const hud = document.getElementById('hud');
+  const hudCounter = document.getElementById('hud-counter');
+  const progressFill = document.getElementById('progress-fill');
+  const flashLayer = document.getElementById('flash-layer');
+  const sweepBar = document.getElementById('sweep-bar');
+
+  window.seek = function (t) {
+    t = Number(t) || 0;
+
+    if (t < 0 || t >= OPENING_DUR) {
+      bgWash.style.opacity = '0';
+      bgGrid.style.opacity = '0';
+      ambientGlow.style.opacity = '0';
+      hud.style.opacity = '0';
+      sceneRoot.innerHTML = '';
+      flashLayer.style.opacity = '0';
+      sweepBar.style.opacity = '0';
+      return;
+    }
+
+    // Check if inside one of the short face relances
+    let inRelance = false;
+    for (let i = 0; i < RELANCES.length; i++) {
+      if (t >= RELANCES[i][0] && t < RELANCES[i][1]) {
+        inRelance = true;
+        break;
+      }
+    }
+
+    // Global fade-out right before 111.0s
+    const endFade = 1 - prog(t, OPENING_DUR - 0.32, 0.32);
+
+    // Background scrim & grid: active over B-roll, 0% over face relances so face is 100% crisp!
+    bgWash.style.opacity = inRelance ? '0' : (0.95 * endFade).toFixed(3);
+    bgGrid.style.opacity = inRelance ? '0' : (0.85 * endFade).toFixed(3);
+    ambientGlow.style.opacity = inRelance ? '0' : (0.90 * endFade).toFixed(3);
+
+    // Subtle drift of ambient glow
+    const gx = 410 + Math.sin(t * 0.65) * 180;
+    const gy = -40 + Math.cos(t * 0.48) * 100;
+    ambientGlow.style.left = gx.toFixed(1) + 'px';
+    ambientGlow.style.top = gy.toFixed(1) + 'px';
+
+    // HUD stays sleek over B-roll and subtly dims on face relances
+    hud.style.opacity = (inRelance ? 0.38 : 0.92 * endFade).toFixed(3);
+    hudCounter.textContent = fmtClock(t) + ' / 01:51';
+    progressFill.style.width = (clamp(t / OPENING_DUR, 0, 1) * 100).toFixed(2) + '%';
+
+    // Render active beat
+    sceneRoot.innerHTML = renderScene(t);
+
+    // Deterministic Flash / Sweep transitions
+    let flashOp = 0;
+    let flashColor = '#FF7A1A';
+    let sweepOp = 0;
+    let sweepX = -500;
+    let sweepColor = '#FF7A1A';
+
+    for (let i = 0; i < FLASH_BEATS.length; i++) {
+      const fb = FLASH_BEATS[i];
+      const dt = t - fb.t;
+      if (dt >= 0 && dt < 0.28) {
+        if (fb.kind === 'impact') {
+          const p = dt / 0.26;
+          flashOp = Math.max(flashOp, (1 - p) * (1 - p) * 0.42);
+          flashColor = fb.color;
+        } else if (fb.kind === 'pulse') {
+          const p = dt / 0.20;
+          if (p <= 1) {
+            flashOp = Math.max(flashOp, (1 - p) * 0.16);
+            flashColor = fb.color;
+          }
+        } else if (fb.kind === 'sweep') {
+          const p = dt / 0.26;
+          if (p <= 1) {
+            sweepOp = Math.sin(p * Math.PI) * 0.85;
+            sweepX = lerp(-420, 2240, easeOutCubic(p));
+            sweepColor = fb.color;
+          }
+        }
+      }
+    }
+
+    flashLayer.style.opacity = flashOp.toFixed(3);
+    flashLayer.style.background = `radial-gradient(circle at 50% 50%, ${flashColor}, transparent 78%)`;
+
+    sweepBar.style.opacity = sweepOp.toFixed(3);
+    sweepBar.style.left = sweepX.toFixed(1) + 'px';
+    sweepBar.style.background = `linear-gradient(90deg, transparent 0%, ${sweepColor} 46%, #FFFFFF 54%, transparent 100%)`;
+  };
+
+  // Initial deterministic frame at t=0
+  window.seek(0);
+})();
+</script>
+</body>
+</html>
