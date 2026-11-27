@@ -10,7 +10,7 @@
 
 - **Texto principal (≤ 4 palavras):** `GASTEI 100, VENDI 1.500` *(ou alternativa curta: `R$ 100 → R$ 1.500`)*
 - **Ideia de imagem:**
-  - Aquiles em plano médio-fechado à esquerda, expressão sincera/surpresa segurando o MacBook Air 2014 aberto, fundo com a parede laranja natural (combinando com a identidade do canal).
+  - Aquilles Antony em plano médio-fechado à esquerda, expressão sincera/surpresa segurando o MacBook Air 2014 aberto, fundo com a parede laranja natural (combinando com a identidade do canal).
   - À direita, sobre um cartão escuro (`#111111`) com borda laranja (`#FF7A1A`), contraste limpo em tipografia bold: `R$ 100` em laranja com seta para `R$ 1.500` em verde dinheiro (`#22C55E`), acompanhado de um pequeno ícone minimalista de barbearia/app de celular. Sem excesso de elementos ou textos pequenos.
 
 ## Descrição (com capítulos válidos do YouTube)

@@ -108,7 +108,7 @@
       "title": "APP DA BARBEARIA",
       "start": 2.1,
       "end": 9.2,
-      "position": "top_right",
+      "position": "right_center",
       "rows": [
         { "at": 2.16, "label": "Programador", "value": "R$ 20.000+", "color": "text_muted", "sfx": "pop" },
         { "at": 5.18, "label": "Meu custo com IA", "value": "R$ 100", "color": "accent_orange", "sfx": "pop" },
@@ -118,11 +118,11 @@
     {
       "id": "card_lower_third",
       "type": "lower_third",
-      "title": "Aquiles Antony",
+      "title": "Aquilles Antony",
       "subtitle": "IA Antony · Cuiabá, MT",
       "start": 15.0,
       "end": 19.2,
-      "position": "bottom_left",
+      "position": "right_center",
       "sfx": "click-soft"
     },
     {
@@ -132,7 +132,7 @@
       "subtitle": "Sem placa de vídeo · Pouca RAM",
       "start": 117.8,
       "end": 122.7,
-      "position": "top_left",
+      "position": "right_center",
       "sfx": "pop"
     },
     {
@@ -142,16 +142,16 @@
       "subtitle": "Desenvolvimento do app + Edição",
       "start": 145.6,
       "end": 150.2,
-      "position": "top_left",
+      "position": "right_center",
       "sfx": "pop"
     },
     {
       "id": "card_receita_ano1",
       "type": "ledger",
-      "title": "SAMUEL BARBEARIA · 1º ANO",
+      "title": "SAMUEL · 1º ANO",
       "start": 194.9,
       "end": 227.5,
-      "position": "top_right",
+      "position": "right_center",
       "rows": [
         { "at": 195.04, "label": "Receita 1º ano", "value": "R$ 2.700", "color": "money_green", "sfx": "pop" },
         { "at": 197.44, "label": "Implantação", "value": "R$ 1.500", "color": "text_primary", "sfx": "click-soft" },
@@ -166,7 +166,7 @@
       "title": "RECORRÊNCIA E VENDA",
       "start": 234.5,
       "end": 265.5,
-      "position": "top_right",
+      "position": "right_center",
       "rows": [
         { "at": 241.46, "label": "2º ano em diante", "value": "R$ 100/mês", "color": "money_green", "sfx": "pop" },
         { "at": 245.42, "label": "Manutenção anual", "value": "~R$ 100/ano", "color": "accent_orange", "sfx": "click-soft" },
@@ -176,14 +176,14 @@
     {
       "id": "card_custos_ia",
       "type": "ledger",
-      "title": "CUSTOS DE IA NO PROJETO",
+      "title": "CUSTOS DE IA",
       "start": 277.2,
       "end": 334.7,
-      "position": "top_right",
+      "position": "right_center",
       "rows": [
         { "at": 277.64, "label": "Plano Claude", "value": "US$ 20/mês (~R$ 120)", "color": "text_primary", "sfx": "pop" },
         { "at": 291.78, "label": "Proporcional ao app", "value": "R$ 60 a R$ 120", "color": "accent_orange", "sfx": "click-soft" },
-        { "at": 322.72, "label": "ChatGPT / Codex", "value": "4 tarefas · 330k tokens", "color": "text_primary", "sfx": "click-soft" },
+        { "at": 322.72, "label": "ChatGPT / Codex · 4 tarefas", "value": "330k tokens", "color": "text_primary", "sfx": "click-soft" },
         { "at": 332.84, "label": "Plano Codex (já pago)", "value": "R$ 99/mês", "color": "text_muted", "sfx": "chime" }
       ]
     },
@@ -193,7 +193,7 @@
       "title": "TEMPO INVESTIDO",
       "start": 337.1,
       "end": 386.0,
-      "position": "top_right",
+      "position": "right_center",
       "rows": [
         { "at": 337.1, "label": "Relatório (Claude rodando)", "value": "25 a 35 horas", "color": "accent_orange", "sfx": "pop" },
         { "at": 373.28, "label": "Presencial · terça (Asaas)", "value": "4 a 5 horas", "color": "text_primary", "sfx": "click-soft" },
@@ -203,10 +203,10 @@
     {
       "id": "card_resumo_total",
       "type": "ledger",
-      "title": "CONTA FINAL DO PROJETO",
+      "title": "CONTA FINAL",
       "start": 395.5,
       "end": 430.5,
-      "position": "top_right",
+      "position": "right_center",
       "rows": [
         { "at": 395.78, "label": "Gasto em dinheiro", "value": "~R$ 100", "color": "accent_orange", "sfx": "pop" },
         { "at": 404.08, "label": "Implantação", "value": "R$ 1.500", "color": "text_primary", "sfx": "click-soft" },
@@ -222,7 +222,7 @@
       "title": "FERRAMENTAS USADAS",
       "start": 434.0,
       "end": 555.0,
-      "position": "top_right",
+      "position": "right_center",
       "items": [
         { "at": 434.24, "name": "Cloudflare", "role": "Hospedagem / Servidor", "cost": "R$ 0", "color": "money_green", "sfx": "pop" },
         { "at": 445.76, "name": "Supabase", "role": "Banco de dados / Login", "cost": "R$ 0", "color": "money_green", "sfx": "pop" },
@@ -242,7 +242,7 @@
       "title": "CUSTO FIXO E LIMITES",
       "start": 557.5,
       "end": 608.2,
-      "position": "top_right",
+      "position": "right_center",
       "rows": [
         { "at": 558.5, "label": "Infra (server, BD, push)", "value": "R$ 0/mês", "color": "money_green", "sfx": "click-soft" },
         { "at": 562.5, "label": "Domínio .com.br", "value": "~R$ 3/mês (R$ 40/ano)", "color": "accent_orange", "sfx": "pop" },
@@ -255,15 +255,15 @@
     {
       "id": "card_quanto_valeria",
       "type": "ledger",
-      "title": "QUANTO VALERIA NO MERCADO",
+      "title": "VALOR DE MERCADO",
       "start": 610.8,
       "end": 651.0,
-      "position": "top_right",
+      "position": "right_center",
       "rows": [
         { "at": 610.8, "label": "Modelo usado", "value": "Claude Opus", "color": "accent_orange", "sfx": "pop" },
         { "at": 614.0, "label": "API avulsa (sem plano)", "value": "Muito mais caro", "color": "text_muted", "sfx": "click-soft" },
         { "at": 630.64, "label": "Programador (estimativa)", "value": "80 a 150 horas", "color": "text_primary", "sfx": "pop" },
-        { "at": 636.16, "label": "Valor estimado", "value": "R$ 20 mil a R$ 60 mil", "color": "money_green_bright", "sfx": "chime" }
+        { "at": 636.16, "label": "Valor estimado", "value": "R$ 20 a 60 mil", "color": "money_green_bright", "sfx": "chime" }
       ]
     },
     {
@@ -273,7 +273,7 @@
       "subtitle": "Não contra ela",
       "start": 706.5,
       "end": 714.5,
-      "position": "top_left",
+      "position": "right_center",
       "sfx": "pop"
     },
     {
@@ -283,7 +283,7 @@
       "subtitle": "Logo do cliente, sem ser terceiro",
       "start": 779.0,
       "end": 789.0,
-      "position": "top_left",
+      "position": "right_center",
       "sfx": "pop"
     },
     {
@@ -293,7 +293,7 @@
       "subtitle": "Ganha dinheiro quem resolve o problema",
       "start": 811.5,
       "end": 822.5,
-      "position": "top_left",
+      "position": "right_center",
       "sfx": "chime"
     },
     {
@@ -304,7 +304,7 @@
       "subtitle": "IA Antony · Inscreva-se no canal",
       "start": 888.84,
       "end": 897.5,
-      "position": "top_right",
+      "position": "right_center",
       "sfx": "sparkle"
     }
   ],
@@ -340,7 +340,7 @@
     { "time": 2.16, "sound": "pop", "gain_db": -14.0, "note": "Hook: R$ 20.000+" },
     { "time": 5.18, "sound": "pop", "gain_db": -14.0, "note": "Hook: R$ 100" },
     { "time": 6.4, "sound": "chime", "gain_db": -13.0, "note": "Hook: R$ 1.500" },
-    { "time": 15.0, "sound": "click-soft", "gain_db": -16.0, "note": "Lower-third Aquiles Antony" },
+    { "time": 15.0, "sound": "click-soft", "gain_db": -16.0, "note": "Lower-third Aquilles Antony" },
     { "time": 111.0, "sound": "whoosh-short", "gain_db": -13.0, "note": "Seção: Equipamento" },
     { "time": 117.8, "sound": "pop", "gain_db": -14.0, "note": "Badge: MacBook Air 2014" },
     { "time": 145.6, "sound": "pop", "gain_db": -14.0, "note": "Badge: Claude" },

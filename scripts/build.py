@@ -35,6 +35,31 @@ PREVIEW_LIMIT_S = 90.0
 FPS = 30
 WIDTH = 1920
 HEIGHT = 1080
+# Crop global para remover barra de menu/título (44 px topo) e Dock do macOS (48 px base), mantendo 16:9
+CROP_TOP = 44
+CROP_BOTTOM = 48
+CROP_H = HEIGHT - CROP_TOP - CROP_BOTTOM  # 988
+CROP_W = (round(CROP_H * WIDTH / HEIGHT) // 2) * 2  # 1756
+CROP_X = (WIDTH - CROP_W) // 2  # 82
+CROP_Y = CROP_TOP  # 44
+
+
+def global_crop_scale_filter() -> str:
+    """Remove 44 px do topo e 48 px da base (laterais proporcionais em 16:9) e escala para 1920x1080."""
+    return (
+        f"crop=w=trunc((iw*{CROP_W}/{WIDTH}+1)/2)*2:"
+        f"h=trunc((ih*{CROP_H}/{HEIGHT}+1)/2)*2:"
+        f"x=trunc((iw*{CROP_X}/{WIDTH}+1)/2)*2:"
+        f"y=trunc((ih*{CROP_Y}/{HEIGHT}+1)/2)*2,"
+        f"scale={WIDTH}:{HEIGHT}:flags=lanczos,setsar=1,format=yuv420p"
+    )
+
+
+def remap_zoom_center_after_crop(cx: float, cy: float) -> tuple[float, float]:
+    """Remapeia (cx, cy) normalizados do quadro 1920x1080 original para o quadro pós-crop."""
+    new_cx = (cx * WIDTH - CROP_X) / CROP_W
+    new_cy = (cy * HEIGHT - CROP_Y) / CROP_H
+    return (min(1.0, max(0.0, new_cx)), min(1.0, max(0.0, new_cy)))
 
 
 def log(msg: str) -> None:
@@ -344,18 +369,19 @@ def cut_video_edl(
                 inputs.extend(["-ss", f"{seek_start:.6f}", "-t", f"{target_dur + 0.25:.6f}", "-i", str(vid_path)])
 
             lbl = f"v{i}"
+            crop_scale = global_crop_scale_filter()
             # Se ultrapassar o fim do vídeo (caso p2), congela o último quadro
             if needs_freeze:
                 pad_s = max(0.2, (v_end - real_dur) + 0.5)
                 chain = (
                     f"[{i}:v]tpad=stop_mode=clone:stop_duration={pad_s:.3f},"
                     f"fps={FPS},trim=start=0:duration={target_dur:.6f},setpts=PTS-STARTPTS,"
-                    f"scale={WIDTH}:{HEIGHT}:flags=lanczos,setsar=1,format=yuv420p[{lbl}]"
+                    f"{crop_scale}[{lbl}]"
                 )
             else:
                 chain = (
                     f"[{i}:v]fps={FPS},trim=start=0:duration={target_dur:.6f},setpts=PTS-STARTPTS,"
-                    f"scale={WIDTH}:{HEIGHT}:flags=lanczos,setsar=1,format=yuv420p[{lbl}]"
+                    f"{crop_scale}[{lbl}]"
                 )
             filter_lines.append(chain)
             concat_labels.append(f"[{lbl}]")
@@ -578,10 +604,9 @@ def render_video_chunk(
                 f"fps={FPS},scale={WIDTH}:{HEIGHT}:flags=lanczos,setsar=1,format=yuv420p[{lbl}]"
             )
         else:
-            s0 = z["from_scale"]
-            s1 = z["to_scale"]
-            cx = min(1.0, max(0.0, z["cx"]))
-            cy = min(1.0, max(0.0, z["cy"]))
+            s0 = max(1.0, z["from_scale"])
+            s1 = max(1.0, z["to_scale"])
+            cx, cy = remap_zoom_center_after_crop(z["cx"], z["cy"])
             total_f = max(2, int(round(rel_dur * FPS)))
             ease_f = int(round(z["ease_out_s"] * FPS))
             # Dentro de aspas simples no zoompan, vírgulas NÃO devem levar barra invertida
