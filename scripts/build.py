@@ -234,6 +234,13 @@ def ensure_media(
         else:
             warn(f"{p3_vid} indisponível para B-roll; usando trechos TELA disponíveis em p1.")
 
+    # Voz tratada no Adobe Podcast (já cortada na linha do tempo final)
+    vt = media_dir / "voz_tratada.mp3"
+    if (not vt.exists() or vt.stat().st_size == 0) and not skip_download:
+        try:
+            download_release_asset(gh_repo, release, "voz_tratada.mp3", vt)
+        except Exception as e:
+            warn(f"voz_tratada.mp3 indisponível: {e}")
     # Trilha: opcional por enquanto
     trilha = media_dir / "trilha.mp3"
     if (not trilha.exists() or trilha.stat().st_size == 0) and not skip_download:
@@ -1637,7 +1644,7 @@ def master_audio(
     # Passo 1: Pré-processamento da voz
     voice_pre = work_dir / "voice_pre.wav"
     pre_chain = (
-        f"afftdn=nr=14:nf=-44:tn=1,highpass=f={hp_hz},"
+        ("" if os.environ.get("VOZ_TRATADA") else "afftdn=nr=14:nf=-44:tn=1,") + f"highpass=f={hp_hz},"
         "equalizer=f=6800:t=q:w=2.0:g=-2.5,"
         "acompressor=threshold=-18dB:ratio=3:attack=10:release=120:makeup=2,"
         "alimiter=limit=0.95"
@@ -1996,7 +2003,17 @@ def main() -> None:
     scene_map, annotated_clips = build_scene_map(edl, clips, parts_to_scan, args.media_dir, args.out_dir)
 
     # 4. Corta voz (EDL original) e vídeo (com espelhamento automático por cena + crop global do Mac)
-    voice_cut = cut_voice_edl(clips, edl, args.media_dir, work_dir)
+    VOZ_TRATADA = args.media_dir / "voz_tratada.mp3"
+    if VOZ_TRATADA.exists() and VOZ_TRATADA.stat().st_size > 0:
+        t0 = min(c["out_start"] for c in clips); t1 = max(c["out_end"] for c in clips)
+        voice_cut = work_dir / "voice_tratada_cut.wav"
+        subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", str(VOZ_TRATADA), "-af",
+                        f"atrim={t0}:{t1},asetpts=PTS-STARTPTS", "-ar", "48000", "-ac", "1",
+                        "-c:a", "pcm_s16le", str(voice_cut)], check=True)
+        log(f"Usando voz tratada (Adobe Podcast): {t0:.2f}-{t1:.2f}s; denoise desligado")
+        os.environ["VOZ_TRATADA"] = "1"
+    else:
+        voice_cut = cut_voice_edl(clips, edl, args.media_dir, work_dir)
     video_cut = cut_video_edl(annotated_clips, edl, scene_map, args.media_dir, work_dir)
     actual_voice_dur = ffprobe_duration(voice_cut)
     log(f"Voz cortada: {actual_voice_dur:.3f}s")
