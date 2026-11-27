@@ -19,7 +19,7 @@
     "voice_highpass_hz": 80,
     "music_file": "media/trilha.mp3",
     "music_optional": true,
-    "music_volume_db": -24.0,
+    "music_volume_db": -29.0,
     "ducking": {
       "threshold": 0.025,
       "ratio": 4.0,
