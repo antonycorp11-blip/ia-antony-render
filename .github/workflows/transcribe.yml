@@ -1,0 +1,19 @@
+name: transcribe
+on: workflow_dispatch
+jobs:
+  t:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+      - name: deps
+        run: |
+          sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
+          pip install -q faster-whisper numpy scipy
+      - name: download
+        env: { GH_TOKEN: "${{ github.token }}" }
+        run: mkdir -p media out && gh release download media -D media
+      - name: sync+transcribe
+        run: python scripts/transcribe.py
+      - uses: actions/upload-artifact@v4
+        with: { name: transcript, path: out }
