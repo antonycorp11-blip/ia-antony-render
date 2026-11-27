@@ -1,401 +1,1312 @@
 {
-  "project": "ep01_barbearia",
-  "fps": 30,
-  "resolution": [1920, 1080],
-  "final_duration_s": 900.36,
-  "palette": {
-    "bg_dark": "#111111",
-    "surface": "#181818",
-    "accent_orange": "#FF7A1A",
-    "money_green": "#22C55E",
-    "money_green_bright": "#4ADE80",
-    "alert_red": "#EF4444",
-    "text_primary": "#FFFFFF",
-    "text_muted": "#D4D4D8"
+ "project": "ep01_barbearia",
+ "fps": 30,
+ "resolution": [
+  1920,
+  1080
+ ],
+ "final_duration_s": 900.36,
+ "palette": {
+  "bg_dark": "#111111",
+  "surface": "#181818",
+  "accent_orange": "#FF7A1A",
+  "money_green": "#22C55E",
+  "money_green_bright": "#4ADE80",
+  "alert_red": "#EF4444",
+  "text_primary": "#FFFFFF",
+  "text_muted": "#D4D4D8"
+ },
+ "audio": {
+  "voice_lufs": -14.0,
+  "voice_true_peak_db": -1.5,
+  "voice_highpass_hz": 80,
+  "music_file": "media/trilha.mp3",
+  "music_optional": true,
+  "music_volume_db": -29.0,
+  "ducking": {
+   "threshold": 0.025,
+   "ratio": 4.0,
+   "attack_ms": 30,
+   "release_ms": 350
+  }
+ },
+ "sections": [
+  {
+   "id": "sec_equip",
+   "number": "00",
+   "title": "EQUIPAMENTO",
+   "subtitle": "MacBook Air 2014 + IA",
+   "start": 111.0,
+   "end": 113.2,
+   "sfx": "whoosh-short"
   },
-  "audio": {
-    "voice_lufs": -14.0,
-    "voice_true_peak_db": -1.5,
-    "voice_highpass_hz": 80,
-    "music_file": "media/trilha.mp3",
-    "music_optional": true,
-    "music_volume_db": -29.0,
-    "ducking": {
-      "threshold": 0.025,
-      "ratio": 4.0,
-      "attack_ms": 30,
-      "release_ms": 350
-    }
+  {
+   "id": "sec_app",
+   "number": "01",
+   "title": "O APP E A VENDA",
+   "subtitle": "Samuel Barbearia · Receita do 1º ano",
+   "start": 180.38,
+   "end": 182.6,
+   "sfx": "whoosh-short"
   },
-  "sections": [
+  {
+   "id": "sec_custos_ia",
+   "number": "02",
+   "title": "OS CUSTOS",
+   "subtitle": "Quanto gastei com IA",
+   "start": 265.8,
+   "end": 268.0,
+   "sfx": "whoosh-short"
+  },
+  {
+   "id": "sec_tempo",
+   "number": "03",
+   "title": "O TEMPO GASTO",
+   "subtitle": "Horas da IA vs. atendimento presencial",
+   "start": 334.8,
+   "end": 337.0,
+   "sfx": "whoosh-short"
+  },
+  {
+   "id": "sec_ferramentas",
+   "number": "04",
+   "title": "AS FERRAMENTAS",
+   "subtitle": "Todos os serviços usados no app",
+   "start": 430.67,
+   "end": 432.87,
+   "sfx": "whoosh-short"
+  },
+  {
+   "id": "sec_manter",
+   "number": "05",
+   "title": "CUSTO PARA MANTER",
+   "subtitle": "Fixo mensal e pontos de atenção",
+   "start": 555.08,
+   "end": 557.28,
+   "sfx": "whoosh-short"
+  },
+  {
+   "id": "sec_valor",
+   "number": "06",
+   "title": "QUANTO VALERIA",
+   "subtitle": "API avulsa vs. programador",
+   "start": 608.56,
+   "end": 610.76,
+   "sfx": "whoosh-short"
+  },
+  {
+   "id": "sec_licoes",
+   "number": "07",
+   "title": "LIÇÕES",
+   "subtitle": "O que realmente faz vender",
+   "start": 651.6,
+   "end": 653.8,
+   "sfx": "whoosh-short"
+  }
+ ],
+ "cards": [
+  {
+   "id": "card_macbook",
+   "type": "badge",
+   "title": "MacBook Air 2014",
+   "subtitle": "Sem placa de vídeo · Pouca RAM",
+   "start": 117.8,
+   "end": 122.7,
+   "position": "right_center",
+   "sfx": "pop"
+  },
+  {
+   "id": "card_claude_tool",
+   "type": "badge",
+   "title": "Claude (IA Principal)",
+   "subtitle": "Desenvolvimento do app + Edição",
+   "start": 145.6,
+   "end": 150.2,
+   "position": "right_center",
+   "sfx": "pop"
+  },
+  {
+   "id": "card_receita_ano1",
+   "type": "ledger",
+   "title": "SAMUEL · 1º ANO",
+   "start": 194.9,
+   "end": 227.5,
+   "position": "right_center",
+   "rows": [
     {
-      "id": "sec_equip",
-      "number": "00",
-      "title": "EQUIPAMENTO",
-      "subtitle": "MacBook Air 2014 + IA",
-      "start": 111.0,
-      "end": 113.2,
-      "sfx": "whoosh-short"
+     "at": 195.04,
+     "label": "Receita 1º ano",
+     "value": "R$ 2.700",
+     "color": "money_green",
+     "sfx": "pop"
     },
     {
-      "id": "sec_app",
-      "number": "01",
-      "title": "O APP E A VENDA",
-      "subtitle": "Samuel Barbearia · Receita do 1º ano",
-      "start": 180.38,
-      "end": 182.6,
-      "sfx": "whoosh-short"
+     "at": 197.44,
+     "label": "Implantação",
+     "value": "R$ 1.500",
+     "color": "text_primary",
+     "sfx": "click-soft"
     },
     {
-      "id": "sec_custos_ia",
-      "number": "02",
-      "title": "OS CUSTOS",
-      "subtitle": "Quanto gastei com IA",
-      "start": 265.8,
-      "end": 268.0,
-      "sfx": "whoosh-short"
+     "at": 206.14,
+     "label": "Taxa fixa mensal",
+     "value": "R$ 100/mês",
+     "color": "text_primary",
+     "sfx": "click-soft"
     },
     {
-      "id": "sec_tempo",
-      "number": "03",
-      "title": "O TEMPO GASTO",
-      "subtitle": "Horas da IA vs. atendimento presencial",
-      "start": 334.8,
-      "end": 337.0,
-      "sfx": "whoosh-short"
+     "at": 216.46,
+     "label": "Custo 1º ano (Claude + dom.)",
+     "value": "- R$ 160",
+     "color": "accent_orange",
+     "sfx": "pop"
     },
     {
-      "id": "sec_ferramentas",
-      "number": "04",
-      "title": "AS FERRAMENTAS",
-      "subtitle": "Todos os serviços usados no app",
-      "start": 430.67,
-      "end": 432.87,
-      "sfx": "whoosh-short"
-    },
-    {
-      "id": "sec_manter",
-      "number": "05",
-      "title": "CUSTO PARA MANTER",
-      "subtitle": "Fixo mensal e pontos de atenção",
-      "start": 555.08,
-      "end": 557.28,
-      "sfx": "whoosh-short"
-    },
-    {
-      "id": "sec_valor",
-      "number": "06",
-      "title": "QUANTO VALERIA",
-      "subtitle": "API avulsa vs. programador",
-      "start": 608.56,
-      "end": 610.76,
-      "sfx": "whoosh-short"
-    },
-    {
-      "id": "sec_licoes",
-      "number": "07",
-      "title": "LIÇÕES",
-      "subtitle": "O que realmente faz vender",
-      "start": 651.6,
-      "end": 653.8,
-      "sfx": "whoosh-short"
+     "at": 223.0,
+     "label": "Lucro 1º ano (2.700 - 160)",
+     "value": "R$ 2.540",
+     "color": "money_green_bright",
+     "sfx": "chime"
     }
-  ],
-  "cards": [
+   ]
+  },
+  {
+   "id": "card_ano2_venda",
+   "type": "ledger",
+   "title": "RECORRÊNCIA E VENDA",
+   "start": 234.5,
+   "end": 265.5,
+   "position": "right_center",
+   "rows": [
     {
-      "id": "card_macbook",
-      "type": "badge",
-      "title": "MacBook Air 2014",
-      "subtitle": "Sem placa de vídeo · Pouca RAM",
-      "start": 117.8,
-      "end": 122.7,
-      "position": "right_center",
-      "sfx": "pop"
+     "at": 241.46,
+     "label": "2º ano em diante",
+     "value": "R$ 100/mês",
+     "color": "money_green",
+     "sfx": "pop"
     },
     {
-      "id": "card_claude_tool",
-      "type": "badge",
-      "title": "Claude (IA Principal)",
-      "subtitle": "Desenvolvimento do app + Edição",
-      "start": 145.6,
-      "end": 150.2,
-      "position": "right_center",
-      "sfx": "pop"
+     "at": 245.42,
+     "label": "Manutenção anual",
+     "value": "~R$ 100/ano",
+     "color": "accent_orange",
+     "sfx": "click-soft"
     },
     {
-      "id": "card_receita_ano1",
-      "type": "ledger",
-      "title": "SAMUEL · 1º ANO",
-      "start": 194.9,
-      "end": 227.5,
-      "position": "right_center",
-      "rows": [
-        { "at": 195.04, "label": "Receita 1º ano", "value": "R$ 2.700", "color": "money_green", "sfx": "pop" },
-        { "at": 197.44, "label": "Implantação", "value": "R$ 1.500", "color": "text_primary", "sfx": "click-soft" },
-        { "at": 206.14, "label": "Taxa fixa mensal", "value": "R$ 100/mês", "color": "text_primary", "sfx": "click-soft" },
-        { "at": 216.46, "label": "Custo 1º ano (Claude + dom.)", "value": "- R$ 160", "color": "accent_orange", "sfx": "pop" },
-        { "at": 223.0, "label": "Lucro 1º ano (2.700 - 160)", "value": "R$ 2.540", "color": "money_green_bright", "sfx": "chime" }
-      ]
-    },
-    {
-      "id": "card_ano2_venda",
-      "type": "ledger",
-      "title": "RECORRÊNCIA E VENDA",
-      "start": 234.5,
-      "end": 265.5,
-      "position": "right_center",
-      "rows": [
-        { "at": 241.46, "label": "2º ano em diante", "value": "R$ 100/mês", "color": "money_green", "sfx": "pop" },
-        { "at": 245.42, "label": "Manutenção anual", "value": "~R$ 100/ano", "color": "accent_orange", "sfx": "click-soft" },
-        { "at": 253.8, "label": "Implantação (negociação)", "value": "R$ 1.500 (em 3x)", "color": "money_green_bright", "sfx": "click-soft" }
-      ]
-    },
-    {
-      "id": "card_custos_ia",
-      "type": "ledger",
-      "title": "CUSTOS DE IA",
-      "start": 277.2,
-      "end": 334.7,
-      "position": "right_center",
-      "rows": [
-        { "at": 277.64, "label": "Plano Claude", "value": "US$ 20/mês (~R$ 120)", "color": "text_primary", "sfx": "pop" },
-        { "at": 291.78, "label": "Proporcional ao app", "value": "R$ 60 a R$ 120", "color": "accent_orange", "sfx": "click-soft" },
-        { "at": 322.72, "label": "ChatGPT / Codex · 4 tarefas", "value": "330k tokens", "color": "text_primary", "sfx": "click-soft" },
-        { "at": 332.84, "label": "Plano Codex (já pago)", "value": "R$ 99/mês", "color": "text_muted", "sfx": "chime" }
-      ]
-    },
-    {
-      "id": "card_tempo",
-      "type": "ledger",
-      "title": "TEMPO INVESTIDO",
-      "start": 337.1,
-      "end": 386.0,
-      "position": "right_center",
-      "rows": [
-        { "at": 337.1, "label": "Relatório (Claude rodando)", "value": "25 a 35 horas", "color": "accent_orange", "sfx": "pop" },
-        { "at": 373.28, "label": "Presencial · terça (Asaas)", "value": "4 a 5 horas", "color": "text_primary", "sfx": "click-soft" },
-        { "at": 379.12, "label": "Presencial · quarta", "value": "2 a 3 horas", "color": "text_primary", "sfx": "click-soft" }
-      ]
-    },
-    {
-      "id": "card_resumo_total",
-      "type": "ledger",
-      "title": "CONTA FINAL",
-      "start": 395.5,
-      "end": 430.5,
-      "position": "right_center",
-      "rows": [
-        { "at": 395.78, "label": "Gasto em dinheiro", "value": "~R$ 100", "color": "accent_orange", "sfx": "pop" },
-        { "at": 404.08, "label": "Implantação", "value": "R$ 1.500", "color": "text_primary", "sfx": "click-soft" },
-        { "at": 404.94, "label": "12 parcelas x R$ 100", "value": "+ R$ 1.200", "color": "text_primary", "sfx": "click-soft" },
-        { "at": 406.1, "label": "TOTAL 1º ANO", "value": "R$ 2.700", "color": "money_green_bright", "sfx": "chime" },
-        { "at": 408.52, "label": "2º ano em diante", "value": "R$ 1.200/ano", "color": "money_green", "sfx": "click-soft" },
-        { "at": 420.51, "label": "Valor/hora (30h Claude)", "value": "R$ 50/hora", "color": "accent_orange", "sfx": "chime" }
-      ]
-    },
-    {
-      "id": "card_ferramentas",
-      "type": "tools_list",
-      "title": "FERRAMENTAS USADAS",
-      "start": 434.0,
-      "end": 555.0,
-      "position": "right_center",
-      "items": [
-        { "at": 434.24, "name": "Cloudflare", "role": "Hospedagem / Servidor", "cost": "R$ 0", "color": "money_green", "sfx": "pop" },
-        { "at": 445.76, "name": "Supabase", "role": "Banco de dados / Login", "cost": "R$ 0", "color": "money_green", "sfx": "pop" },
-        { "at": 456.94, "name": "OneSignal", "role": "Notificações Push", "cost": "R$ 0", "color": "money_green", "sfx": "pop" },
-        { "at": 467.82, "name": "Gmail", "role": "Envio de e-mails", "cost": "R$ 0", "color": "money_green", "sfx": "pop" },
-        { "at": 473.18, "name": "Asaas", "role": "Assinaturas / Pagamentos", "cost": "R$ 0*", "color": "money_green", "sfx": "pop" },
-        { "at": 490.02, "name": "Bluesoft Cosmos", "role": "Código de barras", "cost": "R$ 0", "color": "money_green", "sfx": "pop" },
-        { "at": 515.56, "name": "GitHub", "role": "Código e backup", "cost": "Grátis", "color": "money_green", "sfx": "pop" },
-        { "at": 522.26, "name": "Domínio .com.br", "role": "Endereço próprio", "cost": "R$ 40/ano", "color": "accent_orange", "sfx": "pop" },
-        { "at": 533.02, "name": "Brevo", "role": "E-mail no domínio", "cost": "Anti-spam", "color": "text_muted", "sfx": "pop" },
-        { "at": 548.78, "name": "Claude", "role": "Dev principal com IA", "cost": "R$ 120/mês", "color": "accent_orange", "sfx": "chime" }
-      ]
-    },
-    {
-      "id": "card_manutencao",
-      "type": "ledger",
-      "title": "CUSTO FIXO E LIMITES",
-      "start": 557.5,
-      "end": 608.2,
-      "position": "right_center",
-      "rows": [
-        { "at": 558.5, "label": "Infra (server, BD, push)", "value": "R$ 0/mês", "color": "money_green", "sfx": "click-soft" },
-        { "at": 562.5, "label": "Domínio .com.br", "value": "~R$ 3/mês (R$ 40/ano)", "color": "accent_orange", "sfx": "pop" },
-        { "at": 567.16, "label": "Mensalidade recebida", "value": "R$ 100/mês", "color": "money_green_bright", "sfx": "chime" },
-        { "at": 578.74, "label": "Atenção: Supabase Pro", "value": "US$ 25/mês", "color": "alert_red", "sfx": "click-soft" },
-        { "at": 588.78, "label": "Atenção: Cloudflare", "value": "US$ 5/mês (>100k/dia)", "color": "alert_red", "sfx": "click-soft" },
-        { "at": 596.9, "label": "Atenção: Gmail", "value": "500/dia -> Brevo", "color": "alert_red", "sfx": "click-soft" }
-      ]
-    },
-    {
-      "id": "card_quanto_valeria",
-      "type": "ledger",
-      "title": "VALOR DE MERCADO",
-      "start": 610.8,
-      "end": 651.0,
-      "position": "right_center",
-      "rows": [
-        { "at": 610.8, "label": "Modelo usado", "value": "Claude Opus", "color": "accent_orange", "sfx": "pop" },
-        { "at": 614.0, "label": "API avulsa (sem plano)", "value": "Muito mais caro", "color": "text_muted", "sfx": "click-soft" },
-        { "at": 630.64, "label": "Programador (estimativa)", "value": "80 a 150 horas", "color": "text_primary", "sfx": "pop" },
-        { "at": 636.16, "label": "Valor estimado", "value": "R$ 20 a 60 mil", "color": "money_green_bright", "sfx": "chime" }
-      ]
-    },
-    {
-      "id": "card_licao_ia",
-      "type": "takeaway",
-      "title": "TRABALHE COM A IA",
-      "subtitle": "Não contra ela",
-      "start": 706.5,
-      "end": 714.5,
-      "position": "right_center",
-      "sfx": "pop"
-    },
-    {
-      "id": "card_licao_marca",
-      "type": "takeaway",
-      "title": "APP PRÓPRIO DA MARCA",
-      "subtitle": "Logo do cliente, sem ser terceiro",
-      "start": 779.0,
-      "end": 789.0,
-      "position": "right_center",
-      "sfx": "pop"
-    },
-    {
-      "id": "card_licao_venda",
-      "type": "takeaway",
-      "title": "REGRA DE OURO",
-      "subtitle": "Ganha dinheiro quem resolve o problema",
-      "start": 811.5,
-      "end": 822.5,
-      "position": "right_center",
-      "sfx": "chime"
-    },
-    {
-      "id": "card_cta_instagram",
-      "type": "cta",
-      "title": "SIGA NO INSTAGRAM",
-      "handle": "@aquilles_antony",
-      "subtitle": "IA Antony · Inscreva-se no canal",
-      "start": 888.84,
-      "end": 897.5,
-      "position": "right_center",
-      "sfx": "sparkle"
+     "at": 253.8,
+     "label": "Implantação (negociação)",
+     "value": "R$ 1.500 (em 3x)",
+     "color": "money_green_bright",
+     "sfx": "click-soft"
     }
-  ],
-  "zooms": [
-    { "start": 124.0, "end": 132.5, "from_scale": 1.0, "to_scale": 1.08, "cx": 0.5, "cy": 0.38, "ease_out_s": 0.45, "mode": "face", "note": "Primeiro conselho sobre PC" },
-    { "start": 137.0, "end": 144.0, "from_scale": 1.0, "to_scale": 1.08, "cx": 0.5, "cy": 0.38, "ease_out_s": 0.45, "mode": "face", "note": "Deu pra fazer dinheiro com o Mac antigo" },
-    { "start": 152.0, "end": 160.5, "from_scale": 1.0, "to_scale": 1.08, "cx": 0.5, "cy": 0.38, "ease_out_s": 0.45, "mode": "face", "note": "Tempo investido aprendendo" },
-    { "start": 168.5, "end": 178.5, "from_scale": 1.0, "to_scale": 1.08, "cx": 0.5, "cy": 0.38, "ease_out_s": 0.45, "mode": "face", "note": "Gravador próprio e transição para números" },
-    { "start": 184.0, "end": 193.5, "from_scale": 1.0, "to_scale": 1.12, "cx": 0.46, "cy": 0.42, "ease_out_s": 0.45, "mode": "screen", "note": "Destaque no topo do relatório Samuel Barbearia" },
-    { "start": 228.0, "end": 234.0, "from_scale": 1.0, "to_scale": 1.12, "cx": 0.46, "cy": 0.52, "ease_out_s": 0.45, "mode": "screen", "note": "Destaque na linha de lucro do 1º ano no relatório" },
-    { "start": 268.5, "end": 276.5, "from_scale": 1.0, "to_scale": 1.1, "cx": 0.46, "cy": 0.46, "ease_out_s": 0.45, "mode": "screen", "note": "Destaque na seção de custos do relatório" },
-    { "start": 386.5, "end": 394.5, "from_scale": 1.0, "to_scale": 1.1, "cx": 0.46, "cy": 0.48, "ease_out_s": 0.45, "mode": "screen", "note": "Foco na tela antes do resumo final" },
-    { "start": 655.0, "end": 664.0, "from_scale": 1.0, "to_scale": 1.08, "cx": 0.5, "cy": 0.38, "ease_out_s": 0.45, "mode": "face", "note": "Primeira venda e humildade para aprender" },
-    { "start": 672.0, "end": 680.5, "from_scale": 1.0, "to_scale": 1.08, "cx": 0.5, "cy": 0.38, "ease_out_s": 0.45, "mode": "face", "note": "Paixão por programar" },
-    { "start": 689.0, "end": 698.0, "from_scale": 1.0, "to_scale": 1.08, "cx": 0.5, "cy": 0.38, "ease_out_s": 0.45, "mode": "face", "note": "Admiração por devs e IA encurtando caminhos" },
-    { "start": 716.0, "end": 725.0, "from_scale": 1.0, "to_scale": 1.08, "cx": 0.5, "cy": 0.38, "ease_out_s": 0.45, "mode": "face", "note": "Propósito do canal" },
-    { "start": 733.0, "end": 742.0, "from_scale": 1.0, "to_scale": 1.08, "cx": 0.5, "cy": 0.38, "ease_out_s": 0.45, "mode": "face", "note": "Escalar para clínicas e outros nichos" },
-    { "start": 750.0, "end": 759.0, "from_scale": 1.0, "to_scale": 1.08, "cx": 0.5, "cy": 0.38, "ease_out_s": 0.45, "mode": "face", "note": "Custo de um app específico" },
-    { "start": 767.0, "end": 776.5, "from_scale": 1.0, "to_scale": 1.08, "cx": 0.5, "cy": 0.38, "ease_out_s": 0.45, "mode": "face", "note": "Comparação com SaaS da escola" },
-    { "start": 791.0, "end": 800.0, "from_scale": 1.0, "to_scale": 1.08, "cx": 0.5, "cy": 0.38, "ease_out_s": 0.45, "mode": "face", "note": "Valor da marca própria na venda" },
-    { "start": 825.0, "end": 834.0, "from_scale": 1.0, "to_scale": 1.08, "cx": 0.5, "cy": 0.38, "ease_out_s": 0.45, "mode": "face", "note": "Projeto pagou todos os gastos com IA" },
-    { "start": 842.0, "end": 851.0, "from_scale": 1.0, "to_scale": 1.08, "cx": 0.5, "cy": 0.38, "ease_out_s": 0.45, "mode": "face", "note": "Aprenda a vender ou encontre quem venda" },
-    { "start": 859.0, "end": 868.0, "from_scale": 1.0, "to_scale": 1.08, "cx": 0.5, "cy": 0.38, "ease_out_s": 0.45, "mode": "face", "note": "CTA comentários, like e inscrição" },
-    { "start": 876.0, "end": 885.0, "from_scale": 1.0, "to_scale": 1.08, "cx": 0.5, "cy": 0.38, "ease_out_s": 0.45, "mode": "face", "note": "Futuros vídeos de testes de modelos" }
-  ],
-  "sfx": [
-    { "time": 0.12, "sound": "whoosh-short", "gain_db": -13.0, "note": "Abertura: entrada Um programador cobraria" },
-    { "time": 2.16, "sound": "pop", "gain_db": -12.0, "note": "Abertura: R$ 20.000" },
-    { "time": 2.70, "sound": "riser", "gain_db": -13.0, "trim_s": 2.10, "note": "Abertura: riser curto antes do R$ 20.000 riscado" },
-    { "time": 4.75, "sound": "impact-bass-1", "gain_db": -10.5, "note": "Abertura: R$ 20.000 riscado" },
-    { "time": 5.18, "sound": "pop", "gain_db": -11.5, "note": "Abertura: R$ 100" },
-    { "time": 6.4, "sound": "chime", "gain_db": -11.5, "note": "Abertura: R$ 1.500 + R$ 100/mês" },
-    { "time": 7.6, "sound": "whoosh-short", "gain_db": -12.5, "note": "Abertura: Relance 1 (quase perdi o cliente)" },
-    { "time": 9.55, "sound": "whoosh-short", "gain_db": -13.0, "note": "Abertura: transição Fica nesse vídeo" },
-    { "time": 12.54, "sound": "sparkle", "gain_db": -14.0, "note": "Abertura: Programação com IA + logo IA" },
-    { "time": 14.3, "sound": "whoosh-short", "gain_db": -13.0, "note": "Abertura: Relance 2 (Aquilles Antony)" },
-    { "time": 15.0, "sound": "click-soft", "gain_db": -15.0, "note": "Abertura: Lower-third Aquilles Antony" },
-    { "time": 16.2, "sound": "whoosh-short", "gain_db": -14.0, "note": "Abertura: Cuiabá / Escola de música" },
-    { "time": 22.36, "sound": "pop", "gain_db": -14.0, "note": "Abertura: Programação & IA" },
-    { "time": 24.98, "sound": "whoosh-short", "gain_db": -14.0, "note": "Abertura: Projetos com IA + MacBook 2014" },
-    { "time": 29.04, "sound": "pop", "gain_db": -14.0, "note": "Abertura: Jogos" },
-    { "time": 30.22, "sound": "pop", "gain_db": -14.0, "note": "Abertura: Aplicativos" },
-    { "time": 36.02, "sound": "chime", "gain_db": -13.5, "note": "Abertura: Eu mesmo desenvolvi" },
-    { "time": 39.04, "sound": "whoosh-short", "gain_db": -14.0, "note": "Abertura: Possibilidade da IA" },
-    { "time": 44.7, "sound": "impact-bass-1", "gain_db": -12.5, "note": "Abertura: Criar QUALQUER COISA" },
-    { "time": 45.98, "sound": "whoosh-short", "gain_db": -14.0, "note": "Abertura: Comunidade de empresários" },
-    { "time": 58.95, "sound": "whoosh-short", "gain_db": -13.5, "note": "Abertura: Problemas no app de barbearia" },
-    { "time": 61.56, "sound": "pop", "gain_db": -13.5, "note": "Abertura: Tesoura / Barbearia" },
-    { "time": 63.65, "sound": "whoosh-short", "gain_db": -12.5, "note": "Abertura: Relance 3 (posso te ajudar)" },
-    { "time": 65.55, "sound": "whoosh-short", "gain_db": -14.0, "note": "Abertura: Fazer um app pra você" },
-    { "time": 69.06, "sound": "pop", "gain_db": -14.0, "note": "Abertura: Não comecei agora" },
-    { "time": 75.15, "sound": "whoosh-short", "gain_db": -14.0, "note": "Abertura: Não foi só sair fazendo" },
-    { "time": 78.86, "sound": "pop", "gain_db": -14.0, "note": "Abertura: Já sabia construir" },
-    { "time": 84.62, "sound": "impact-bass-1", "gain_db": -12.0, "note": "Abertura: Fechei com ele!" },
-    { "time": 88.2, "sound": "whoosh-short", "gain_db": -13.5, "note": "Abertura: Checklist do vídeo" },
-    { "time": 90.58, "sound": "pop", "gain_db": -14.0, "note": "Abertura: 01 Quanto gastei (~R$ 100)" },
-    { "time": 95.04, "sound": "chime", "gain_db": -13.0, "note": "Abertura: 02 Por quanto vendi (R$ 1.500 + R$ 100/mês)" },
-    { "time": 97.74, "sound": "pop", "gain_db": -14.0, "note": "Abertura: 03 Quais serviços" },
-    { "time": 101.76, "sound": "whoosh-short", "gain_db": -13.5, "note": "Abertura: Sites e servidores" },
-    { "time": 104.7, "sound": "impact-bass-1", "gain_db": -12.0, "note": "Abertura: Você vai entender TUDO!" },
-    { "time": 106.74, "sound": "chime", "gain_db": -13.0, "note": "Abertura: Pode ser um negócio pra você" },
-    { "time": 111.0, "sound": "whoosh-short", "gain_db": -12.5, "note": "Fim da abertura -> Seção 00: Equipamento" },
-    { "time": 117.8, "sound": "pop", "gain_db": -14.0, "note": "Badge: MacBook Air 2014" },
-    { "time": 145.6, "sound": "pop", "gain_db": -14.0, "note": "Badge: Claude" },
-    { "time": 180.38, "sound": "whoosh-short", "gain_db": -13.0, "note": "Seção 01: O App e a Venda" },
-    { "time": 195.04, "sound": "pop", "gain_db": -14.0, "note": "Receita R$ 2.700" },
-    { "time": 197.44, "sound": "click-soft", "gain_db": -16.0, "note": "Implantação R$ 1.500" },
-    { "time": 206.14, "sound": "click-soft", "gain_db": -16.0, "note": "Taxa fixa R$ 100/mês" },
-    { "time": 216.46, "sound": "pop", "gain_db": -14.0, "note": "Custo 1º ano -R$ 160" },
-    { "time": 223.0, "sound": "chime", "gain_db": -13.0, "note": "Lucro 1º ano R$ 2.540" },
-    { "time": 241.46, "sound": "pop", "gain_db": -14.0, "note": "Recorrência R$ 100/mês" },
-    { "time": 245.42, "sound": "click-soft", "gain_db": -16.0, "note": "Manutenção ~R$ 100/ano" },
-    { "time": 253.8, "sound": "click-soft", "gain_db": -16.0, "note": "Parcelado em 3x" },
-    { "time": 265.8, "sound": "whoosh-short", "gain_db": -13.0, "note": "Seção 02: Os Custos" },
-    { "time": 277.64, "sound": "pop", "gain_db": -14.0, "note": "Claude US$ 20/mês" },
-    { "time": 291.78, "sound": "click-soft", "gain_db": -16.0, "note": "Proporcional R$ 60 a R$ 120" },
-    { "time": 322.72, "sound": "click-soft", "gain_db": -16.0, "note": "Codex 4 tarefas / 330k tokens" },
-    { "time": 332.84, "sound": "chime", "gain_db": -14.0, "note": "Plano Codex R$ 99/mês" },
-    { "time": 334.8, "sound": "whoosh-short", "gain_db": -13.0, "note": "Seção 03: O Tempo Gasto" },
-    { "time": 337.1, "sound": "pop", "gain_db": -14.0, "note": "25 a 35 horas Claude" },
-    { "time": 373.28, "sound": "click-soft", "gain_db": -16.0, "note": "Terça 4-5h" },
-    { "time": 379.12, "sound": "click-soft", "gain_db": -16.0, "note": "Quarta 2-3h" },
-    { "time": 395.78, "sound": "pop", "gain_db": -14.0, "note": "Resumo: ~R$ 100" },
-    { "time": 404.08, "sound": "click-soft", "gain_db": -16.0, "note": "Resumo: R$ 1.500" },
-    { "time": 404.94, "sound": "click-soft", "gain_db": -16.0, "note": "Resumo: +12x R$ 100" },
-    { "time": 406.1, "sound": "chime", "gain_db": -12.0, "note": "TOTAL 1º ANO: R$ 2.700" },
-    { "time": 408.52, "sound": "click-soft", "gain_db": -16.0, "note": "2º ano+: R$ 1.200/ano" },
-    { "time": 420.51, "sound": "chime", "gain_db": -13.0, "note": "Valor/hora: R$ 50/h" },
-    { "time": 430.67, "sound": "whoosh-short", "gain_db": -13.0, "note": "Seção 04: As Ferramentas" },
-    { "time": 434.24, "sound": "pop", "gain_db": -15.0, "note": "Tool 1: Cloudflare" },
-    { "time": 445.76, "sound": "pop", "gain_db": -15.0, "note": "Tool 2: Supabase" },
-    { "time": 456.94, "sound": "pop", "gain_db": -15.0, "note": "Tool 3: OneSignal" },
-    { "time": 467.82, "sound": "pop", "gain_db": -15.0, "note": "Tool 4: Gmail" },
-    { "time": 473.18, "sound": "pop", "gain_db": -15.0, "note": "Tool 5: Asaas" },
-    { "time": 490.02, "sound": "pop", "gain_db": -15.0, "note": "Tool 6: Bluesoft Cosmos" },
-    { "time": 515.56, "sound": "pop", "gain_db": -15.0, "note": "Tool 7: GitHub" },
-    { "time": 522.26, "sound": "pop", "gain_db": -15.0, "note": "Tool 8: Domínio .com.br" },
-    { "time": 533.02, "sound": "pop", "gain_db": -15.0, "note": "Tool 9: Brevo" },
-    { "time": 548.78, "sound": "chime", "gain_db": -13.0, "note": "Tool 10: Claude R$ 120/mês" },
-    { "time": 555.08, "sound": "whoosh-short", "gain_db": -13.0, "note": "Seção 05: Custo para Manter" },
-    { "time": 558.5, "sound": "click-soft", "gain_db": -16.0, "note": "Infra R$ 0" },
-    { "time": 562.5, "sound": "pop", "gain_db": -15.0, "note": "Domínio ~R$ 3/mês" },
-    { "time": 567.16, "sound": "chime", "gain_db": -13.0, "note": "Mensalidade R$ 100/mês" },
-    { "time": 578.74, "sound": "click-soft", "gain_db": -16.0, "note": "Atenção: Supabase Pro" },
-    { "time": 588.78, "sound": "click-soft", "gain_db": -16.0, "note": "Atenção: Cloudflare" },
-    { "time": 596.9, "sound": "click-soft", "gain_db": -16.0, "note": "Atenção: Gmail -> Brevo" },
-    { "time": 608.56, "sound": "whoosh-short", "gain_db": -13.0, "note": "Seção 06: Quanto Valeria" },
-    { "time": 610.8, "sound": "pop", "gain_db": -15.0, "note": "Claude Opus" },
-    { "time": 630.64, "sound": "pop", "gain_db": -15.0, "note": "Programador 80-150h" },
-    { "time": 636.16, "sound": "chime", "gain_db": -12.0, "note": "Valor de mercado R$ 20k-60k" },
-    { "time": 651.6, "sound": "whoosh-short", "gain_db": -13.0, "note": "Seção 07: Lições" },
-    { "time": 706.5, "sound": "pop", "gain_db": -14.0, "note": "Lição: Trabalhe com a IA" },
-    { "time": 779.0, "sound": "pop", "gain_db": -14.0, "note": "Lição: App próprio da marca" },
-    { "time": 811.5, "sound": "chime", "gain_db": -12.0, "note": "Regra de ouro: resolver problema" },
-    { "time": 888.84, "sound": "sparkle", "gain_db": -13.0, "note": "CTA Instagram @aquilles_antony" }
-  ]
+   ]
+  },
+  {
+   "id": "card_custos_ia",
+   "type": "ledger",
+   "title": "CUSTOS DE IA",
+   "start": 277.2,
+   "end": 334.7,
+   "position": "right_center",
+   "rows": [
+    {
+     "at": 277.64,
+     "label": "Plano Claude",
+     "value": "US$ 20/mês (~R$ 120)",
+     "color": "text_primary",
+     "sfx": "pop"
+    },
+    {
+     "at": 291.78,
+     "label": "Proporcional ao app",
+     "value": "R$ 60 a R$ 120",
+     "color": "accent_orange",
+     "sfx": "click-soft"
+    },
+    {
+     "at": 322.72,
+     "label": "ChatGPT / Codex · 4 tarefas",
+     "value": "330k tokens",
+     "color": "text_primary",
+     "sfx": "click-soft"
+    },
+    {
+     "at": 332.84,
+     "label": "Plano Codex (já pago)",
+     "value": "R$ 99/mês",
+     "color": "text_muted",
+     "sfx": "chime"
+    }
+   ]
+  },
+  {
+   "id": "card_tempo",
+   "type": "ledger",
+   "title": "TEMPO INVESTIDO",
+   "start": 337.1,
+   "end": 386.0,
+   "position": "right_center",
+   "rows": [
+    {
+     "at": 337.1,
+     "label": "Relatório (Claude rodando)",
+     "value": "25 a 35 horas",
+     "color": "accent_orange",
+     "sfx": "pop"
+    },
+    {
+     "at": 373.28,
+     "label": "Presencial · terça (Asaas)",
+     "value": "4 a 5 horas",
+     "color": "text_primary",
+     "sfx": "click-soft"
+    },
+    {
+     "at": 379.12,
+     "label": "Presencial · quarta",
+     "value": "2 a 3 horas",
+     "color": "text_primary",
+     "sfx": "click-soft"
+    }
+   ]
+  },
+  {
+   "id": "card_resumo_total",
+   "type": "ledger",
+   "title": "CONTA FINAL",
+   "start": 395.5,
+   "end": 430.5,
+   "position": "right_center",
+   "rows": [
+    {
+     "at": 395.78,
+     "label": "Gasto em dinheiro",
+     "value": "~R$ 100",
+     "color": "accent_orange",
+     "sfx": "pop"
+    },
+    {
+     "at": 404.08,
+     "label": "Implantação",
+     "value": "R$ 1.500",
+     "color": "text_primary",
+     "sfx": "click-soft"
+    },
+    {
+     "at": 404.94,
+     "label": "12 parcelas x R$ 100",
+     "value": "+ R$ 1.200",
+     "color": "text_primary",
+     "sfx": "click-soft"
+    },
+    {
+     "at": 406.1,
+     "label": "TOTAL 1º ANO",
+     "value": "R$ 2.700",
+     "color": "money_green_bright",
+     "sfx": "chime"
+    },
+    {
+     "at": 408.52,
+     "label": "2º ano em diante",
+     "value": "R$ 1.200/ano",
+     "color": "money_green",
+     "sfx": "click-soft"
+    },
+    {
+     "at": 420.51,
+     "label": "Valor/hora (30h Claude)",
+     "value": "R$ 50/hora",
+     "color": "accent_orange",
+     "sfx": "chime"
+    }
+   ]
+  },
+  {
+   "id": "card_ferramentas",
+   "type": "tools_list",
+   "title": "FERRAMENTAS USADAS",
+   "start": 434.0,
+   "end": 555.0,
+   "position": "right_center",
+   "items": [
+    {
+     "at": 434.24,
+     "name": "Cloudflare",
+     "role": "Hospedagem / Servidor",
+     "cost": "R$ 0",
+     "color": "money_green",
+     "sfx": "pop"
+    },
+    {
+     "at": 445.76,
+     "name": "Supabase",
+     "role": "Banco de dados / Login",
+     "cost": "R$ 0",
+     "color": "money_green",
+     "sfx": "pop"
+    },
+    {
+     "at": 456.94,
+     "name": "OneSignal",
+     "role": "Notificações Push",
+     "cost": "R$ 0",
+     "color": "money_green",
+     "sfx": "pop"
+    },
+    {
+     "at": 467.82,
+     "name": "Gmail",
+     "role": "Envio de e-mails",
+     "cost": "R$ 0",
+     "color": "money_green",
+     "sfx": "pop"
+    },
+    {
+     "at": 473.18,
+     "name": "Asaas",
+     "role": "Assinaturas / Pagamentos",
+     "cost": "R$ 0*",
+     "color": "money_green",
+     "sfx": "pop"
+    },
+    {
+     "at": 490.02,
+     "name": "Bluesoft Cosmos",
+     "role": "Código de barras",
+     "cost": "R$ 0",
+     "color": "money_green",
+     "sfx": "pop"
+    },
+    {
+     "at": 515.56,
+     "name": "GitHub",
+     "role": "Código e backup",
+     "cost": "Grátis",
+     "color": "money_green",
+     "sfx": "pop"
+    },
+    {
+     "at": 522.26,
+     "name": "Domínio .com.br",
+     "role": "Endereço próprio",
+     "cost": "R$ 40/ano",
+     "color": "accent_orange",
+     "sfx": "pop"
+    },
+    {
+     "at": 533.02,
+     "name": "Brevo",
+     "role": "E-mail no domínio",
+     "cost": "Anti-spam",
+     "color": "text_muted",
+     "sfx": "pop"
+    },
+    {
+     "at": 548.78,
+     "name": "Claude",
+     "role": "Dev principal com IA",
+     "cost": "R$ 120/mês",
+     "color": "accent_orange",
+     "sfx": "chime"
+    }
+   ]
+  },
+  {
+   "id": "card_manutencao",
+   "type": "ledger",
+   "title": "CUSTO FIXO E LIMITES",
+   "start": 557.5,
+   "end": 608.2,
+   "position": "right_center",
+   "rows": [
+    {
+     "at": 558.5,
+     "label": "Infra (server, BD, push)",
+     "value": "R$ 0/mês",
+     "color": "money_green",
+     "sfx": "click-soft"
+    },
+    {
+     "at": 562.5,
+     "label": "Domínio .com.br",
+     "value": "~R$ 3/mês (R$ 40/ano)",
+     "color": "accent_orange",
+     "sfx": "pop"
+    },
+    {
+     "at": 567.16,
+     "label": "Mensalidade recebida",
+     "value": "R$ 100/mês",
+     "color": "money_green_bright",
+     "sfx": "chime"
+    },
+    {
+     "at": 578.74,
+     "label": "Atenção: Supabase Pro",
+     "value": "US$ 25/mês",
+     "color": "alert_red",
+     "sfx": "click-soft"
+    },
+    {
+     "at": 588.78,
+     "label": "Atenção: Cloudflare",
+     "value": "US$ 5/mês (>100k/dia)",
+     "color": "alert_red",
+     "sfx": "click-soft"
+    },
+    {
+     "at": 596.9,
+     "label": "Atenção: Gmail",
+     "value": "500/dia -> Brevo",
+     "color": "alert_red",
+     "sfx": "click-soft"
+    }
+   ]
+  },
+  {
+   "id": "card_quanto_valeria",
+   "type": "ledger",
+   "title": "VALOR DE MERCADO",
+   "start": 610.8,
+   "end": 651.0,
+   "position": "right_center",
+   "rows": [
+    {
+     "at": 610.8,
+     "label": "Modelo usado",
+     "value": "Claude Opus",
+     "color": "accent_orange",
+     "sfx": "pop"
+    },
+    {
+     "at": 614.0,
+     "label": "API avulsa (sem plano)",
+     "value": "Muito mais caro",
+     "color": "text_muted",
+     "sfx": "click-soft"
+    },
+    {
+     "at": 630.64,
+     "label": "Programador (estimativa)",
+     "value": "80 a 150 horas",
+     "color": "text_primary",
+     "sfx": "pop"
+    },
+    {
+     "at": 636.16,
+     "label": "Valor estimado",
+     "value": "R$ 20 a 60 mil",
+     "color": "money_green_bright",
+     "sfx": "chime"
+    }
+   ]
+  },
+  {
+   "id": "card_licao_ia",
+   "type": "takeaway",
+   "title": "TRABALHE COM A IA",
+   "subtitle": "Não contra ela",
+   "start": 706.5,
+   "end": 714.5,
+   "position": "right_center",
+   "sfx": "pop"
+  },
+  {
+   "id": "card_licao_marca",
+   "type": "takeaway",
+   "title": "APP PRÓPRIO DA MARCA",
+   "subtitle": "Logo do cliente, sem ser terceiro",
+   "start": 779.0,
+   "end": 789.0,
+   "position": "right_center",
+   "sfx": "pop"
+  },
+  {
+   "id": "card_licao_venda",
+   "type": "takeaway",
+   "title": "REGRA DE OURO",
+   "subtitle": "Ganha dinheiro quem resolve o problema",
+   "start": 811.5,
+   "end": 822.5,
+   "position": "right_center",
+   "sfx": "chime"
+  },
+  {
+   "id": "card_cta_instagram",
+   "type": "cta",
+   "title": "SIGA NO INSTAGRAM",
+   "handle": "@aquilles_antony",
+   "subtitle": "IA Antony · Inscreva-se no canal",
+   "start": 888.84,
+   "end": 897.5,
+   "position": "right_center",
+   "sfx": "sparkle"
+  }
+ ],
+ "zooms": [
+  {
+   "start": 124.0,
+   "end": 132.5,
+   "from_scale": 1.0,
+   "to_scale": 1.08,
+   "cx": 0.5,
+   "cy": 0.38,
+   "ease_out_s": 0.45,
+   "mode": "face",
+   "note": "Primeiro conselho sobre PC"
+  },
+  {
+   "start": 137.0,
+   "end": 144.0,
+   "from_scale": 1.0,
+   "to_scale": 1.08,
+   "cx": 0.5,
+   "cy": 0.38,
+   "ease_out_s": 0.45,
+   "mode": "face",
+   "note": "Deu pra fazer dinheiro com o Mac antigo"
+  },
+  {
+   "start": 152.0,
+   "end": 160.5,
+   "from_scale": 1.0,
+   "to_scale": 1.08,
+   "cx": 0.5,
+   "cy": 0.38,
+   "ease_out_s": 0.45,
+   "mode": "face",
+   "note": "Tempo investido aprendendo"
+  },
+  {
+   "start": 168.5,
+   "end": 178.5,
+   "from_scale": 1.0,
+   "to_scale": 1.08,
+   "cx": 0.5,
+   "cy": 0.38,
+   "ease_out_s": 0.45,
+   "mode": "face",
+   "note": "Gravador próprio e transição para números"
+  },
+  {
+   "start": 184.0,
+   "end": 193.5,
+   "from_scale": 1.0,
+   "to_scale": 1.12,
+   "cx": 0.46,
+   "cy": 0.42,
+   "ease_out_s": 0.45,
+   "mode": "screen",
+   "note": "Destaque no topo do relatório Samuel Barbearia"
+  },
+  {
+   "start": 228.0,
+   "end": 234.0,
+   "from_scale": 1.0,
+   "to_scale": 1.12,
+   "cx": 0.46,
+   "cy": 0.52,
+   "ease_out_s": 0.45,
+   "mode": "screen",
+   "note": "Destaque na linha de lucro do 1º ano no relatório"
+  },
+  {
+   "start": 268.5,
+   "end": 276.5,
+   "from_scale": 1.0,
+   "to_scale": 1.1,
+   "cx": 0.46,
+   "cy": 0.46,
+   "ease_out_s": 0.45,
+   "mode": "screen",
+   "note": "Destaque na seção de custos do relatório"
+  },
+  {
+   "start": 386.5,
+   "end": 394.5,
+   "from_scale": 1.0,
+   "to_scale": 1.1,
+   "cx": 0.46,
+   "cy": 0.48,
+   "ease_out_s": 0.45,
+   "mode": "screen",
+   "note": "Foco na tela antes do resumo final"
+  },
+  {
+   "start": 655.0,
+   "end": 664.0,
+   "from_scale": 1.0,
+   "to_scale": 1.08,
+   "cx": 0.5,
+   "cy": 0.38,
+   "ease_out_s": 0.45,
+   "mode": "face",
+   "note": "Primeira venda e humildade para aprender"
+  },
+  {
+   "start": 672.0,
+   "end": 680.5,
+   "from_scale": 1.0,
+   "to_scale": 1.08,
+   "cx": 0.5,
+   "cy": 0.38,
+   "ease_out_s": 0.45,
+   "mode": "face",
+   "note": "Paixão por programar"
+  },
+  {
+   "start": 689.0,
+   "end": 698.0,
+   "from_scale": 1.0,
+   "to_scale": 1.08,
+   "cx": 0.5,
+   "cy": 0.38,
+   "ease_out_s": 0.45,
+   "mode": "face",
+   "note": "Admiração por devs e IA encurtando caminhos"
+  },
+  {
+   "start": 716.0,
+   "end": 725.0,
+   "from_scale": 1.0,
+   "to_scale": 1.08,
+   "cx": 0.5,
+   "cy": 0.38,
+   "ease_out_s": 0.45,
+   "mode": "face",
+   "note": "Propósito do canal"
+  },
+  {
+   "start": 733.0,
+   "end": 742.0,
+   "from_scale": 1.0,
+   "to_scale": 1.08,
+   "cx": 0.5,
+   "cy": 0.38,
+   "ease_out_s": 0.45,
+   "mode": "face",
+   "note": "Escalar para clínicas e outros nichos"
+  },
+  {
+   "start": 750.0,
+   "end": 759.0,
+   "from_scale": 1.0,
+   "to_scale": 1.08,
+   "cx": 0.5,
+   "cy": 0.38,
+   "ease_out_s": 0.45,
+   "mode": "face",
+   "note": "Custo de um app específico"
+  },
+  {
+   "start": 767.0,
+   "end": 776.5,
+   "from_scale": 1.0,
+   "to_scale": 1.08,
+   "cx": 0.5,
+   "cy": 0.38,
+   "ease_out_s": 0.45,
+   "mode": "face",
+   "note": "Comparação com SaaS da escola"
+  },
+  {
+   "start": 791.0,
+   "end": 800.0,
+   "from_scale": 1.0,
+   "to_scale": 1.08,
+   "cx": 0.5,
+   "cy": 0.38,
+   "ease_out_s": 0.45,
+   "mode": "face",
+   "note": "Valor da marca própria na venda"
+  },
+  {
+   "start": 825.0,
+   "end": 834.0,
+   "from_scale": 1.0,
+   "to_scale": 1.08,
+   "cx": 0.5,
+   "cy": 0.38,
+   "ease_out_s": 0.45,
+   "mode": "face",
+   "note": "Projeto pagou todos os gastos com IA"
+  },
+  {
+   "start": 842.0,
+   "end": 851.0,
+   "from_scale": 1.0,
+   "to_scale": 1.08,
+   "cx": 0.5,
+   "cy": 0.38,
+   "ease_out_s": 0.45,
+   "mode": "face",
+   "note": "Aprenda a vender ou encontre quem venda"
+  },
+  {
+   "start": 859.0,
+   "end": 868.0,
+   "from_scale": 1.0,
+   "to_scale": 1.08,
+   "cx": 0.5,
+   "cy": 0.38,
+   "ease_out_s": 0.45,
+   "mode": "face",
+   "note": "CTA comentários, like e inscrição"
+  },
+  {
+   "start": 876.0,
+   "end": 885.0,
+   "from_scale": 1.0,
+   "to_scale": 1.08,
+   "cx": 0.5,
+   "cy": 0.38,
+   "ease_out_s": 0.45,
+   "mode": "face",
+   "note": "Futuros vídeos de testes de modelos"
+  }
+ ],
+ "sfx": [
+  {
+   "time": 0.12,
+   "sound": "whoosh-short",
+   "gain_db": -13.0,
+   "note": "Abertura: entrada Um programador cobraria"
+  },
+  {
+   "time": 2.16,
+   "sound": "pop",
+   "gain_db": -12.0,
+   "note": "Abertura: R$ 20.000"
+  },
+  {
+   "time": 2.7,
+   "sound": "riser",
+   "gain_db": -13.0,
+   "trim_s": 2.1,
+   "note": "Abertura: riser curto antes do R$ 20.000 riscado"
+  },
+  {
+   "time": 4.75,
+   "sound": "impact-bass-1",
+   "gain_db": -10.5,
+   "note": "Abertura: R$ 20.000 riscado"
+  },
+  {
+   "time": 5.18,
+   "sound": "pop",
+   "gain_db": -11.5,
+   "note": "Abertura: R$ 100"
+  },
+  {
+   "time": 6.4,
+   "sound": "chime",
+   "gain_db": -11.5,
+   "note": "Abertura: R$ 1.500 + R$ 100/mês"
+  },
+  {
+   "time": 7.6,
+   "sound": "whoosh-short",
+   "gain_db": -12.5,
+   "note": "Abertura: Relance 1 (quase perdi o cliente)"
+  },
+  {
+   "time": 9.55,
+   "sound": "whoosh-short",
+   "gain_db": -13.0,
+   "note": "Abertura: transição Fica nesse vídeo"
+  },
+  {
+   "time": 12.54,
+   "sound": "sparkle",
+   "gain_db": -14.0,
+   "note": "Abertura: Programação com IA + logo IA"
+  },
+  {
+   "time": 14.3,
+   "sound": "whoosh-short",
+   "gain_db": -13.0,
+   "note": "Abertura: Relance 2 (Aquilles Antony)"
+  },
+  {
+   "time": 15.0,
+   "sound": "click-soft",
+   "gain_db": -15.0,
+   "note": "Abertura: Lower-third Aquilles Antony"
+  },
+  {
+   "time": 16.2,
+   "sound": "whoosh-short",
+   "gain_db": -14.0,
+   "note": "Abertura: Cuiabá / Escola de música"
+  },
+  {
+   "time": 22.36,
+   "sound": "pop",
+   "gain_db": -14.0,
+   "note": "Abertura: Programação & IA"
+  },
+  {
+   "time": 24.98,
+   "sound": "whoosh-short",
+   "gain_db": -14.0,
+   "note": "Abertura: Projetos com IA + MacBook 2014"
+  },
+  {
+   "time": 29.04,
+   "sound": "pop",
+   "gain_db": -14.0,
+   "note": "Abertura: Jogos"
+  },
+  {
+   "time": 30.22,
+   "sound": "pop",
+   "gain_db": -14.0,
+   "note": "Abertura: Aplicativos"
+  },
+  {
+   "time": 36.02,
+   "sound": "chime",
+   "gain_db": -13.5,
+   "note": "Abertura: Eu mesmo desenvolvi"
+  },
+  {
+   "time": 39.04,
+   "sound": "whoosh-short",
+   "gain_db": -14.0,
+   "note": "Abertura: Possibilidade da IA"
+  },
+  {
+   "time": 44.7,
+   "sound": "impact-bass-1",
+   "gain_db": -12.5,
+   "note": "Abertura: Criar QUALQUER COISA"
+  },
+  {
+   "time": 45.98,
+   "sound": "whoosh-short",
+   "gain_db": -14.0,
+   "note": "Abertura: Comunidade de empresários"
+  },
+  {
+   "time": 58.95,
+   "sound": "whoosh-short",
+   "gain_db": -13.5,
+   "note": "Abertura: Problemas no app de barbearia"
+  },
+  {
+   "time": 61.56,
+   "sound": "pop",
+   "gain_db": -13.5,
+   "note": "Abertura: Tesoura / Barbearia"
+  },
+  {
+   "time": 63.65,
+   "sound": "whoosh-short",
+   "gain_db": -12.5,
+   "note": "Abertura: Relance 3 (posso te ajudar)"
+  },
+  {
+   "time": 65.55,
+   "sound": "whoosh-short",
+   "gain_db": -14.0,
+   "note": "Abertura: Fazer um app pra você"
+  },
+  {
+   "time": 69.06,
+   "sound": "pop",
+   "gain_db": -14.0,
+   "note": "Abertura: Não comecei agora"
+  },
+  {
+   "time": 75.15,
+   "sound": "whoosh-short",
+   "gain_db": -14.0,
+   "note": "Abertura: Não foi só sair fazendo"
+  },
+  {
+   "time": 78.86,
+   "sound": "pop",
+   "gain_db": -14.0,
+   "note": "Abertura: Já sabia construir"
+  },
+  {
+   "time": 84.62,
+   "sound": "impact-bass-1",
+   "gain_db": -12.0,
+   "note": "Abertura: Fechei com ele!"
+  },
+  {
+   "time": 88.2,
+   "sound": "whoosh-short",
+   "gain_db": -13.5,
+   "note": "Abertura: Checklist do vídeo"
+  },
+  {
+   "time": 90.58,
+   "sound": "pop",
+   "gain_db": -14.0,
+   "note": "Abertura: 01 Quanto gastei (~R$ 100)"
+  },
+  {
+   "time": 95.04,
+   "sound": "chime",
+   "gain_db": -13.0,
+   "note": "Abertura: 02 Por quanto vendi (R$ 1.500 + R$ 100/mês)"
+  },
+  {
+   "time": 97.74,
+   "sound": "pop",
+   "gain_db": -14.0,
+   "note": "Abertura: 03 Quais serviços"
+  },
+  {
+   "time": 101.76,
+   "sound": "whoosh-short",
+   "gain_db": -13.5,
+   "note": "Abertura: Sites e servidores"
+  },
+  {
+   "time": 104.7,
+   "sound": "impact-bass-1",
+   "gain_db": -12.0,
+   "note": "Abertura: Você vai entender TUDO!"
+  },
+  {
+   "time": 106.74,
+   "sound": "chime",
+   "gain_db": -13.0,
+   "note": "Abertura: Pode ser um negócio pra você"
+  },
+  {
+   "time": 111.0,
+   "sound": "whoosh-short",
+   "gain_db": -12.5,
+   "note": "Fim da abertura -> Seção 00: Equipamento"
+  },
+  {
+   "time": 117.8,
+   "sound": "pop",
+   "gain_db": -14.0,
+   "note": "Badge: MacBook Air 2014"
+  },
+  {
+   "time": 145.6,
+   "sound": "pop",
+   "gain_db": -14.0,
+   "note": "Badge: Claude"
+  },
+  {
+   "time": 180.38,
+   "sound": "whoosh-short",
+   "gain_db": -13.0,
+   "note": "Seção 01: O App e a Venda"
+  },
+  {
+   "time": 195.04,
+   "sound": "pop",
+   "gain_db": -14.0,
+   "note": "Receita R$ 2.700"
+  },
+  {
+   "time": 197.44,
+   "sound": "click-soft",
+   "gain_db": -16.0,
+   "note": "Implantação R$ 1.500"
+  },
+  {
+   "time": 206.14,
+   "sound": "click-soft",
+   "gain_db": -16.0,
+   "note": "Taxa fixa R$ 100/mês"
+  },
+  {
+   "time": 216.46,
+   "sound": "pop",
+   "gain_db": -14.0,
+   "note": "Custo 1º ano -R$ 160"
+  },
+  {
+   "time": 223.0,
+   "sound": "chime",
+   "gain_db": -13.0,
+   "note": "Lucro 1º ano R$ 2.540"
+  },
+  {
+   "time": 241.46,
+   "sound": "pop",
+   "gain_db": -14.0,
+   "note": "Recorrência R$ 100/mês"
+  },
+  {
+   "time": 245.42,
+   "sound": "click-soft",
+   "gain_db": -16.0,
+   "note": "Manutenção ~R$ 100/ano"
+  },
+  {
+   "time": 253.8,
+   "sound": "click-soft",
+   "gain_db": -16.0,
+   "note": "Parcelado em 3x"
+  },
+  {
+   "time": 265.8,
+   "sound": "whoosh-short",
+   "gain_db": -13.0,
+   "note": "Seção 02: Os Custos"
+  },
+  {
+   "time": 277.64,
+   "sound": "pop",
+   "gain_db": -14.0,
+   "note": "Claude US$ 20/mês"
+  },
+  {
+   "time": 291.78,
+   "sound": "click-soft",
+   "gain_db": -16.0,
+   "note": "Proporcional R$ 60 a R$ 120"
+  },
+  {
+   "time": 322.72,
+   "sound": "click-soft",
+   "gain_db": -16.0,
+   "note": "Codex 4 tarefas / 330k tokens"
+  },
+  {
+   "time": 332.84,
+   "sound": "chime",
+   "gain_db": -14.0,
+   "note": "Plano Codex R$ 99/mês"
+  },
+  {
+   "time": 334.8,
+   "sound": "whoosh-short",
+   "gain_db": -13.0,
+   "note": "Seção 03: O Tempo Gasto"
+  },
+  {
+   "time": 337.1,
+   "sound": "pop",
+   "gain_db": -14.0,
+   "note": "25 a 35 horas Claude"
+  },
+  {
+   "time": 373.28,
+   "sound": "click-soft",
+   "gain_db": -16.0,
+   "note": "Terça 4-5h"
+  },
+  {
+   "time": 379.12,
+   "sound": "click-soft",
+   "gain_db": -16.0,
+   "note": "Quarta 2-3h"
+  },
+  {
+   "time": 395.78,
+   "sound": "pop",
+   "gain_db": -14.0,
+   "note": "Resumo: ~R$ 100"
+  },
+  {
+   "time": 404.08,
+   "sound": "click-soft",
+   "gain_db": -16.0,
+   "note": "Resumo: R$ 1.500"
+  },
+  {
+   "time": 404.94,
+   "sound": "click-soft",
+   "gain_db": -16.0,
+   "note": "Resumo: +12x R$ 100"
+  },
+  {
+   "time": 406.1,
+   "sound": "chime",
+   "gain_db": -12.0,
+   "note": "TOTAL 1º ANO: R$ 2.700"
+  },
+  {
+   "time": 408.52,
+   "sound": "click-soft",
+   "gain_db": -16.0,
+   "note": "2º ano+: R$ 1.200/ano"
+  },
+  {
+   "time": 418.85,
+   "sound": "whoosh-short",
+   "gain_db": -12.0,
+   "note": "Transição da emenda p1->p2 (interrupção da ligação)"
+  },
+  {
+   "time": 420.51,
+   "sound": "chime",
+   "gain_db": -13.0,
+   "note": "Valor/hora: R$ 50/h"
+  },
+  {
+   "time": 430.67,
+   "sound": "whoosh-short",
+   "gain_db": -13.0,
+   "note": "Seção 04: As Ferramentas"
+  },
+  {
+   "time": 434.24,
+   "sound": "pop",
+   "gain_db": -15.0,
+   "note": "Tool 1: Cloudflare"
+  },
+  {
+   "time": 445.76,
+   "sound": "pop",
+   "gain_db": -15.0,
+   "note": "Tool 2: Supabase"
+  },
+  {
+   "time": 456.94,
+   "sound": "pop",
+   "gain_db": -15.0,
+   "note": "Tool 3: OneSignal"
+  },
+  {
+   "time": 467.82,
+   "sound": "pop",
+   "gain_db": -15.0,
+   "note": "Tool 4: Gmail"
+  },
+  {
+   "time": 473.18,
+   "sound": "pop",
+   "gain_db": -15.0,
+   "note": "Tool 5: Asaas"
+  },
+  {
+   "time": 490.02,
+   "sound": "pop",
+   "gain_db": -15.0,
+   "note": "Tool 6: Bluesoft Cosmos"
+  },
+  {
+   "time": 515.56,
+   "sound": "pop",
+   "gain_db": -15.0,
+   "note": "Tool 7: GitHub"
+  },
+  {
+   "time": 522.26,
+   "sound": "pop",
+   "gain_db": -15.0,
+   "note": "Tool 8: Domínio .com.br"
+  },
+  {
+   "time": 533.02,
+   "sound": "pop",
+   "gain_db": -15.0,
+   "note": "Tool 9: Brevo"
+  },
+  {
+   "time": 548.78,
+   "sound": "chime",
+   "gain_db": -13.0,
+   "note": "Tool 10: Claude R$ 120/mês"
+  },
+  {
+   "time": 555.08,
+   "sound": "whoosh-short",
+   "gain_db": -13.0,
+   "note": "Seção 05: Custo para Manter"
+  },
+  {
+   "time": 558.5,
+   "sound": "click-soft",
+   "gain_db": -16.0,
+   "note": "Infra R$ 0"
+  },
+  {
+   "time": 562.5,
+   "sound": "pop",
+   "gain_db": -15.0,
+   "note": "Domínio ~R$ 3/mês"
+  },
+  {
+   "time": 567.16,
+   "sound": "chime",
+   "gain_db": -13.0,
+   "note": "Mensalidade R$ 100/mês"
+  },
+  {
+   "time": 578.74,
+   "sound": "click-soft",
+   "gain_db": -16.0,
+   "note": "Atenção: Supabase Pro"
+  },
+  {
+   "time": 588.78,
+   "sound": "click-soft",
+   "gain_db": -16.0,
+   "note": "Atenção: Cloudflare"
+  },
+  {
+   "time": 596.9,
+   "sound": "click-soft",
+   "gain_db": -16.0,
+   "note": "Atenção: Gmail -> Brevo"
+  },
+  {
+   "time": 608.56,
+   "sound": "whoosh-short",
+   "gain_db": -13.0,
+   "note": "Seção 06: Quanto Valeria"
+  },
+  {
+   "time": 610.8,
+   "sound": "pop",
+   "gain_db": -15.0,
+   "note": "Claude Opus"
+  },
+  {
+   "time": 630.64,
+   "sound": "pop",
+   "gain_db": -15.0,
+   "note": "Programador 80-150h"
+  },
+  {
+   "time": 636.16,
+   "sound": "chime",
+   "gain_db": -12.0,
+   "note": "Valor de mercado R$ 20k-60k"
+  },
+  {
+   "time": 651.6,
+   "sound": "whoosh-short",
+   "gain_db": -13.0,
+   "note": "Seção 07: Lições"
+  },
+  {
+   "time": 706.5,
+   "sound": "pop",
+   "gain_db": -14.0,
+   "note": "Lição: Trabalhe com a IA"
+  },
+  {
+   "time": 779.0,
+   "sound": "pop",
+   "gain_db": -14.0,
+   "note": "Lição: App próprio da marca"
+  },
+  {
+   "time": 811.5,
+   "sound": "chime",
+   "gain_db": -12.0,
+   "note": "Regra de ouro: resolver problema"
+  },
+  {
+   "time": 888.84,
+   "sound": "sparkle",
+   "gain_db": -13.0,
+   "note": "CTA Instagram @aquilles_antony"
+  }
+ ]
 }

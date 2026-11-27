@@ -516,3 +516,4 @@ Dialogue: 0,0:14:48.96,0:14:52.50,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx10
 Dialogue: 0,0:14:52.50,0:14:55.50,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}Tamo junto, {\c&H1A7AFF&}vamos pra cima{\c&HFFFFFF&}!
 Dialogue: 0,0:14:55.50,0:14:59.44,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}Deus abençoe e {\c&H1A7AFF&}siga em frente{\c&HFFFFFF&}!
 Dialogue: 0,0:14:59.64,0:15:00.34,SubBase,,0,0,0,,{\fscx96\fscy96\t(0,70,\fscx100\fscy100)}{\c&H1A7AFF&}Tchau!{\c&HFFFFFF&}
+Dialogue: 20,0:06:58.95,0:06:59.45,CardBox,trans_p1p2,0,0,0,,{n7\pos(0,0)\p1\1c&HFFFFFF&\1a&H30&ord0\shad0ad(90,330)}m 0 0 l 1920 0 l 1920 1080 l 0 1080
