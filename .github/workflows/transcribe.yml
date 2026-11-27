@@ -6,10 +6,12 @@ jobs:
     timeout-minutes: 120
     steps:
       - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.11' }
       - name: deps
         run: |
           sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
-          pip install -q faster-whisper numpy scipy
+          pip install -q faster-whisper==1.1.1 av==12.3.0 numpy scipy
       - name: download
         env: { GH_TOKEN: "${{ github.token }}" }
         run: mkdir -p media out && gh release download media -D media
